@@ -1,21 +1,22 @@
 package oop.stockexchangemanager.Database;
 
-public class Account {
+import javafx.scene.control.DatePicker;
+
+public abstract class Account {
       protected  static int  idGenerator =1;
       protected   int  id =0;
       protected String UserName;
       protected   String Password;
-      protected  String UserMail;
+      protected  String Email;
+    protected DatePicker birthdate;
 
-   static Account Geneate(String UserName,String Password,String UserMail)
-    {
-        Account Acc = new Account();
-        Acc.UserName=UserName;
-        Acc.Password=Password;
-        Acc.UserMail=UserMail;
-        Acc.id=idGenerator;
-        Account.idGenerator++;
-        return  Acc;
+
+    public DatePicker getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(DatePicker birthdate) {
+        this.birthdate = birthdate;
     }
 
     public int getId() {
@@ -31,8 +32,8 @@ public class Account {
         Password = password;
     }
 
-    public void setUserMail(String userMail) {
-        UserMail = userMail;
+    public void setEmail(String Email) {
+       this.Email = Email;
     }
 
     public String getUserName() {
@@ -43,8 +44,8 @@ public class Account {
         return Password;
     }
 
-    public String getUserMail() {
-        return UserMail;
+    public String getEmail() {
+        return Email;
     }
 }
 
