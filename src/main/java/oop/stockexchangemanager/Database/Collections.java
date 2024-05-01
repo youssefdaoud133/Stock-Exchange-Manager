@@ -8,6 +8,10 @@ public abstract class Collections<T> {
 
     private Map<Integer, T> data = new HashMap<>();
 
+    public Map<Integer, T> getData() {
+        return data;
+    }
+
     public T create(Integer key, T value) {
         if (!data.containsKey(key))
             return data.put(key, value);
