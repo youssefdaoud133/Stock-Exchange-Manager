@@ -9,7 +9,12 @@ public abstract class Collections<T> {
     private Map<Integer, T> data = new HashMap<>();
 
     public T create(Integer key, T value) {
-        return data.put(key, value);
+        if (!data.containsKey(key))
+            return data.put(key, value);
+        else
+         throw new IllegalArgumentException("ID must be unique") ;    // Key already exists, handle this case (throw exception, return null, etc.)
+
+
     }
 
     public T read(Integer key) {
