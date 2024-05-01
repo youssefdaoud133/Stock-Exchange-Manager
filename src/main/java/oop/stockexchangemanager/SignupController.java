@@ -6,6 +6,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import oop.stockexchangemanager.AccountPackage.User;
+import oop.stockexchangemanager.Database.Users;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,11 +21,18 @@ public class SignupController {
     @FXML
     public void initialize(){
         choiceBox.getItems().addAll("Male", "Female");
-//        choice.setOnAction(this::getGender);
+        User user = User.Geneate("youssefdaoud","12345678","youssefdaoud@gmail.com",birthdate);
+        User user2 = User.Geneate("khalaf","12345678","youssefdaoud@gmail.com",birthdate);
+        Users.getInstance().create(user.getId(),user);
+        Users.getInstance().create(user2.getId(),user2);
+        Test.setText(Users.getInstance().read(user2.getId()).getUserName());
+
+
 
     };
 
     public void getDate(ActionEvent actionEvent) {
+
     }
 
 

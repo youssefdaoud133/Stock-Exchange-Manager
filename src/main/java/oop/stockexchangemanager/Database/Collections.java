@@ -1,11 +1,26 @@
 package oop.stockexchangemanager.Database;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class Collections<T> {
-    abstract  T create();
 
-    abstract  T read();
 
-    abstract  T update();
+    private Map<Integer, T> data = new HashMap<>();
 
-    abstract  boolean delete();
+    public T create(Integer key, T value) {
+        return data.put(key, value);
+    }
+
+    public T read(Integer key) {
+        return data.get(key);
+    }
+
+    public T update(Integer key, T value) {
+        return data.put(key, value);
+    }
+
+    public boolean delete(Integer key) {
+        return data.remove(key) != null;
+    }
 }

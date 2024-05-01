@@ -1,4 +1,4 @@
-package oop.stockexchangemanager.Database;
+package oop.stockexchangemanager.AccountPackage;
 
 import javafx.scene.control.DatePicker;
 
