@@ -22,6 +22,7 @@ public class SignupController {
     @FXML
     public void initialize(){
         choiceBox.getItems().addAll("Male", "Female");
+        
 
     };
 
