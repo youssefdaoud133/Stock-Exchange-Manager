@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.HelloController">
+   <children>
+      <DatePicker fx:id="birthdate" layoutX="217.0" layoutY="113.0" onAction="#getDate" promptText="Birth date" />
+      <Label layoutX="113.0" layoutY="118.0" text="Date of birth :">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="13.600000381469727" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="choiceBox" layoutX="241.0" layoutY="200.0" onDragDetected="#getGender" prefWidth="150.0" />
+      <Label layoutX="145.0" layoutY="205.0" text="Gender :">
+         <font>
+            <Font name="Microsoft JhengHei Light" size="13.600000381469727" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
