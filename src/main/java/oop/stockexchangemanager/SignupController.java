@@ -3,6 +3,8 @@ package oop.stockexchangemanager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import oop.stockexchangemanager.AccountPackage.Authentication;
 import oop.stockexchangemanager.AccountPackage.User;
@@ -17,18 +19,21 @@ public class SignupController {
     @FXML
     private PasswordField Password;
     @FXML
+    private PasswordField confirmPassword;
+    @FXML
     private TextField email;
-
+    @FXML
     public DatePicker birthdate;
+    @FXML
     public ChoiceBox choiceBox;
     public Label Test;
 
-    @FXML
-    public void initialize(){
-        choiceBox.getItems().addAll("Male", "Female","mohandes");
-        
-
-    };
+//    @FXML
+//    public void initialize(){
+//        choiceBox.getItems().addAll("Male", "Female","mohandes");
+//
+//
+//    };
 
     public void getDate(ActionEvent actionEvent) {
 
@@ -51,6 +56,4 @@ public class SignupController {
             Test.setText("Please select a gender");
         }
     }
-
-
 }
