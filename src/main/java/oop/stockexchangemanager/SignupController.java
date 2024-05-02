@@ -2,9 +2,7 @@ package oop.stockexchangemanager;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import oop.stockexchangemanager.AccountPackage.Authentication;
 import oop.stockexchangemanager.AccountPackage.User;
@@ -14,6 +12,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class SignupController {
+    @FXML
+    private TextField Username;
+    @FXML
+    private PasswordField Password;
+    @FXML
+    private TextField email;
 
     public DatePicker birthdate;
     public ChoiceBox choiceBox;
