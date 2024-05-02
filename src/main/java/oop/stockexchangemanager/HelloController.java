@@ -25,43 +25,57 @@ public class HelloController  {
     @FXML
     private PasswordField Password;
     @FXML
+    private static Stage newaccount,loginstage;
+    @FXML
    public void  login(ActionEvent event) throws IOException {
-        login.setOnAction(e -> {
+        if ( loginstage== null){
             String Email = email.getText();
             String password = Password.getText();
-            try {
+
              //   User user = Authentication.signIn(Email, password);
              // User successfully signed in
              //   System.out.println("Welcome, " + user.getUserName() + "!");
-                System.out.println(Email);
-                System.out.println(password);
-                // Here you can open another scene or perform other actions
-                Stage primarystage =(Stage) login.getScene().getWindow();
-                Stage primaryStage=new Stage();
-                try {
-                    Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
-                    primaryStage.setScene(new Scene(root));
-                    primaryStage.setTitle("StockExchangeManager");
-                    primaryStage.show();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            } catch (RuntimeException exception) {
-                // Sign-in failed
-                System.out.println(exception.getMessage());
-            }
-        });
 
+                // Here you can open another scene or perform other actions
+               // loginstage =(Stage) login.getScene().getWindow();
+                loginstage=new Stage();
+                    Parent root = FXMLLoader.load(getClass().getResource("scene2.fxml"));
+                    loginstage.setScene(new Scene(root));
+                    loginstage.setTitle("StockExchangeManager");
+                    loginstage.show();
     }
+        else{
+            if (!loginstage.isShowing()) {
+                loginstage.show();
+            } else {
+                loginstage.toFront();
+            }
+        }
+    }
+
     @FXML
     public void  newAccount(ActionEvent event) throws IOException {
-
-        Stage primarystage=(Stage) newAccount.getScene().getWindow();
-        Stage primaryStage=new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("newAccount.fxml"));
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setTitle("StockExchangeManager");
-        primaryStage.show();
-
+        if (newaccount == null) {
+            //  Stage primarystage=(Stage) newAccount.getScene().getWindow();
+            newaccount = new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("newAccount.fxml"));
+            newaccount.setScene(new Scene(root));
+            newaccount.setTitle("StockExchangeManager");
+            newaccount.show();
+        } else {
+            if (!newaccount.isShowing()) {
+                newaccount.show();
+            } else {
+                newaccount.toFront();
+            }
+        }
     }
+
+
+
+
+
+
+
+
 }

@@ -6,10 +6,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import oop.stockexchangemanager.AccountPackage.Authentication;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Users;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -25,6 +27,7 @@ public class SignupController {
     @FXML
     public DatePicker birthdate;
     @FXML
+    private Button signup;
     public ChoiceBox choiceBox;
     public Label Test;
 
@@ -56,4 +59,14 @@ public class SignupController {
             Test.setText("Please select a gender");
         }
     }
+    public void  signup() throws IOException {
+        Stage stage=(Stage) signup.getScene().getWindow();
+        stage.close();
+    }
+
+
+
+
+
+
 }
