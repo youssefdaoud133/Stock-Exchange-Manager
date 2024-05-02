@@ -23,27 +23,41 @@ public abstract class Account {
         return id;
     }
 
-    public void setUserName(String UserName) {
-        if (AccountDto.validateUserName(UserName))
-            this.UserName = UserName;
-         else
-            throw new IllegalArgumentException("Invalid Username");
-
+    public void setUserName(String userName) {
+        try {
+            if (AccountDto.validateUserName(userName)) {
+                this.UserName = userName;
+            } else {
+                throw new IllegalArgumentException("Invalid Username");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error setting username: " + e.getMessage());
+            // Optionally, you can rethrow the exception if needed
+            // throw e;
+        }
     }
 
     public void setPassword(String Password) {
-        if (AccountDto.validatePassword(Password))
-            this.Password = Password;
-        else
-            throw new IllegalArgumentException("Invalid Password");
+        try {
+            if (AccountDto.validatePassword(Password))
+                this.Password = Password;
+            else
+                throw new IllegalArgumentException("Invalid Password");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error setting password: " + e.getMessage());
+        }
 
     }
 
     public void setEmail(String Email) {
-        if (AccountDto.validateEmail(Email)) {
-            this.Email = Email;
-        } else {
-            throw new IllegalArgumentException("Invalid Email");
+        try {
+            if (AccountDto.validateEmail(Email)) {
+                this.Email = Email;
+            } else {
+                throw new IllegalArgumentException("Invalid Email");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error setting email: " + e.getMessage());
         }
     }
 
