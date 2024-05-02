@@ -37,24 +37,27 @@ public class Authentication {
 
     public static User signUp(String userName, String password, String email, DatePicker birthdate) {
         // Hash the password before saving it
-        String hashedPassword = hashPassword(password);
-        User user = User.Geneate(userName, hashedPassword, email, birthdate);
+       // String hashedPassword = hashPassword(password);
+        User user = User.Geneate(userName, password, email, birthdate);
         // Save the user to the database
         return Users.getInstance().create(user.getId(), user);
     }
 
     public static User signIn(String email, String password) {
         // Hash the password provided by the user
-        String hashedPassword = hashPassword(password);
+        //String hashedPassword = hashPassword(password);
         // Iterate through the database to find a matching user
         for (Map.Entry<Integer, User> entry : Users.getInstance().getData().entrySet()) {
             User user = entry.getValue();
             // Check if the email matches
             if (user.getEmail().equals(email)) {
                 // Check if the hashed passwords match
-                if (user.getPassword().equals(hashedPassword)) {
+                if (user.getPassword().equals(password)) {
                     return user; // Return the user object if sign-in is successful
                 } else {
+                    System.out.println(password);
+                    System.out.println(user.getPassword());
+                    System.out.println();
                     throw new RuntimeException("Incorrect password");
                 }
             }

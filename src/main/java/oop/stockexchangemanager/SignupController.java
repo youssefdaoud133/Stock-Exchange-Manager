@@ -14,6 +14,7 @@ import oop.stockexchangemanager.Database.Users;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class SignupController {
     @FXML
@@ -62,8 +63,18 @@ public class SignupController {
     public void  signup() throws IOException {
         Stage stage=(Stage) signup.getScene().getWindow();
         stage.close();
-    }
+        String Email = email.getText();
+        String password = Password.getText();
+        String confirmPass = confirmPassword.getText();
+    if(!Objects.equals(password, confirmPass))
+        throw new IllegalArgumentException("Invalid confirm password");
+        DatePicker selectedDate = birthdate;
+        String UserName = Username.getText();
 
+
+
+        Authentication.signUp(UserName,password,Email,selectedDate);
+}
 
 
 

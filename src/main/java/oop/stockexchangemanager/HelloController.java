@@ -31,6 +31,7 @@ public class HelloController  {
         if ( loginstage== null){
             String Email = email.getText();
             String password = Password.getText();
+            Authentication.signIn(Email,password);
 
              //   User user = Authentication.signIn(Email, password);
              // User successfully signed in
