@@ -15,8 +15,10 @@ public class Admins extends Collections<Admin> {
         // Initialize the data map or perform any other initialization
         super(); // Invoke the constructor of the parent class
         DatePicker datePicker = new DatePicker();
-        Admin admin = Admin.Geneate("youssefdaoud","12345678","youssef@gmail.com", datePicker );
+        Admin admin = Admin.Geneate("Youssef Daoud","12345678","youssef@gmail.com", datePicker );
         this.create(1 , admin);
+         admin = Admin.Geneate("Salma Ali","salmaali","salma@gmail.com", datePicker );
+        this.create(2 , admin);
 
     }
 

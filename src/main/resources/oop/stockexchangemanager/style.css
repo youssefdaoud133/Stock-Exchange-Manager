@@ -82,7 +82,42 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
-
+.shadow{
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5),6,0,0,0);
+}
+.table-view{
+-fx-background-color : transparent;
+-fx-border-color: linear-gradient( to bottom right,#30c5d2,#471069);
+-fx-border-radius: 8px;
+-fx-padding : 0px;
+}
+.table-view .table-column{
+-fx-alignment : CENTER;
+}
+.table-view .column-header-background{
+-fx-background-color: linear-gradient( to bottom right,#30c5d2,#471069);
+-fx-background-insets: 0 0 0 0;
+-fx-background-radius: 8px 8px 0px 0px;
+}
+.table-view .column-header, .filter{
+-fx-background-color : transparent;
+-fx-size: 40px;
+}
+.table-view .column-header .label{
+-fx-text-fill : white;
+-fx-font-family:"Arial";
+}
+.textField{
+-fx-background-color : linear-gradient( to bottom ,#efefef,#eee);
+-fx-border-color: linear-gradient( to bottom right,#30c5d2,#471069);
+-fx-border-width: .8px;
+-fx-font-family:"Tahoma";
+-fx-border-radius: 4px;
+}
+.textField:focused{
+-fx-border-width: 1.8px;
+-fx-background-color : white;
+}
 
 
 

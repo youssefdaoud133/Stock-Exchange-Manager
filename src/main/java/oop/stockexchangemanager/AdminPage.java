@@ -29,6 +29,7 @@ public class AdminPage implements AccountPage {
         if (instance == null) {
             instance = new AdminPage(admin);
         }
+        instance.admin=admin;
         return instance;
     }
 
@@ -52,6 +53,7 @@ public class AdminPage implements AccountPage {
 
                 userStage.setOnCloseRequest(event -> {
                     userStage = null; // Reset the stage when it's closed
+                    admin=null;
                 });
 
             } catch (IOException e) {
