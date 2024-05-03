@@ -3,11 +3,11 @@ package oop.stockexchangemanager.AccountPackage;
 import javafx.scene.control.DatePicker;
 
 public abstract class Account {
-      protected  static int  idGenerator =1;
-      protected   int  id ;
-      protected String UserName;
-      protected   String Password;
-      protected  String Email;
+    protected  static int  idGenerator =1;
+    protected   int  id ;
+    protected String UserName;
+    protected   String Password;
+    protected  String Email;
     protected DatePicker birthdate;
 
 
@@ -26,7 +26,7 @@ public abstract class Account {
     public void setUserName(String UserName) {
         if (AccountDto.validateUserName(UserName))
             this.UserName = UserName;
-         else
+        else
             throw new IllegalArgumentException("Invalid Username");
 
     }
@@ -61,5 +61,4 @@ public abstract class Account {
 
 
 }
-
 

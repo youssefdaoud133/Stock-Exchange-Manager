@@ -1,9 +1,82 @@
 .gradient{
--fx-background-color: linear-gradient( to bottom right,#D8B5FF, #1EAE98);
+ /* -fx-background-color: linear-gradient( to bottom right,#D8B5FF, #1EAE98); */
+ -fx-background-color: linear-gradient( to bottom right,#30c5d2,#471069);
+}
+.background-style{
+ -fx-background-color: rgba(255,255,255, 0.3);
 }
 .white-form{
--fx-background-color:#fff;
+-fx-background-color:white;
 }
-.text-color{
-    -fx-text-fill: #297f96;
+.text-style{
+-fx-text-fill:  linear-gradient( to bottom right,#30c5d2,#471069);
+-fx-font-size: 24px;
+-fx-font-family:"Roboto";
 }
+.buttonStyle {
+-fx-text-align: center;
+  -fx-background-radius:20;
+ -fx-padding: 5 5;
+}
+.buttonStyle:hover {
+    -fx-background-color: lightblue;
+    -fx-transition-duration: 0.7s;
+}
+.login-button{
+-fx-background-color:  linear-gradient( to bottom right,#30c5d2,#471069);
+  -fx-text-fill: white;
+  -fx-font-family: "Roboto";
+   -fx-font-weight: bold;
+  -fx-font-size:13px;
+  -fx-pref-width:100px;
+  }
+.signUp{
+-fx-background-color: white;
+  -fx-text-fill: linear-gradient( to bottom right,#30c5d2,#471069);
+  -fx-font-family: "Roboto";
+  -fx-font-weight: bold;
+  -fx-font-size:13px;}
+.newAccount-text{
+-fx-text-fill: white;
+-fx-font-family: "Roboto";
+}
+.field {
+    -fx-pref-width: 170px; /* Set preferred width to 200 pixels */
+    -fx-max-width: 170px; /* Set maximum width to 200 pixels */
+    -fx-min-width: 170px; /* Set minimum width to 200 pixels */
+    -fx-prompt-text-fill: #515152;
+    -fx-border-color: #8d58ad ;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5px;
+  /*  -fx-background-color: #f4f0ff; */
+    -fx-background-color: transparent;
+}
+
+/* Hovered state */
+.field:hover {
+    -fx-background-color: transparent;
+}
+/* Disabled state */
+.field:disabled {
+    -fx-opacity: 0.5; /* Reduced opacity for disabled text field */
+}
+.date-picker {
+        -fx-padding: 5px; /* Applies 10px padding to all sides */
+        -fx-pref-width: 170px; /* Set preferred width to 200 pixels */
+        -fx-max-width: 170px; /* Set maximum width to 200 pixels */
+        -fx-min-width: 170px; /* Set minimum width to 200 pixels */
+        -fx-border-color: #8d58ad ;
+        -fx-border-width: 0 0 1 0;
+        -fx-background-color: transparent;
+}
+.date-picker .text-field {
+    -fx-padding: 0px;
+    -fx-prompt-text-fill: #515152;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+
+
+
+
