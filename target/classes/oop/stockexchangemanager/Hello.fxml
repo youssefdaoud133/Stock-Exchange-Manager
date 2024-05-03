@@ -14,37 +14,37 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="fullscreen" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.HelloController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="fullscreen" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.HelloController">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <AnchorPane layoutY="3.0" prefHeight="400.0" prefWidth="300.0" styleClass="gradient" stylesheets="@style.css">
+            <AnchorPane layoutY="3.0" prefHeight="600.0" prefWidth="400.0" styleClass="gradient" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="290.0" styleClass="newAccount-text" stylesheets="@style.css" text="Create account" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="472.0" styleClass="newAccount-text" stylesheets="@style.css" text="Create account" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Microsoft JhengHei Light" size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="newAccount" alignment="CENTER" contentDisplay="CENTER" layoutX="40.0" layoutY="335.0" mnemonicParsing="false" onAction="#newAccount" prefHeight="30.0" prefWidth="218.0" stylesheets="@style.css" text="Create New account" textAlignment="CENTER">
+                  <Button fx:id="newAccount" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="516.0" mnemonicParsing="false" onAction="#newAccount" prefHeight="38.0" prefWidth="218.0" style="-fx-pref-width: 250;" stylesheets="@style.css" text="Create New account" textAlignment="CENTER">
                      <styleClass>
                         <String fx:value="buttonStyle" />
                         <String fx:value="signUp" />
                      </styleClass></Button>
-                  <ImageView fitHeight="181.0" fitWidth="170.0" layoutX="62.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="224.0" fitWidth="210.0" layoutX="82.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/boxes-icon.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="300.0" layoutY="5.0" prefHeight="400.0" prefWidth="300.0" styleClass="white-form" stylesheets="@style.css">
+            <AnchorPane layoutX="300.0" layoutY="5.0" prefHeight="600.0" prefWidth="400.0" styleClass="white-form" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Button fx:id="login" alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="293.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="139.0" stylesheets="@style.css" text="Sign in" textAlignment="CENTER" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="105.0">
+                  <Button fx:id="login" alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="432.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="98.0" stylesheets="@style.css" text="Sign in" textAlignment="CENTER" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.39999999999998">
                      <styleClass>
                         <String fx:value="buttonStyle" />
                         <String fx:value="login-button" />
                      </styleClass></Button>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="94.0" layoutY="55.0" prefHeight="35.0" prefWidth="106.0" styleClass="text-style" stylesheets="@style.css" text="Sign In" textAlignment="CENTER" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="104.4">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="140.0" prefHeight="35.0" prefWidth="106.0" styleClass="text-style" stylesheets="@style.css" text="Sign In" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.20000000000005">
                      <font>
                         <Font name="Microsoft JhengHei Light" size="24.0" />
                      </font>
@@ -70,9 +70,9 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <TextField fx:id="email" layoutX="62.0" layoutY="139.0" promptText="Email" styleClass="field" stylesheets="@style.css" />
-                  <PasswordField fx:id="Password" layoutX="62.0" layoutY="207.0" promptText="Password" styleClass="field" stylesheets="@style.css" />
-                  <Label fx:id="ErrorMsg" alignment="CENTER" layoutX="34.0" layoutY="99.0" prefHeight="20.0" prefWidth="231.0" textFill="RED">
+                  <TextField fx:id="email" layoutX="100.0" layoutY="249.0" promptText="Email" styleClass="field" stylesheets="@style.css" />
+                  <PasswordField fx:id="Password" layoutX="100.0" layoutY="332.0" promptText="Password" styleClass="field" stylesheets="@style.css" />
+                  <Label fx:id="ErrorMsg" alignment="CENTER" layoutX="84.0" layoutY="204.0" prefHeight="31.0" prefWidth="231.0" textFill="RED">
                      <font>
                         <Font size="14.0" />
                      </font>

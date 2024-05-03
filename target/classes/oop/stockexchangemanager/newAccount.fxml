@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -11,29 +11,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-pref-width: 600; -fx-pref-height: 400;" styleClass="gradient" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="gradient" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.SignupController">
    <children>
-      <AnchorPane layoutX="50.0" layoutY="68.0" prefHeight="400.0" prefWidth="498.0" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="33.599999999999966" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.799999999999955" AnchorPane.topAnchor="68.0">
+      <AnchorPane layoutX="51.2" layoutY="68.0" prefHeight="465.0" prefWidth="699.0" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="68.0">
          <children>
-            <TextField fx:id="email" layoutX="52.0" layoutY="212.0" promptText="Email" styleClass="field" stylesheets="@style.css" />
-            <DatePicker fx:id="birthdate" layoutX="52.0" layoutY="63.0" prefHeight="42.0" prefWidth="170.0" promptText="Birth date" showWeekNumbers="true" styleClass="date-picker" stylesheets="@style.css" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="276.8">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor></DatePicker>
-            <TextField fx:id="Username" layoutX="52.0" layoutY="143.0" prefHeight="31.0" prefWidth="162.0" promptText="Username" styleClass="field" stylesheets="@style.css" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="276.8" />
-            <PasswordField fx:id="Password" layoutX="291.0" layoutY="73.0" promptText="Password" styleClass="field" stylesheets="@style.css" />
-            <PasswordField fx:id="confirmPassword" layoutX="291.0" layoutY="143.0" promptText="Confirm password" styleClass="field" stylesheets="@style.css" />
-            <ImageView fitHeight="97.0" fitWidth="84.0" layoutX="209.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="101.0" fitWidth="93.0" layoutX="315.0" layoutY="-42.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/users.png" />
                </image>
             </ImageView>
-            <Button fx:id="signup" layoutX="324.0" layoutY="228.0" mnemonicParsing="false" onAction="#signup" text="Sign Up" />
-            <Label fx:id="ErrorMsg" alignment="CENTER" layoutX="49.0" layoutY="267.0" prefHeight="18.0" prefWidth="431.0" textFill="WHITE">
+            <Button fx:id="signup" layoutX="460.0" layoutY="346.0" mnemonicParsing="false" onAction="#signup" prefHeight="35.0" prefWidth="154.0" stylesheets="@style.css" text="Sign Up">
+               <styleClass>
+                  <String fx:value="buttonStyle" />
+                  <String fx:value="signUp" />
+               </styleClass></Button>
+            <Label fx:id="ErrorMsg" alignment="CENTER" layoutX="206.0" layoutY="413.0" prefHeight="28.0" prefWidth="270.0" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
+            <DatePicker fx:id="birthdate" layoutX="86.0" layoutY="121.0" promptText="Birth date" stylesheets="@style.css">
+               <styleClass>
+                  <String fx:value="date-picker" />
+                  <String fx:value="field" />
+               </styleClass>
+            </DatePicker>
+            <TextField fx:id="Username" layoutX="86.0" layoutY="225.0" promptText="Username" styleClass="field" stylesheets="@style.css" />
+            <TextField fx:id="email" layoutX="86.0" layoutY="333.0" promptText="Email" styleClass="field" stylesheets="@style.css" />
+            <PasswordField fx:id="Password" layoutX="421.0" layoutY="121.0" promptText="Password" styleClass="field" stylesheets="@style.css" />
+            <PasswordField fx:id="confirmPassword" layoutX="421.0" layoutY="225.0" promptText="Confirm password" styleClass="field" stylesheets="@style.css" />
          </children>
       </AnchorPane>
    </children>
