@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class SignupController {
+    public Label ErrorMsg;
     @FXML
     private TextField Username;
     @FXML
@@ -30,53 +31,39 @@ public class SignupController {
     @FXML
     private Button signup;
     public ChoiceBox choiceBox;
-    public Label Test;
 
-//    @FXML
-//    public void initialize(){
-//        choiceBox.getItems().addAll("Male", "Female","mohandes");
-//
-//
-//    };
-
-    public void getDate(ActionEvent actionEvent) {
-
+    private static Stage stage;
+    // Setter method for stage
+    public static void setStage(Stage stage) {
+        SignupController.stage = stage;
     }
 
 
-    public void getGender() {
-        // Get the selected item from the choiceBox
-        Object selectedItem = choiceBox.getValue();
 
-        // Check if the selected item is not null and is an instance of String
-        if (selectedItem != null && selectedItem instanceof String) {
-            // Cast the selected item to String
-            String selectedGender = (String) selectedItem;
 
-            // Update your label with the selected gender
-            Test.setText("Selected Gender: " + selectedGender);
-        } else {
-            // Handle the case where no item is selected or the selected item is not a String
-            Test.setText("Please select a gender");
-        }
-    }
+
+
+
     public void  signup() throws IOException {
-        Stage stage=(Stage) signup.getScene().getWindow();
-        stage.close();
-        String Email = email.getText();
-        String password = Password.getText();
-        String confirmPass = confirmPassword.getText();
-    if(!Objects.equals(password, confirmPass))
-        throw new IllegalArgumentException("Invalid confirm password");
-        DatePicker selectedDate = birthdate;
-        String UserName = Username.getText();
+        try{
+            String UserName = Username.getText();
+            String Email = email.getText();
+            String password = Password.getText();
+            String confirmPass = confirmPassword.getText();
+            DatePicker selectedDate = birthdate;
+            if(!Objects.equals(password, confirmPass)) {
+                throw new IllegalArgumentException("Invalid confirm password");
+            }
+            Authentication.SignUp(UserName,password,Email,selectedDate);
+            SignupController.stage.close();
 
 
+        }catch (Exception e){
+            ErrorMsg.setText(e.getMessage());
 
-        Authentication.signUp(UserName,password,Email,selectedDate);
-}
+        };
 
-
+    }
 
 
 

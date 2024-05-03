@@ -72,6 +72,11 @@
                   </Label>
                   <TextField fx:id="email" layoutX="62.0" layoutY="139.0" promptText="Email" styleClass="field" stylesheets="@style.css" />
                   <PasswordField fx:id="Password" layoutX="62.0" layoutY="207.0" promptText="Password" styleClass="field" stylesheets="@style.css" />
+                  <Label fx:id="ErrorMsg" alignment="CENTER" layoutX="34.0" layoutY="99.0" prefHeight="20.0" prefWidth="231.0" textFill="RED">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>
