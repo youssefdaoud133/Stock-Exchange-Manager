@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
+import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.StockPackage.Stock;
+import oop.stockexchangemanager.StockPackage.StockOperation;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +42,11 @@ public class AdminPageController implements Initializable {
     private TextField quantity;
     @FXML
     private TextField price;
+    @FXML
+    private TextField adminID;
+
+    @FXML
+    private TextField AdminName;
 
     @FXML
     private TableColumn<?, ?> companyNameSection;
@@ -48,6 +56,11 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> quantitySection;
+
+    @FXML
+    private TableColumn<?, ?> adminSection;
+    @FXML
+    private TableColumn<?, ?> IDsection;
     @FXML
     private AnchorPane basePane;
 
@@ -98,6 +111,15 @@ public class AdminPageController implements Initializable {
     // Method to update UI with user data
     private void updateUI() {
         adminName.setText(admin.getUserName());
+//        Stock s1=StockOperation.AddStock("Amazon",1000,10,admin.getUserName(),admin.getId());
+//        StockOperation.AddStock("Jumia",5000,20,admin.getUserName(),admin.getId());
+//        for(Stock stock : Stocks.getInstance().readAll()){
+//            System.out.println(stock.getCompanyName());
+//        }
+//       Stocks.getInstance().delete(1);
+//        for(Stock stock : Stocks.getInstance().readAll()){
+//            System.out.println(stock.getCompanyName());
+//        }
     }
 
     @Override

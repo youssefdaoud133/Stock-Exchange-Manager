@@ -22,100 +22,103 @@
          <children>
             <BorderPane layoutX="283.0" layoutY="213.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
-                  <AnchorPane prefHeight="600.0" prefWidth="250.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="600.0" prefWidth="225.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="123.0" fitWidth="116.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="123.0" fitWidth="116.0" layoutX="55.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/adminIcon.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="130.0" prefHeight="39.0" prefWidth="151.0" stylesheets="@style.css" text="Welcome" textFill="WHITE">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="130.0" prefHeight="39.0" prefWidth="151.0" stylesheets="@style.css" text="Welcome" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="adminName" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="169.0" prefHeight="42.0" prefWidth="233.0" stylesheets="@style.css" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="adminName" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="169.0" prefHeight="42.0" prefWidth="180.0" stylesheets="@style.css" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
-                        <Line endX="110.5999755859375" layoutX="127.0" layoutY="229.0" startX="-96.60000610351562" stroke="WHITE" />
-                        <VBox layoutX="48.0" layoutY="282.0" prefHeight="306.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                        <Line endX="74.19998168945312" layoutX="124.0" layoutY="227.0" startX="-96.60000610351562" stroke="WHITE" />
+                        <VBox layoutY="282.0" prefHeight="372.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                            <children>
-                              <ButtonBar prefHeight="80.0" prefWidth="270.0">
+                              <ButtonBar prefHeight="65.0" prefWidth="220.0">
                                 <buttons>
                                     <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../images/add.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="addStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="78.0" prefWidth="181.0" style="-fx-background-color: transparent;" text="Add stock" textFill="WHITE">
+                                  <Button fx:id="addStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="80.0" prefWidth="181.0" style="-fx-background-color: transparent;" text="Add stock" textFill="WHITE">
                                        <font>
                                           <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                        </font>
                                     </Button>
                                 </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="270.0">
+                              <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="65.0" prefWidth="220.0">
                                  <buttons>
                                     <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateY="-5.0">
                                        <image>
                                           <Image url="@../../images/show.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="showStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="82.0" prefWidth="184.0" style="-fx-background-color: transparent;" text="Show stocks" textFill="WHITE">
+                                    <Button fx:id="showStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="80.0" prefWidth="184.0" style="-fx-background-color: transparent;" text="Show stocks" textFill="WHITE">
                                        <font>
                                           <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                        </font>
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar prefHeight="106.0" prefWidth="248.0" translateY="30.0">
+                              <ButtonBar prefHeight="38.0" prefWidth="220.0" translateY="30.0">
                                 <buttons>
-                                    <ImageView fitHeight="29.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" translateX="-90.0" translateY="30.0">
+                                    <ImageView fitHeight="29.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" translateX="-125.0" translateY="155.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" translateX="-190.0" translateY="30.0" />
                                 </buttons>
                               </ButtonBar>
+                            <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" translateY="150.0" />
                            </children>
                         </VBox>
                      </children>
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="600.0" prefWidth="614.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="8.8" layoutY="10.4" prefHeight="575.0" prefWidth="550.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                            <children>
-                              <TableView layoutX="17.0" layoutY="65.0" prefHeight="440.0" prefWidth="466.0">
+                              <TableView layoutX="17.0" layoutY="65.0" prefHeight="440.0" prefWidth="528.0" AnchorPane.bottomAnchor="74.20000000000005" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                 <columns>
-                                  <TableColumn fx:id="companyNameSection" prefWidth="136.80004501342773" text="Company name" />
-                                  <TableColumn fx:id="quantitySection" prefWidth="128.79995727539062" text="Quantity" />
-                                    <TableColumn fx:id="priceSection" prefWidth="105.60009765625" text="price" />
-                                    <TableColumn prefWidth="105.60009765625" />
+                                  <TableColumn fx:id="companyNameSection" prefWidth="115.99999845027924" text="Company name" />
+                                  <TableColumn fx:id="quantitySection" prefWidth="79.20001983642578" text="Quantity" />
+                                    <TableColumn fx:id="priceSection" prefWidth="76.0" text="Price" />
+                                    <TableColumn fx:id="adminSection" prefWidth="96.79998779296875" text="Admin name" />
+                                    <TableColumn fx:id="IDsection" maxWidth="135.99996948242188" prefWidth="93.5999755859375" text="Admin ID" />
+                                    <TableColumn maxWidth="135.99996948242188" prefWidth="81.5999755859375" />
+                                    <TableColumn fx:id="adminSection1" prefWidth="96.79998779296875" text="Admin name" />
                                 </columns>
                               </TableView>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <TextField fx:id="companyName" layoutX="297.0" layoutY="154.0" styleClass="textField" stylesheets="@style.css" />
-                              <TextField fx:id="quantity" layoutX="297.0" layoutY="239.0" styleClass="textField" stylesheets="@style.css" />
-                              <TextField fx:id="price" layoutX="297.0" layoutY="325.0" styleClass="textField" stylesheets="@style.css" />
-                              <Label layoutX="60.0" layoutY="153.0" prefHeight="32.0" prefWidth="194.0" text="Company name :">
+                              <TextField fx:id="companyName" layoutX="297.0" layoutY="56.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="quantity" layoutX="297.0" layoutY="121.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="price" layoutX="297.0" layoutY="188.0" styleClass="textField" stylesheets="@style.css" />
+                              <Label layoutX="59.0" layoutY="55.0" prefHeight="32.0" prefWidth="194.0" text="Company name :">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="54.0" layoutY="238.0" text=" Quantity :">
+                              <Label layoutX="52.0" layoutY="120.0" text=" Quantity :">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="24.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="63.0" layoutY="324.0" prefHeight="32.0" prefWidth="94.0" text="Price :">
+                              <Label layoutX="62.0" layoutY="187.0" prefHeight="32.0" prefWidth="94.0" text="Price :">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="24.0" />
                                  </font>
@@ -126,6 +129,18 @@
                                     <String fx:value="login-button" />
                                  </styleClass>
                               </Button>
+                              <TextField fx:id="AdminName" layoutX="297.0" layoutY="255.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="adminID" layoutX="297.0" layoutY="323.0" styleClass="textField" stylesheets="@style.css" />
+                              <Label layoutX="59.0" layoutY="254.0" prefHeight="32.0" prefWidth="194.0" text="Admin name :">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI Light" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="59.0" layoutY="322.0" prefHeight="32.0" prefWidth="194.0" text="Admin ID :">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI Light" size="24.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </children>
