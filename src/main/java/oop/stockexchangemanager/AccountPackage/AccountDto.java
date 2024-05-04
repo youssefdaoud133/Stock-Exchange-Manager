@@ -3,7 +3,7 @@ package oop.stockexchangemanager.AccountPackage;
 public class AccountDto {
     public static boolean validateUserName(String userName) {
 
-        return userName != null && userName.length() >= 4 && userName.length() <= 20;
+        return userName != null && userName.length() >= 3 && userName.length() <= 20;
     } // Placeholder logic, replace with your validation
 
 

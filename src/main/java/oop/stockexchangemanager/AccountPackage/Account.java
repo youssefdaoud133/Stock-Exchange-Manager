@@ -18,7 +18,17 @@ public abstract class Account {
     public void setBirthdate(DatePicker birthdate) {
         this.birthdate = birthdate;
     }
+public static int getIdGenerator()
+{
+    return idGenerator;
 
+}
+public static void setIdGenerator(int idGenerator )
+{
+    Account.idGenerator=idGenerator;
+
+
+}
     public int getId() {
         return id;
     }

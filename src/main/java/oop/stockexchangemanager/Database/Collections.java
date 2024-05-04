@@ -5,6 +5,7 @@ import java.util.Map;
 
 public abstract class Collections<T> {
 
+   // m[10]=4;
 
     private Map<Integer, T> data = new HashMap<>();
 
@@ -17,7 +18,6 @@ public abstract class Collections<T> {
             return data.put(key, value);
         else
          throw new IllegalArgumentException("ID must be unique") ;    // Key already exists, handle this case (throw exception, return null, etc.)
-
 
     }
 
