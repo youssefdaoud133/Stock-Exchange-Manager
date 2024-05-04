@@ -54,6 +54,7 @@ public class HelloController  {
 
         } catch (Exception e) {
             ErrorMsg.setText(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 

@@ -38,12 +38,6 @@ public class SignupController {
         SignupController.stage = stage;
     }
 
-
-
-
-
-
-
     public void  signup() throws IOException {
         try{
             String UserName = Username.getText();
