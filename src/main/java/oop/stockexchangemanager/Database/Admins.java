@@ -6,8 +6,7 @@ public class Admins extends Collections<Admin> {
 
     // Private static variable to hold the instance of the class
     private static Admins instance;
-    private static int AdminId =0;
-    private int id=0;
+
 
 
     // Private constructor to prevent instantiation from outside
@@ -15,7 +14,7 @@ public class Admins extends Collections<Admin> {
         // Initialize the data map or perform any other initialization
         super(); // Invoke the constructor of the parent class
         DatePicker datePicker = new DatePicker();
-        Admin admin = Admin.Geneate("youssefdaoud","12345678","youssef@gmail.com", datePicker );
+        Admin admin = Admin.Generate("youssefdaoud","12345678","youssef@gmail.com", datePicker );
         this.create(1 , admin);
 
     }
@@ -24,7 +23,7 @@ public class Admins extends Collections<Admin> {
     public static synchronized Admins getInstance() {
         if (instance == null) {
             instance = new Admins();
-            AdminId++;
+
 
 
         }

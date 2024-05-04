@@ -1,29 +1,23 @@
 package oop.stockexchangemanager.Database;
 
-import oop.stockexchangemanager.AccountPackage.User;
+import oop.stockexchangemanager.StockPackage.Stock;
 
-public class stocks extends Collections<stocks>{
-    private static stocks instance;
-    private static int stockId=0;
-    private int id=0;
-// USER 1 =>1 USER2=>2  USER3=>3
+public class Stocks extends Collections<Stock>{
+    private static Stocks instance;
+
+
 
     // Private constructor to prevent instantiation from outside
-    private stocks() {
+    private Stocks() {
         // Initialize the data map or perform any other initialization
         super(); // Invoke the constructor of the parent class
 
     }
-    // f
-    //
 
     // Static method to obtain the instance of the class
-    public static synchronized stocks getInstance() {
+    public static synchronized Stocks getInstance() {
         if (instance == null) {
-            instance = new stocks();
-            stockId++;
-
-
+            instance = new Stocks();
         }
 
         return instance;

@@ -1,5 +1,6 @@
 package oop.stockexchangemanager.Database;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,6 +24,9 @@ public abstract class Collections<T> {
 
     public T read(Integer key) {
         return data.get(key);
+    }
+    public Collection<T> readAll() {
+        return data.values();
     }
 
     public T update(Integer key, T value) {

@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Authentication {
     public static User SignUp(String UserName, String Password, String Email, DatePicker birthdate){
-        User user = User.Geneate(UserName,Password,Email,birthdate);
+        User user = User.Generate(UserName,Password,Email,birthdate);
         return  Users.getInstance().create(user.getId(),user);
     }
     public static User signInAsUser(String email, String password) {

@@ -4,7 +4,7 @@ import javafx.scene.control.DatePicker;
 
 public class User extends Account{
 
-    public    static User  Geneate(String UserName, String Password, String Email, DatePicker birthdate) {
+    public    static User  Generate(String UserName, String Password, String Email, DatePicker birthdate) {
 
         User user = new User();
         user.id=Account.idGenerator;

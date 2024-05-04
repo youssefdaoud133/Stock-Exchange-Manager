@@ -11,9 +11,7 @@ public class Users extends Collections<User> {
 
     // Private static variable to hold the instance of the class
     private static Users instance;
-    private static int UserId=0;
-    private int id=0;
-// USER 1 =>1 USER2=>2  USER3=>3
+
 
     // Private constructor to prevent instantiation from outside
     private Users() {
@@ -28,7 +26,7 @@ public class Users extends Collections<User> {
     public static synchronized Users getInstance() {
         if (instance == null) {
             instance = new Users();
-            UserId++;
+
 
 
         }
