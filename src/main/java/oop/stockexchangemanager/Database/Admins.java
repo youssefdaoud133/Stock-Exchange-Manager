@@ -16,6 +16,8 @@ public class Admins extends Collections<Admin> {
         DatePicker datePicker = new DatePicker();
         Admin admin = Admin.Generate("youssefdaoud","12345678","youssef@gmail.com", datePicker );
         this.create(1 , admin);
+         admin = Admin.Generate("salma ali","12345678","salma@gmail.com", datePicker );
+        this.create(2 , admin);
 
     }
 
