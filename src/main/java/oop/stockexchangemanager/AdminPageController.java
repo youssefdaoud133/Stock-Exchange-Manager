@@ -22,6 +22,11 @@ import java.util.ResourceBundle;
 
 public class AdminPageController implements Initializable {
 
+    public TextField companyNameField;
+    public TextField quantityField;
+    public TextField priceField;
+
+   public TextField descroptionField;
     @FXML
     private Button addStock;
     @FXML
@@ -33,12 +38,7 @@ public class AdminPageController implements Initializable {
     @FXML
     private Label adminName;
 
-    @FXML
-    private TextField companyName;
-    @FXML
-    private TextField quantity;
-    @FXML
-    private TextField price;
+ 
 
     @FXML
     private TableColumn<?, ?> companyNameSection;
@@ -48,6 +48,10 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> quantitySection;
+    @FXML
+    private TableColumn<?, ?> stockIDSection;
+    @FXML
+    private TableColumn<?, ?> adminNameSection;
     @FXML
     private AnchorPane basePane;
 

@@ -16,33 +16,33 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.AdminPageController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.AdminPageController">
    <children>
-      <AnchorPane fx:id="basePane" prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane fx:id="basePane" prefHeight="600.0" prefWidth="841.0">
          <children>
             <BorderPane layoutX="283.0" layoutY="213.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
-                  <AnchorPane prefHeight="600.0" prefWidth="250.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="600.0" prefWidth="224.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="123.0" fitWidth="116.0" layoutX="82.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="123.0" fitWidth="116.0" layoutX="52.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/adminIcon.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="130.0" prefHeight="39.0" prefWidth="151.0" stylesheets="@style.css" text="Welcome" textFill="WHITE">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="130.0" prefHeight="39.0" prefWidth="151.0" stylesheets="@style.css" text="Welcome" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="adminName" alignment="CENTER" contentDisplay="CENTER" layoutX="21.0" layoutY="169.0" prefHeight="42.0" prefWidth="233.0" stylesheets="@style.css" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="adminName" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="169.0" prefHeight="42.0" prefWidth="179.0" stylesheets="@style.css" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="Arial" size="24.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </Label>
-                        <Line endX="110.5999755859375" layoutX="127.0" layoutY="229.0" startX="-96.60000610351562" stroke="WHITE" />
-                        <VBox layoutX="48.0" layoutY="282.0" prefHeight="306.0" prefWidth="269.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                        <Line endX="74.99996948242188" layoutX="127.0" layoutY="229.0" startX="-109.80003356933594" stroke="WHITE" />
+                        <VBox layoutX="48.0" layoutY="282.0" prefHeight="371.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                            <children>
-                              <ButtonBar prefHeight="80.0" prefWidth="270.0">
+                              <ButtonBar prefHeight="60.0" prefWidth="220.0">
                                 <buttons>
                                     <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -56,28 +56,28 @@
                                     </Button>
                                 </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="80.0" prefWidth="270.0">
+                              <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="220.0">
                                  <buttons>
                                     <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateY="-5.0">
                                        <image>
                                           <Image url="@../../images/show.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="showStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="82.0" prefWidth="184.0" style="-fx-background-color: transparent;" text="Show stocks" textFill="WHITE">
+                                    <Button fx:id="showStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="82.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="Show stocks" textFill="WHITE">
                                        <font>
                                           <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                        </font>
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar prefHeight="106.0" prefWidth="248.0" translateY="30.0">
+                              <ButtonBar prefHeight="222.0" prefWidth="220.0" translateY="30.0">
                                 <buttons>
-                                    <ImageView fitHeight="29.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" translateX="-90.0" translateY="30.0">
+                                    <ImageView fitHeight="29.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" translateX="-90.0" translateY="80.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" translateX="-190.0" translateY="30.0" />
+                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
@@ -86,46 +86,54 @@
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <TableView layoutX="17.0" layoutY="65.0" prefHeight="440.0" prefWidth="466.0">
+                              <TableView layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
                                 <columns>
-                                  <TableColumn fx:id="companyNameSection" prefWidth="136.80004501342773" text="Company name" />
-                                  <TableColumn fx:id="quantitySection" prefWidth="128.79995727539062" text="Quantity" />
-                                    <TableColumn fx:id="priceSection" prefWidth="105.60009765625" text="price" />
-                                    <TableColumn prefWidth="105.60009765625" />
+                                  <TableColumn fx:id="stockIDSection" prefWidth="66.40004348754883" text="Stock ID" />
+                                  <TableColumn fx:id="companyNameSection" prefWidth="168.7999725341797" text="Company name" />
+                                    <TableColumn fx:id="quantitySection" prefWidth="96.80003356933594" text="Quantity" />
+                                    <TableColumn fx:id="priceSection" prefWidth="84.79998779296875" text="Price" />
+                                    <TableColumn fx:id="adminNameSection" prefWidth="128.79998779296875" text="Admin name" />
+                                    <TableColumn fx:id="adminNameSection1" prefWidth="156.79997558593755" />
                                 </columns>
                               </TableView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <TextField fx:id="companyName" layoutX="297.0" layoutY="154.0" styleClass="textField" stylesheets="@style.css" />
-                              <TextField fx:id="quantity" layoutX="297.0" layoutY="239.0" styleClass="textField" stylesheets="@style.css" />
-                              <TextField fx:id="price" layoutX="297.0" layoutY="325.0" styleClass="textField" stylesheets="@style.css" />
-                              <Label layoutX="60.0" layoutY="153.0" prefHeight="32.0" prefWidth="194.0" text="Company name :">
+                              <TextField fx:id="companyNameField" layoutX="41.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="quantityField" layoutX="351.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="priceField" layoutX="43.0" layoutY="254.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <Label layoutX="43.0" layoutY="72.0" prefHeight="32.0" prefWidth="194.0" text="Company name ">
                                  <font>
-                                    <Font name="Microsoft JhengHei UI Light" size="24.0" />
+                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="54.0" layoutY="238.0" text=" Quantity :">
+                              <Label layoutX="348.0" layoutY="76.0" prefHeight="24.0" prefWidth="120.0" text="Quantity">
                                  <font>
-                                    <Font name="Microsoft JhengHei UI Light" size="24.0" />
+                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="63.0" layoutY="324.0" prefHeight="32.0" prefWidth="94.0" text="Price :">
+                              <Label layoutX="41.0" layoutY="216.0" prefHeight="32.0" prefWidth="94.0" text="Price">
                                  <font>
-                                    <Font name="Microsoft JhengHei UI Light" size="24.0" />
+                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="addButton" layoutX="175.0" layoutY="452.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
+                              <Button fx:id="addButton" layoutX="257.0" layoutY="453.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
                                  </styleClass>
                               </Button>
+                              <TextField fx:id="descroptionField" layoutX="351.0" layoutY="254.0" prefHeight="90.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <Label layoutX="348.0" layoutY="216.0" prefHeight="32.0" prefWidth="156.0" text="Description">
+                                 <font>
+                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
                      </children>
