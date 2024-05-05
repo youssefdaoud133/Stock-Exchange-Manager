@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
+import oop.stockexchangemanager.StockPackage.StockOperation;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,6 +74,29 @@ public class AdminPageController implements Initializable {
             stocksWindow.setVisible(true);
         }
     }
+    public void addStock() {
+        try {
+            String companyName = companyNameField.getText();
+            float price = Float.parseFloat(priceField.getText());
+            int quantity = Integer.parseInt(quantityField.getText());
+            String adminName = admin.getUserName();
+            int adminId = admin.getId();
+
+            StockOperation.AddStock(companyName, price, quantity, adminName, adminId);
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Success");
+            successAlert.setHeaderText(null);
+            successAlert.setContentText("Stock added successfully.");
+            successAlert.showAndWait();
+        } catch (Exception e) {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText(null);
+            errorAlert.setContentText(e.getMessage());
+            errorAlert.showAndWait();
+
+    }}
+
     public void logout(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("confirmation Message");

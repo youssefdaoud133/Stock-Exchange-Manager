@@ -122,7 +122,7 @@
                                     <Font name="Microsoft JhengHei UI Light" size="14.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="addButton" layoutX="257.0" layoutY="453.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
+                              <Button fx:id="addButton" layoutX="257.0" layoutY="453.0" mnemonicParsing="false" onAction="#addStock" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
