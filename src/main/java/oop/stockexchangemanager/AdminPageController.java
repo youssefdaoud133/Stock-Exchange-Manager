@@ -148,7 +148,7 @@ public class AdminPageController  {
         priceSection.setCellValueFactory(new PropertyValueFactory<>("priceHistory"));
         quantitySection.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
         adminNameSection.setCellValueFactory(new PropertyValueFactory<>("AdminName"));
-        stockIDSection.setCellValueFactory(new PropertyValueFactory<>("AdminId"));
+        stockIDSection.setCellValueFactory(new PropertyValueFactory<>("id"));
         stocksList.addAll(Stocks.getInstance().readAll());
 
         // Set the items of the TableView to the ObservableList

@@ -12,5 +12,7 @@ module oop.stockexchangemanager {
     requires com.almasb.fxgl.all;
 
     opens oop.stockexchangemanager to javafx.fxml;
+    opens oop.stockexchangemanager.StockPackage to javafx.base;
+
     exports oop.stockexchangemanager;
 }
