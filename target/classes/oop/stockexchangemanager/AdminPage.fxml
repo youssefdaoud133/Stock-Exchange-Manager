@@ -44,12 +44,12 @@
                            <children>
                               <ButtonBar prefHeight="60.0" prefWidth="220.0">
                                 <buttons>
-                                    <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="36.0" fitWidth="35.0" onMouseClicked="#switchToAddStock" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../images/add.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="addStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="78.0" prefWidth="181.0" style="-fx-background-color: transparent;" text="Add stock" textFill="WHITE">
+                                  <Button fx:id="addStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToAddStock" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Add stock" textFill="WHITE">
                                        <font>
                                           <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                        </font>
@@ -58,12 +58,12 @@
                               </ButtonBar>
                               <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="220.0">
                                  <buttons>
-                                    <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateY="-5.0">
+                                    <ImageView fitHeight="35.0" fitWidth="32.0" onMouseClicked="#switchToShowStock" pickOnBounds="true" preserveRatio="true" translateY="-5.0">
                                        <image>
                                           <Image url="@../../images/show.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="showStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchWindows" prefHeight="82.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="Show stocks" textFill="WHITE">
+                                    <Button fx:id="showStock" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToShowStock" prefHeight="60.0" prefWidth="193.0" style="-fx-background-color: transparent;" text="Show stocks" textFill="WHITE">
                                        <font>
                                           <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                        </font>

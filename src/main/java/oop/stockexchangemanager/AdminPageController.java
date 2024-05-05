@@ -101,18 +101,14 @@ public class AdminPageController  {
             errorAlert.showAndWait();
         }
     }
-
-
-    public void switchWindows(ActionEvent event){
-        if(event.getSource() == addStock){
-            addWindow.setVisible(true);
-            stocksWindow.setVisible(false);
-        }
-        else if(event.getSource() == showStock){
-            addWindow.setVisible(false);
-            stocksWindow.setVisible(true);
-        }
-    }
+public void switchToAddStock(){
+    addWindow.setVisible(true);
+    stocksWindow.setVisible(false);
+}
+public void switchToShowStock(){
+    addWindow.setVisible(false);
+    stocksWindow.setVisible(true);
+}
     public void addStock() {
         try {
             String companyName = companyNameField.getText();
