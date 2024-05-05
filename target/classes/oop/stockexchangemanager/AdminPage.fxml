@@ -34,9 +34,9 @@
                               <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="adminName" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="169.0" prefHeight="42.0" prefWidth="179.0" stylesheets="@style.css" textAlignment="CENTER" textFill="WHITE">
+                        <Label fx:id="adminName" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="169.0" prefHeight="42.0" prefWidth="211.0" stylesheets="@style.css" textAlignment="CENTER" textFill="WHITE">
                            <font>
-                              <Font name="Arial" size="18.0" />
+                              <Font name="Arial" size="24.0" />
                            </font>
                         </Label>
                         <Line endX="74.99996948242188" layoutX="127.0" layoutY="229.0" startX="-109.80003356933594" stroke="WHITE" />
@@ -72,12 +72,12 @@
                               </ButtonBar>
                               <ButtonBar prefHeight="222.0" prefWidth="220.0" translateY="30.0">
                                 <buttons>
-                                    <ImageView fitHeight="29.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" translateX="-90.0" translateY="80.0">
+                                    <ImageView fx:id="logoutIcon" fitHeight="29.0" fitWidth="23.0" onDragDetected="#logout" pickOnBounds="true" preserveRatio="true" translateX="-75.0" translateY="80.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
+                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
@@ -88,7 +88,7 @@
                <center>
                   <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TableView fx:id="tableview" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
                                 <columns>
@@ -100,12 +100,18 @@
                                     <TableColumn fx:id="adminNameSection1" prefWidth="156.79997558593755" />
                                 </columns>
                               </TableView>
+                              <Button fx:id="deleteButton" layoutX="275.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="login-button" />
+                                 </styleClass>
+                              </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TextField fx:id="companyNameField" layoutX="41.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
-                              <TextField fx:id="quantityField" layoutX="351.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="quantityField" alignment="TOP_LEFT" layoutX="351.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
                               <TextField fx:id="priceField" layoutX="43.0" layoutY="254.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
                               <Label layoutX="43.0" layoutY="72.0" prefHeight="32.0" prefWidth="194.0" text="Company name ">
                                  <font>
@@ -122,13 +128,13 @@
                                     <Font name="Microsoft JhengHei UI Light" size="14.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="addButton" layoutX="257.0" layoutY="453.0" mnemonicParsing="false" onAction="#addStock" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
+                              <Button fx:id="addButton" layoutX="273.0" layoutY="451.0" mnemonicParsing="false" onAction="#addStock" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
                                  </styleClass>
                               </Button>
-                              <TextField fx:id="descroptionField" layoutX="351.0" layoutY="254.0" prefHeight="90.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="descroptionField" alignment="TOP_LEFT" layoutX="351.0" layoutY="254.0" prefHeight="90.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
                               <Label layoutX="348.0" layoutY="216.0" prefHeight="32.0" prefWidth="156.0" text="Description">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="14.0" />

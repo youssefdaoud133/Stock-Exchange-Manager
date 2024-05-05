@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -43,10 +44,13 @@ public class AdminPageController  {
     @FXML
     private Button logoutButton;
     @FXML
-    Button addButton;
+    private Button deleteButton;
+    @FXML
+    private Button addButton;
     @FXML
     private Label adminName;
-
+    @FXML
+    private ImageView logoutIcon;
 
 
     @FXML
@@ -74,6 +78,18 @@ public class AdminPageController  {
     private double y =0;
 
     private Admin admin;
+    @FXML
+    public void remove(ActionEvent event) {
+        try {
+            int selectedID=tableview.getSelectionModel().getSelectedIndex();
+            Stocks.getInstance().delete(tableview.getItems().get(selectedID).getId());
+            tableview.getItems().remove(selectedID);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public void switchWindows(ActionEvent event){
         if(event.getSource() == addStock){
             addWindow.setVisible(true);
