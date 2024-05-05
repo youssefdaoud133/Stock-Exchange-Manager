@@ -47,6 +47,7 @@ public class AdminPageController  {
     private Button deleteButton;
     @FXML
     private Button addButton;
+
     @FXML
     private Label adminName;
     @FXML
@@ -79,13 +80,25 @@ public class AdminPageController  {
 
     private Admin admin;
     @FXML
+    public void edit(ActionEvent event){
+
+    }
+    @FXML
+    public void view(ActionEvent event){
+
+    }
+    @FXML
     public void remove(ActionEvent event) {
         try {
             int selectedID=tableview.getSelectionModel().getSelectedIndex();
             Stocks.getInstance().delete(tableview.getItems().get(selectedID).getId());
             tableview.getItems().remove(selectedID);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("Error");
+            errorAlert.setHeaderText(null);
+            errorAlert.setContentText("Failed to delete stock");
+            errorAlert.showAndWait();
         }
     }
 

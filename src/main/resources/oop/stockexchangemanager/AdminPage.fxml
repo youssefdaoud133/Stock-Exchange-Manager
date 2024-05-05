@@ -88,7 +88,7 @@
                <center>
                   <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TableView fx:id="tableview" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
                                 <columns>
@@ -100,7 +100,19 @@
                                     <TableColumn fx:id="adminNameSection1" prefWidth="156.79997558593755" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="deleteButton" layoutX="275.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
+                              <Button fx:id="deleteButton" layoutX="54.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="login-button" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="editButton" layoutX="275.0" layoutY="492.0" mnemonicParsing="false" onAction="#edit" stylesheets="@style.css" text="Edit">
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="login-button" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="viewButton" layoutX="498.0" layoutY="492.0" mnemonicParsing="false" onAction="#view" stylesheets="@style.css" text="View">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
@@ -108,7 +120,7 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TextField fx:id="companyNameField" layoutX="41.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
                               <TextField fx:id="quantityField" alignment="TOP_LEFT" layoutX="351.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
