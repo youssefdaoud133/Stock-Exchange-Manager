@@ -1,5 +1,7 @@
 package oop.stockexchangemanager;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,12 +9,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
+import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.StockOperation;
 
 import java.io.IOException;
@@ -21,11 +26,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class AdminPageController implements Initializable {
-
+public class AdminPageController  {
+    private ObservableList<Stock> stocksList;
+    @FXML
+    private TableView<Stock> tableview;
     public TextField companyNameField;
     public TextField quantityField;
     public TextField priceField;
+
 
    public TextField descroptionField;
     @FXML
@@ -39,20 +47,22 @@ public class AdminPageController implements Initializable {
     @FXML
     private Label adminName;
 
- 
+
 
     @FXML
-    private TableColumn<?, ?> companyNameSection;
+    private TableColumn<Stock, String> companyNameSection;
 
     @FXML
-    private TableColumn<?, ?> priceSection;
+    private TableColumn<Stock, Float> priceSection;
 
     @FXML
-    private TableColumn<?, ?> quantitySection;
+    private TableColumn<Stock,Integer> quantitySection;
+
     @FXML
-    private TableColumn<?, ?> stockIDSection;
+    private TableColumn<Stock, String> adminNameSection;
     @FXML
-    private TableColumn<?, ?> adminNameSection;
+    private TableColumn<Stock, Integer> stockIDSection;
+
     @FXML
     private AnchorPane basePane;
 
@@ -128,8 +138,21 @@ public class AdminPageController implements Initializable {
         adminName.setText(admin.getUserName());
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    public void initialize() {
+        // Initialize ObservableList for customers
+        stocksList = FXCollections.observableArrayList();
 
+        // Bind TableColumn to Customer properties
+        companyNameSection.setCellValueFactory(new PropertyValueFactory<>("companyName"));
+        priceSection.setCellValueFactory(new PropertyValueFactory<>("priceHistory"));
+        quantitySection.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+        adminNameSection.setCellValueFactory(new PropertyValueFactory<>("AdminName"));
+        stockIDSection.setCellValueFactory(new PropertyValueFactory<>("AdminId"));
+        stocksList.addAll(Stocks.getInstance().readAll());
+
+        // Set the items of the TableView to the ObservableList
+        tableview.setItems(stocksList);
     }
+
 }

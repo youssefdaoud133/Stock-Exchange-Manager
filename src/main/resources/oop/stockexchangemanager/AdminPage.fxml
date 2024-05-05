@@ -88,9 +88,9 @@
                <center>
                   <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <TableView layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
+                              <TableView fx:id="tableview" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
                                 <columns>
                                   <TableColumn fx:id="stockIDSection" prefWidth="66.40004348754883" text="Stock ID" />
                                   <TableColumn fx:id="companyNameSection" prefWidth="168.7999725341797" text="Company name" />
@@ -102,7 +102,7 @@
                               </TableView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TextField fx:id="companyNameField" layoutX="41.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
                               <TextField fx:id="quantityField" layoutX="351.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
