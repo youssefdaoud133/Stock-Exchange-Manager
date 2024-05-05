@@ -15,8 +15,9 @@ public abstract class Collections<T> {
     }
 
     public T create(Integer key, T value) {
-        if (!data.containsKey(key))
-            return data.put(key, value);
+        if (!data.containsKey(key)){
+            data.put(key, value);
+            return value;}
         else
          throw new IllegalArgumentException("ID must be unique") ;    // Key already exists, handle this case (throw exception, return null, etc.)
 
