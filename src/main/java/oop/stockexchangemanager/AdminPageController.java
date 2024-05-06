@@ -149,14 +149,6 @@ public void switchToShowStock(){
             e.printStackTrace();
         }
     }
-    public void close(){
-        System.exit(0);
-    }
-    public void minimize(){
-        Stage stage = (Stage)basePane.getScene().getWindow();
-        stage.setIconified(true);
-    }
-
     public void setAdmin(Admin admin) {
         this.admin = admin;
         updateUI();

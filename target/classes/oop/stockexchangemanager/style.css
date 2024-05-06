@@ -118,6 +118,11 @@
 -fx-border-width: 1.8px;
 -fx-background-color : white;
 }
+.profile-Labels{
+-fx-background-color : white;
+-fx-font-family:"Microsoft JhengHei UI Light";
+/* -fx-border-radius: 4px;  */
+}
 
 
 
