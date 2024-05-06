@@ -31,7 +31,8 @@ public abstract class Collections<T> {
     }
 
     public T update(Integer key, T value) {
-        return data.put(key, value);
+        data.put(key, value);
+        return  value;
     }
 
     public boolean delete(Integer key) {
