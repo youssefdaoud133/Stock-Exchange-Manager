@@ -1,18 +1,30 @@
 package oop.stockexchangemanager;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import oop.stockexchangemanager.AccountPackage.User;
+
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.RTK.Rtk;
+import oop.stockexchangemanager.StockPackage.Stock;
 
 public class UserPageController {
+    @FXML
+    private GridPane grid;
     @FXML
     private Label Username;
     @FXML
@@ -67,6 +79,41 @@ public class UserPageController {
         profileWindow.setVisible(false);
         marketWindow.setVisible(true);
         shopWindow.setVisible(false);
+        List<Stock> stocks = new ArrayList<>();
+        stocks.addAll(Stocks.getInstance().readAll());
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < stocks.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("marketCard.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+               MarketCardController itemController = fxmlLoader.getController();
+                itemController.setData(stocks.get(i));
+                System.out.println(stocks.get(i));
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column+=2, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(30));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public void switchToShop(){
         profileWindow.setVisible(false);
@@ -87,5 +134,9 @@ public class UserPageController {
             e.printStackTrace();
         }
     }
+
+
+
+
 
 }
