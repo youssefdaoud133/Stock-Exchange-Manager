@@ -119,7 +119,7 @@ public void switchToShowStock(){
 
             Stock AddedStock = StockOperation.AddStock(companyName, price, quantity, adminName, adminId);
             stocksList.add(AddedStock);
-            System.out.println(AddedStock);
+            
             tableview.refresh();
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
             successAlert.setTitle("Success");
