@@ -123,6 +123,11 @@
 -fx-font-family:"Microsoft JhengHei UI Light";
 /* -fx-border-radius: 4px;  */
 }
+.cardStyle{
+-fx-border-width: 5px;
+-fx-background-color : white;
+-fx-border-color: linear-gradient( to bottom right,#30c5d2,#471069);
+}
 
 
 

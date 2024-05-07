@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
@@ -75,6 +76,8 @@ public class AdminPageController  {
     private AnchorPane addWindow;
     @FXML
     private AnchorPane stocksWindow;
+    @FXML
+    private GridPane gridPane;
     private double x =0;
     private double y =0;
 
