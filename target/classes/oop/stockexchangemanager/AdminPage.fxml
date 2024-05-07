@@ -22,9 +22,9 @@
          <children>
             <BorderPane layoutX="283.0" layoutY="213.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
-                  <AnchorPane prefHeight="600.0" prefWidth="224.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="600.0" prefWidth="220.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="123.0" fitWidth="116.0" layoutX="52.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="120.0" fitWidth="115.0" layoutX="52.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../images/adminIcon.png" />
                            </image>
@@ -40,7 +40,7 @@
                            </font>
                         </Label>
                         <Line endX="74.99996948242188" layoutX="127.0" layoutY="229.0" startX="-109.80003356933594" stroke="WHITE" />
-                        <VBox layoutX="48.0" layoutY="282.0" prefHeight="371.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                        <VBox layoutX="48.0" layoutY="282.0" prefHeight="370.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                            <children>
                               <ButtonBar prefHeight="60.0" prefWidth="220.0">
                                 <buttons>
@@ -77,7 +77,7 @@
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
+                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
@@ -88,7 +88,7 @@
                <center>
                   <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="502.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TableView fx:id="tableview" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
                                 <columns>

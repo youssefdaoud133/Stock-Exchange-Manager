@@ -30,9 +30,9 @@
                         <String fx:value="buttonStyle" />
                         <String fx:value="signUp" />
                      </styleClass></Button>
-                  <ImageView fitHeight="224.0" fitWidth="210.0" layoutX="82.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="197.0" fitWidth="185.0" layoutX="108.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/boxes-icon.png" />
+                        <Image url="@../../images/show.png" />
                      </image>
                   </ImageView>
                </children>
