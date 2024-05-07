@@ -3,10 +3,7 @@ package oop.stockexchangemanager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -25,6 +22,9 @@ import oop.stockexchangemanager.StockPackage.Stock;
 public class UserPageController {
     @FXML
     private GridPane grid;
+
+    @FXML
+    private ScrollPane scroll;
     @FXML
     private Label Username;
     @FXML
@@ -98,7 +98,7 @@ public class UserPageController {
                     row++;
                 }
 
-                grid.add(anchorPane, column+=2, row); //(child,column,row)
+                grid.add(anchorPane, column++, row); //(child,column,row)
                 //set grid width
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
@@ -108,8 +108,12 @@ public class UserPageController {
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
+                grid.setHgap(240); // Horizontal gap
+                grid.setVgap(30); // Vertical gap
+                scroll.setVvalue(1.0); // Scrolls to the bottom
 
-                GridPane.setMargin(anchorPane, new Insets(30));
+
+                GridPane.setMargin(anchorPane, new Insets(10, 60, 10, 20));
             }
         } catch (IOException e) {
             e.printStackTrace();
