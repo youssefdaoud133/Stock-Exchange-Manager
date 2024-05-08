@@ -1,0 +1,1 @@
+we will use Decorator design pattern with premium users to add more features
