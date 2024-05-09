@@ -19,13 +19,13 @@ public class BuyOperation implements SingleAccountOperation {
     @Override
     public void doOperation(BankAccount bankAccount, Integer quantity, Stock stock) {
 
-      if(quantity <= stock.getQuantity()) {
-          WithDraw.getInstance().DoOperation(bankAccount, quantity * stock.getPrice());
-          stock.setQuantity(stock.getQuantity() - quantity);
-      }
-      else {
-          throw new IllegalArgumentException("Your quantity isn't enough");
-      }
+        if(quantity <= stock.getQuantity()) {
+            WithDraw.getInstance().DoOperation(bankAccount, quantity * stock.getPrice());
+            stock.setQuantity(stock.getQuantity() - quantity);
+        }
+        else {
+            throw new IllegalArgumentException("Your quantity isn't enough");
+        }
     }
 }
 
