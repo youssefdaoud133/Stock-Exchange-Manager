@@ -91,7 +91,7 @@ public class UserPageController {
 
                MarketCardController itemController = fxmlLoader.getController();
                 itemController.setData(stocks.get(i));
-                System.out.println(stocks.get(i));
+               
 
                 if (column == 2) {
                     column = 0;
