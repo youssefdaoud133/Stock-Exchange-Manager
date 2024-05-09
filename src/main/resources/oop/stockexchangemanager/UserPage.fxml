@@ -166,7 +166,15 @@
                            </styleClass>
                         </AnchorPane>
                         <AnchorPane fx:id="shopWindow" layoutX="94.0" layoutY="103.2" prefHeight="483.0" prefWidth="694.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="103.0" />
-                        <AnchorPane layoutX="148.0" layoutY="10.0" prefHeight="78.0" prefWidth="694.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="508.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                        <AnchorPane layoutX="148.0" layoutY="10.0" prefHeight="78.0" prefWidth="694.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="508.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                           <children>
+                              <Label alignment="CENTER" layoutX="27.0" layoutY="23.0" prefHeight="31.0" prefWidth="70.0" text="Balance :">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="balance" alignment="CENTER" layoutX="98.0" layoutY="24.0" prefHeight="30.0" prefWidth="138.0" />
+                           </children></AnchorPane>
                      </children>
                   </AnchorPane>
                </center>

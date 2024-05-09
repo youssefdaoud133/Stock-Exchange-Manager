@@ -28,6 +28,8 @@ public class UserPageController {
     @FXML
     private Label Username;
     @FXML
+    private Label balance;
+    @FXML
     private Label name;
     public Label Email;
     public Label password;
@@ -69,6 +71,7 @@ public class UserPageController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
         String formattedBirthday = user.getBirthdate().getValue().format(formatter);
         birthday.setText(formattedBirthday);
+        balance.setText(user.getBankAccount().getBalance()+"");
     }
     public void switchToProfile(){
         profileWindow.setVisible(true);
@@ -90,7 +93,7 @@ public class UserPageController {
                 AnchorPane anchorPane = fxmlLoader.load();
 
                MarketCardController itemController = fxmlLoader.getController();
-                itemController.setData(stocks.get(i));
+                itemController.setData(stocks.get(i),user);
                 System.out.println(stocks.get(i));
 
                 if (column == 2) {
