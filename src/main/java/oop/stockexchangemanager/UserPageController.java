@@ -94,7 +94,7 @@ public class UserPageController {
 
                MarketCardController itemController = fxmlLoader.getController();
                 itemController.setData(stocks.get(i),user);
-                System.out.println(stocks.get(i));
+
 
                 if (column == 2) {
                     column = 0;
@@ -114,6 +114,9 @@ public class UserPageController {
                 grid.setHgap(240); // Horizontal gap
                 grid.setVgap(30); // Vertical gap
                 scroll.setVvalue(1.0); // Scrolls to the bottom
+                // Set the grid as the content of the scroll pane
+                scroll.setContent(grid);
+                scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
 
                 GridPane.setMargin(anchorPane, new Insets(10, 60, 10, 20));
