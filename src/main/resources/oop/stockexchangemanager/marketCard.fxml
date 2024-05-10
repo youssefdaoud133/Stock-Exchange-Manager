@@ -26,6 +26,6 @@
          </font>
       </Label>
       <Button fx:id="BuyButton" layoutX="163.0" layoutY="219.0" mnemonicParsing="false" onAction="#buyOperation" prefHeight="30.0" prefWidth="78.0" stylesheets="@style.css" text="Buy" />
-      <Spinner fx:id="quantitySelector" layoutX="11.0" layoutY="219.0" prefHeight="30.0" prefWidth="121.0" />
+      <Spinner fx:id="quantitySelector" editable="true" layoutX="11.0" layoutY="219.0" prefHeight="30.0" prefWidth="121.0" />
    </children>
 </AnchorPane>

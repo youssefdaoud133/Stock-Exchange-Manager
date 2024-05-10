@@ -1,6 +1,9 @@
 package oop.stockexchangemanager.Bank;
 
+import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.StockPackage.Stock;
+
+import java.util.Map;
 
 public class BuyOperation implements SingleAccountOperation {
     private static BuyOperation instance;
@@ -22,6 +25,15 @@ public class BuyOperation implements SingleAccountOperation {
       if(quantity <= stock.getQuantity()) {
           WithDraw.getInstance().DoOperation(bankAccount, quantity * stock.getPrice());
           stock.setQuantity(stock.getQuantity() - quantity);
+          Map<Integer, Integer> ownedStocks = bankAccount.getUserAccount().getOwnedStocks();
+          ownedStocks.merge(stock.getId(), quantity,Integer::sum);
+
+
+          for (Map.Entry<Integer, Integer> entry : ownedStocks.entrySet()) {
+              System.out.println("Company name: " + Stocks.getInstance().read(entry.getKey()) + ", quantity: " + entry.getValue());
+          }
+
+
       }
       else {
           throw new IllegalArgumentException("Your quantity isn't enough");

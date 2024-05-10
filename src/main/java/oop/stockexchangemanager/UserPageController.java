@@ -86,6 +86,7 @@ public class UserPageController {
         stocks.addAll(Stocks.getInstance().readAll());
         int column = 0;
         int row = 1;
+
         try {
             for (int i = 0; i < stocks.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -93,6 +94,7 @@ public class UserPageController {
                 AnchorPane anchorPane = fxmlLoader.load();
 
                MarketCardController itemController = fxmlLoader.getController();
+
                 itemController.setData(stocks.get(i),user);
 
 
