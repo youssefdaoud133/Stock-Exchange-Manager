@@ -8,7 +8,7 @@ public abstract class Collections<T> {
 
    // m[10]=4;
 
-    private Map<Integer, T> data = new HashMap<>();
+    protected Map<Integer, T> data = new HashMap<>();
 
     public Map<Integer, T> getData() {
         return data;
