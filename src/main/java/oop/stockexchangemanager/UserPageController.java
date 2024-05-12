@@ -18,6 +18,7 @@ import java.util.Optional;
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
+import oop.stockexchangemanager.Utils.AlterOperation;
 
 public class UserPageController {
     @FXML
@@ -133,13 +134,9 @@ public class UserPageController {
         shopWindow.setVisible(true);
     }
     public void logout(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("confirmation Message");
-        alert.setHeaderText(null);
-        alert.setContentText("Are you sure you want to logout?");
-        Optional<ButtonType> option = alert.showAndWait();
-        try {
-            if(option.get().equals(ButtonType.OK)){
+        AlterOperation.showConfirmationDialog("message");
+        try { boolean confirmed = AlterOperation.showConfirmationDialog("Are you sure you want to logout?");
+            if(confirmed){
                 logoutButton.getScene().getWindow().hide();
             }
         } catch (Exception e) {

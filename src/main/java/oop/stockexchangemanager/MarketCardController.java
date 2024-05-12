@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Bank.BuyOperation;
 import oop.stockexchangemanager.StockPackage.Stock;
+import oop.stockexchangemanager.Utils.AlterOperation;
 
 public class MarketCardController {
 
@@ -43,11 +44,7 @@ public class MarketCardController {
         try {
             BuyOperation.getInstance().doOperation(user.getBankAccount(), quantitySelector.getValue(), stock);
         } catch (Exception e) {
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setTitle("Error");
-            errorAlert.setHeaderText(null);
-            errorAlert.setContentText(e.getMessage());
-            errorAlert.showAndWait();
+            AlterOperation.showErrorAlert(e.getMessage());
         }
     }
 

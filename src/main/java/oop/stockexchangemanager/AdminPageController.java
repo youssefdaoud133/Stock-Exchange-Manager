@@ -21,6 +21,7 @@ import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.StockOperation;
+import oop.stockexchangemanager.Utils.AlterOperation;
 
 import java.io.IOException;
 import java.net.URL;
@@ -97,11 +98,12 @@ public class AdminPageController  {
             Stocks.getInstance().delete(tableview.getItems().get(selectedID).getId());
             tableview.getItems().remove(selectedID);
         } catch (Exception e) {
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setTitle("Error");
-            errorAlert.setHeaderText(null);
-            errorAlert.setContentText("Failed to delete stock");
-            errorAlert.showAndWait();
+//            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+//            errorAlert.setTitle("Error");
+//            errorAlert.setHeaderText(null);
+//            errorAlert.setContentText("Failed to delete stock");
+//            errorAlert.showAndWait();
+            AlterOperation.showErrorAlert(e.getMessage());
         }
     }
 public void switchToAddStock(){
@@ -124,28 +126,16 @@ public void switchToShowStock(){
             stocksList.add(AddedStock);
 
             tableview.refresh();
-            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-            successAlert.setTitle("Success");
-            successAlert.setHeaderText(null);
-            successAlert.setContentText("Stock added successfully.");
-            successAlert.showAndWait();
+            AlterOperation.showSuccessAlert("Stock added successfully.");
         } catch (Exception e) {
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setTitle("Error");
-            errorAlert.setHeaderText(null);
-            errorAlert.setContentText(e.getMessage());
-            errorAlert.showAndWait();
-
+            AlterOperation.showErrorAlert(e.getMessage());
     }}
 
     public void logout(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("confirmation Message");
-        alert.setHeaderText(null);
-        alert.setContentText("Are you sure you want to logout?");
-        Optional<ButtonType> option = alert.showAndWait();
+        AlterOperation.showConfirmationDialog("message");
         try {
-            if(option.get().equals(ButtonType.OK)){
+            boolean confirmed = AlterOperation.showConfirmationDialog("Are you sure you want to logout?");
+            if(confirmed){
                 logoutButton.getScene().getWindow().hide();
             }
         } catch (Exception e) {
