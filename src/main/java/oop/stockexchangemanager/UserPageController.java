@@ -19,8 +19,13 @@ import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.Utils.AlterOperation;
+import oop.stockexchangemanager.Utils.PrintList;
 
 public class UserPageController {
+    public Button Ownershop;
+    public AnchorPane OwnerShop;
+    public ScrollPane scrollOwnerStock;
+    public GridPane gridOwnerStock;
     @FXML
     private GridPane grid;
 
@@ -78,52 +83,64 @@ public class UserPageController {
         profileWindow.setVisible(true);
         marketWindow.setVisible(false);
         shopWindow.setVisible(false);
+        OwnerShop.setVisible(false);
+    }
+    public void switchToOwnerShop(){
+        profileWindow.setVisible(false);
+        marketWindow.setVisible(false);
+        shopWindow.setVisible(false);
+        OwnerShop.setVisible(true);
+
     }
     public void switchToMarket(){
         profileWindow.setVisible(false);
         marketWindow.setVisible(true);
         shopWindow.setVisible(false);
-        List<Stock> stocks = new ArrayList<>();
-        stocks.addAll(Stocks.getInstance().readAll());
-        int column = 0;
-        int row = 1;
+        OwnerShop.setVisible(false);
+
+        //
+//        List<Stock> stocks = new ArrayList<>();
+//        stocks.addAll(Stocks.getInstance().readAll());
+//        int column = 0;
+//        int row = 1;
 
         try {
-            for (int i = 0; i < stocks.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("marketCard.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-               MarketCardController itemController = fxmlLoader.getController();
-
-                itemController.setData(stocks.get(i),user);
-
-
-                if (column == 2) {
-                    column = 0;
-                    row++;
-                }
-
-                grid.add(anchorPane, column++, row); //(child,column,row)
-                //set grid width
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //set grid height
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-                grid.setHgap(240); // Horizontal gap
-                grid.setVgap(30); // Vertical gap
-                scroll.setVvalue(1.0); // Scrolls to the bottom
-                // Set the grid as the content of the scroll pane
-                scroll.setContent(grid);
-                scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-
-
-                GridPane.setMargin(anchorPane, new Insets(10, 60, 10, 20));
-            }
+//            for (int i = 0; i < stocks.size(); i++) {
+//                FXMLLoader fxmlLoader = new FXMLLoader();
+//                fxmlLoader.setLocation(getClass().getResource("marketCard.fxml"));
+//                AnchorPane anchorPane = fxmlLoader.load();
+//
+//               MarketCardController itemController = fxmlLoader.getController();
+//
+//                itemController.setData(stocks.get(i),user);
+//
+//
+//                if (column == 2) {
+//                    column = 0;
+//                    row++;
+//                }
+//
+//                grid.add(anchorPane, column++, row); //(child,column,row)
+//                //set grid width
+//                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+//                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+//                grid.setMaxWidth(Region.USE_PREF_SIZE);
+//
+//                //set grid height
+//                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+//                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+//                grid.setMaxHeight(Region.USE_PREF_SIZE);
+//                grid.setHgap(240); // Horizontal gap
+//                grid.setVgap(30); // Vertical gap
+//                scroll.setVvalue(1.0); // Scrolls to the bottom
+//                // Set the grid as the content of the scroll pane
+//                scroll.setContent(grid);
+//                scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+//
+//
+//                GridPane.setMargin(anchorPane, new Insets(10, 60, 10, 20));
+//            }
+            PrintList.populateStocksGrid(user,grid,scroll,"marketCard");
         } catch (IOException e) {
             e.printStackTrace();
         }
