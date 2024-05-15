@@ -89,6 +89,23 @@ public class AdminPageController  {
     }
     @FXML
     public void view(ActionEvent event){
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("viewGraph.fxml"));
+        Parent root = loader.load(); // This line can throw an IOException
+        // Access the controller of the loaded FXML
+        ViewGraphController controller = loader.getController();
+            Stage graphStage = new Stage();
+            graphStage.setScene(new Scene(root));
+            int selectedID=tableview.getSelectionModel().getSelectedIndex();
+        String companyname= Stocks.getInstance().read(tableview.getItems().get(selectedID).getId()).getCompanyName();
+            graphStage.setTitle("StockExchangeManager - " + admin.getUserName()+" - "+companyname);
+            graphStage.show();
+
+    } catch (IOException e) {
+        System.out.println(e.getMessage());
+        e.printStackTrace(); // Print the stack trace to understand what caused the exception
+        // Handle the exception, maybe show an error message to the user
+    }
 
     }
     @FXML
