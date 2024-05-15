@@ -2,13 +2,18 @@ package oop.stockexchangemanager.AccountPackage;
 
 import javafx.scene.control.DatePicker;
 import oop.stockexchangemanager.Bank.BankAccount;
+import oop.stockexchangemanager.Database.OwnedStocks;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class User extends Account{
     BankAccount bankAccount;
-    protected Map<Integer, Integer> ownedStocks = new HashMap<>();
+     OwnedStocks ownedStocks=new OwnedStocks();
+
+    public OwnedStocks getOwnedStocks() {
+        return ownedStocks;
+    }
 
     public BankAccount getBankAccount() {
         return bankAccount;
@@ -18,11 +23,7 @@ public class User extends Account{
         this.bankAccount = bankAccount;
     }
 
-    public Map<Integer,Integer> getOwnedStocks()
-    {
-        return ownedStocks;
 
-    }
 
     public    static User  Generate(String UserName, String Password, String Email, DatePicker birthdate) {
 

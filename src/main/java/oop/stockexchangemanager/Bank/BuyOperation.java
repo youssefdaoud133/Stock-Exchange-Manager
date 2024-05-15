@@ -25,11 +25,11 @@ public class BuyOperation implements SingleAccountOperation {
       if(quantity <= stock.getQuantity()) {
           WithDraw.getInstance().DoOperation(bankAccount, quantity * stock.getPrice());
           stock.setQuantity(stock.getQuantity() - quantity);
-          Map<Integer, Integer> ownedStocks = bankAccount.getUserAccount().getOwnedStocks();
-          ownedStocks.merge(stock.getId(), quantity,Integer::sum);
+           bankAccount.getUserAccount().getOwnedStocks().update(stock.getId(),quantity);
 
 
-          for (Map.Entry<Integer, Integer> entry : ownedStocks.entrySet()) {
+
+          for (Map.Entry<Integer, Integer> entry : bankAccount.getUserAccount().getOwnedStocks().getData().entrySet()) {
               System.out.println("Company name: " + Stocks.getInstance().read(entry.getKey()) + ", quantity: " + entry.getValue());
           }
 
