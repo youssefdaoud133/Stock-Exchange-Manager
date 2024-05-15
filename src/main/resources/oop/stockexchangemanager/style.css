@@ -1,46 +1,56 @@
 .gradient{
- /* -fx-background-color: linear-gradient( to bottom right,#D8B5FF, #1EAE98); */
- -fx-background-color: linear-gradient( to bottom right,#30c5d2,#471069);
+ -fx-background-color: linear-gradient( to bottom right,#2d3250,#4B6382,#f9b17a);
 }
 .background-style{
- -fx-background-color: rgba(255,255,255, 0.3);
+ -fx-background-color:#2d3250;
 }
-.white-form{
--fx-background-color:white;
+.bgColor{
+-fx-background-color:linear-gradient( to bottom right,#2B3D5B,#4B6382,#f9b17a);
 }
 .text-style{
--fx-text-fill:  linear-gradient( to bottom right,#30c5d2,#471069);
+-fx-text-fill: white;
 -fx-font-size: 36px;
--fx-font-family:"Roboto";
+-fx-font-family:"Microsoft YaHei UI Light";
 }
 .buttonStyle {
 -fx-text-align: center;
  -fx-background-radius:20;
  -fx-padding: 5 5;
  -fx-transition-duration: 1000ms;
-   -fx-display: flex;
-   -fx-flex-direction: row;
-     -fx-cursor: pointer;
+ -fx-display: flex;
+ -fx-flex-direction: row;
+ -fx-cursor: pointer;
 }
 .buttonStyle:hover {
     -fx-transition-duration: 0.3s; /* Transition duration */
-    -fx-background-color: lightblue;
+    -fx-background-color:  linear-gradient( to bottom right,white,#676f9d,#f9b17a);
 }
 .login-button{
--fx-background-color:  linear-gradient( to bottom right,#30c5d2,#471069);
-  -fx-text-fill: white;
-  -fx-font-family: "Roboto";
-   -fx-font-weight: bold;
-  -fx-font-size:16px;
-  -fx-pref-width:150px;
-
-  }
-.signUp{
--fx-background-color: white;
-  -fx-text-fill: linear-gradient( to bottom right,#30c5d2,#471069);
+  -fx-background-color:#f9b17a;
+  -fx-text-fill: #2d3250;
   -fx-font-family: "Roboto";
   -fx-font-weight: bold;
   -fx-font-size:16px;
+  -fx-pref-width:100px;
+  }
+
+.signUp{
+  -fx-background-color:transparent;
+  -fx-text-fill :#f9b17a;
+  -fx-font-family: "Roboto";
+  -fx-font-weight: bold;
+  -fx-font-size:18px;
+  -fx-text-align: center;
+  -fx-background-radius:20;
+  -fx-padding: 5 5;
+  -fx-transition-duration: 1000ms;
+  -fx-display: flex;
+  -fx-flex-direction: row;
+  -fx-cursor: pointer;
+}
+.signUp:hover {
+    -fx-transition-duration: 0.3s; /* Transition duration */
+    -fx-text-fill: linear-gradient( to bottom right,white,#676f9d,#f9b17a);
 }
 .newAccount-text{
 -fx-text-fill: white;
@@ -51,51 +61,52 @@
     -fx-pref-width: 100px; /* Set preferred width to 200 pixels */
     -fx-max-width: 200px; /* Set maximum width to 200 pixels */
     -fx-min-width: 200px; /* Set minimum width to 200 pixels */
-    -fx-prompt-text-fill: #515152;
-    -fx-border-color: #8d58ad ;
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-border-color:#f9b17a ;
     -fx-border-width: 0 0 1 0;
     -fx-padding: 5px;
-  /*  -fx-background-color: #f4f0ff; */
     -fx-background-color: transparent;
 }
-
-/* Hovered state */
 .field:hover {
     -fx-background-color: transparent;
 }
-/* Disabled state */
 .field:disabled {
-    -fx-opacity: 0.5; /* Reduced opacity for disabled text field */
+    -fx-opacity: 0.5;
 }
 .date-picker {
         -fx-padding: 5px; /* Applies 10px padding to all sides */
         -fx-pref-width: 200px; /* Set preferred width to 200 pixels */
         -fx-max-width: 200px; /* Set maximum width to 200 pixels */
         -fx-min-width: 200px; /* Set minimum width to 200 pixels */
-        -fx-border-color: #8d58ad ;
+        -fx-border-color:#f9b17a;
         -fx-border-width: 0 0 1 0;
         -fx-background-color: transparent;
 }
 .date-picker .text-field {
     -fx-padding: 0px;
-    -fx-prompt-text-fill: #515152;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
 .shadow{
--fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5),6,0,0,0);
+-fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.8),6,0,0,0);
 }
 .table-view{
 -fx-background-color : transparent;
--fx-border-color: linear-gradient( to bottom right,#30c5d2,#471069);
+ -fx-border-color: white;
 -fx-border-radius: 8px;
 -fx-padding : 0px;
+}
+.table-view .placeholder {
+    -fx-text-fill: white; /* Change the prompt text color */
 }
 .table-view .table-column{
 -fx-alignment : CENTER;
 }
 .table-view .column-header-background{
--fx-background-color: linear-gradient( to bottom right,#30c5d2,#471069);
+ -fx-background-color: white;
 -fx-background-insets: 0 0 0 0;
 -fx-background-radius: 8px 8px 0px 0px;
 }
@@ -104,18 +115,48 @@
 -fx-size: 40px;
 }
 .table-view .column-header .label{
--fx-text-fill : white;
+-fx-text-fill :#041938;
 -fx-font-family:"Arial";
+}
+.tableButtons{
+ -fx-background-color: #f9b17a;
+  -fx-text-fill:#2d3250;
+  -fx-font-family: "Roboto";
+   -fx-font-weight: bold;
+  -fx-font-size:16px;
+  -fx-pref-width:100px;
+}
+.tableButtons:hover {
+    -fx-transition-duration: 0.3s; /* Transition duration */
+        -fx-background-color:  linear-gradient( to bottom right,white,#676f9d,#f9b17a);
+}
+.mainButtons{
+ -fx-background-color: transparent;
+  -fx-text-fill: white;
+}
+.mainButtons:hover {
+    -fx-transition-duration: 0.3s; /* Transition duration */
+    -fx-background-color:  linear-gradient( to bottom right,#2B3D5B,#4B6382,#C3C3C3,#f9b17a);
+}
+.logout{
+ -fx-background-color: transparent;
+  -fx-text-fill: white;
+   -fx-font-family: "Microsoft YaHei UI";
+}
+.logout:hover{
+    -fx-transition-duration: 0.3s; /* Transition duration */
+    -fx-text-fill: linear-gradient( to bottom right,white,#676f9d);
 }
 .textField{
 -fx-background-color : linear-gradient( to bottom ,#efefef,#eee);
--fx-border-color: linear-gradient( to bottom right,#30c5d2,#471069);
--fx-border-width: .8px;
+-fx-border-color:  linear-gradient( to bottom right,#4B6382,#f9b17a);
+-fx-text-fill : #170814;
+-fx-border-width: 2px;
 -fx-font-family:"Tahoma";
 /* -fx-border-radius: 4px;  */
 }
 .textField:focused{
--fx-border-width: 1.8px;
+-fx-border-width: 3px;
 -fx-background-color : white;
 }
 .profile-Labels{
