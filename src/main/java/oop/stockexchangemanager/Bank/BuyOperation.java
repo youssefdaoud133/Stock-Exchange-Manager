@@ -27,9 +27,7 @@ public class BuyOperation implements SingleAccountOperation {
           stock.setQuantity(stock.getQuantity() - quantity);
            bankAccount.getUserAccount().getOwnedStocks().update(stock.getId(),quantity);
 
-
-
-
+           TransactionOpearation.buyFromAdmin(bankAccount.getUserAccount(),quantity,stock);
 
 
       }

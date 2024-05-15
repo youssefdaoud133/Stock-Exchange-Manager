@@ -9,7 +9,18 @@ import java.util.Map;
 
 public class User extends Account{
     BankAccount bankAccount;
-     OwnedStocks ownedStocks=new OwnedStocks();
+   OwnedStocks ownedStocks=new OwnedStocks();
+   TransactionHistory transactionHistory=new TransactionHistory();
+
+    public void setOwnedStocks(OwnedStocks ownedStocks) {
+        this.ownedStocks = ownedStocks;
+    }
+
+    public TransactionHistory getTransactionHistory() {
+        return transactionHistory;
+    }
+
+
 
     public OwnedStocks getOwnedStocks() {
         return ownedStocks;
