@@ -25,7 +25,7 @@
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="quantityField" layoutX="14.0" layoutY="219.0" prefHeight="30.0" prefWidth="95.0" promptText="Price" styleClass="text-field" stylesheets="@style.css" />
+      <TextField fx:id="PriceField" layoutX="14.0" layoutY="219.0" prefHeight="30.0" prefWidth="95.0" promptText="Price" styleClass="text-field" stylesheets="@style.css" />
       <Button fx:id="sellButton" layoutX="182.0" layoutY="219.0" mnemonicParsing="false" onAction="#sellOperation" prefHeight="30.0" prefWidth="49.0" text="Sell" />
       <Label fx:id="quantityLabel" layoutX="114.0" layoutY="182.0" prefHeight="26.0" prefWidth="118.0">
          <font>
