@@ -29,9 +29,7 @@ public class BuyOperation implements SingleAccountOperation {
 
 
 
-          for (Map.Entry<Integer, Integer> entry : bankAccount.getUserAccount().getOwnedStocks().getData().entrySet()) {
-              System.out.println("Company name: " + Stocks.getInstance().read(entry.getKey()) + ", quantity: " + entry.getValue());
-          }
+
 
 
       }

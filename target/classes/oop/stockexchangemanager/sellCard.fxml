@@ -15,21 +15,27 @@
             <Image url="@../../images/stocks.png" />
          </image>
       </ImageView>
-      <Label fx:id="companyName" layoutX="7.0" layoutY="147.0" prefHeight="26.0" prefWidth="238.0" text="Company name ">
+      <Label fx:id="companyName" layoutX="18.0" layoutY="155.0" prefHeight="26.0" prefWidth="238.0" text="Company name ">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="10.0" layoutY="182.0" prefHeight="26.0" prefWidth="95.0" text="Quantity">
+      <Label layoutX="18.0" layoutY="182.0" prefHeight="26.0" prefWidth="95.0" text="Quantity">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="PriceField" layoutX="14.0" layoutY="219.0" prefHeight="30.0" prefWidth="95.0" promptText="Price" styleClass="text-field" stylesheets="@style.css" />
-      <Button fx:id="sellButton" layoutX="182.0" layoutY="219.0" mnemonicParsing="false" onAction="#sellOperation" prefHeight="30.0" prefWidth="49.0" text="Sell" />
+      <TextField fx:id="PriceField" layoutX="18.0" layoutY="219.0" prefHeight="30.0" prefWidth="95.0" promptText="Price" styleClass="text-field" stylesheets="@style.css" />
+      <Button fx:id="sellButton" layoutX="202.0" layoutY="219.0" mnemonicParsing="false" onAction="#sellOperation" prefHeight="30.0" prefWidth="49.0" text="Sell" />
       <Label fx:id="quantityLabel" layoutX="114.0" layoutY="182.0" prefHeight="26.0" prefWidth="118.0">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="146.0" layoutY="210.0" text="Live" textFill="#06e751" />
+      <Label fx:id="LivePrice" alignment="CENTER" layoutX="120.0" layoutY="228.0" prefHeight="28.0" prefWidth="78.0">
+         <font>
+            <Font size="19.0" />
          </font>
       </Label>
    </children>

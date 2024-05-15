@@ -9,6 +9,7 @@ import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.StockPackage.Stock;
 
 public class SellCardController {
+    public Label LivePrice;
     @FXML
     private Label companyName;
 
@@ -22,10 +23,12 @@ public class SellCardController {
     private Label quantityLabel;
 
     public void sellOperation(){
-        System.out.println(PriceField.getText());
+        System.out.println(PriceField.getText()+" hooo");
     }
     public void setData( User user ,int id , int quantity ){
-        companyName.setText(Stocks.getInstance().read(id).getCompanyName());
+        Stock stock = Stocks.getInstance().read(id);
+        companyName.setText(stock.getCompanyName());
+        LivePrice.setText(""+stock.getPrice());
         quantityLabel.setText(""+quantity);
 
     }

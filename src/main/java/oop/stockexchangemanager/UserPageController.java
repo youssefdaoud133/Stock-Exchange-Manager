@@ -92,7 +92,7 @@ public class UserPageController {
         OwnerShop.setVisible(true);
         try {
 
-            PrintList.populateStocksGrid(user,gridOwnerStock,scrollOwnerStock,"marketCard");
+            PrintList.populateOwnerStocksGrid(user,gridOwnerStock,scrollOwnerStock,"sellCard");
         } catch (IOException e) {
             e.printStackTrace();
         }
