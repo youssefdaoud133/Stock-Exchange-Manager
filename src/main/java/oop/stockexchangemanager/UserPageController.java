@@ -54,11 +54,29 @@ public class UserPageController {
     @FXML
     private Button shopButton;
     @FXML
+    private Button transectionsButton;
+    @FXML
     private AnchorPane marketWindow;
     @FXML
     private AnchorPane profileWindow;
     @FXML
     private AnchorPane shopWindow;
+    @FXML
+    private TableView<?> transectionsTable;
+    @FXML
+    private TableColumn<?, ?> amountSection;
+    @FXML
+    private TableColumn<?, ?> quantitySection;
+    @FXML
+    private TableColumn<?, ?> sourceSection;
+    @FXML
+    private TableColumn<?, ?> sourceTypeSection;
+    @FXML
+    private TableColumn<?, ?> transectionTypeSection;
+    @FXML
+    private TableColumn<?, ?> usernameSection;
+    @FXML
+    private AnchorPane transectionsWindow;
 
     public void setUser(User user) {
         this.user = user;
