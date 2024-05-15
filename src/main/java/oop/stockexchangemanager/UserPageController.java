@@ -98,48 +98,10 @@ public class UserPageController {
         shopWindow.setVisible(false);
         OwnerShop.setVisible(false);
 
-        //
-//        List<Stock> stocks = new ArrayList<>();
-//        stocks.addAll(Stocks.getInstance().readAll());
-//        int column = 0;
-//        int row = 1;
+
 
         try {
-//            for (int i = 0; i < stocks.size(); i++) {
-//                FXMLLoader fxmlLoader = new FXMLLoader();
-//                fxmlLoader.setLocation(getClass().getResource("marketCard.fxml"));
-//                AnchorPane anchorPane = fxmlLoader.load();
-//
-//               MarketCardController itemController = fxmlLoader.getController();
-//
-//                itemController.setData(stocks.get(i),user);
-//
-//
-//                if (column == 2) {
-//                    column = 0;
-//                    row++;
-//                }
-//
-//                grid.add(anchorPane, column++, row); //(child,column,row)
-//                //set grid width
-//                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-//                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-//                grid.setMaxWidth(Region.USE_PREF_SIZE);
-//
-//                //set grid height
-//                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-//                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-//                grid.setMaxHeight(Region.USE_PREF_SIZE);
-//                grid.setHgap(240); // Horizontal gap
-//                grid.setVgap(30); // Vertical gap
-//                scroll.setVvalue(1.0); // Scrolls to the bottom
-//                // Set the grid as the content of the scroll pane
-//                scroll.setContent(grid);
-//                scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-//
-//
-//                GridPane.setMargin(anchorPane, new Insets(10, 60, 10, 20));
-//            }
+
             PrintList.populateStocksGrid(user,grid,scroll,"marketCard");
         } catch (IOException e) {
             e.printStackTrace();
@@ -148,7 +110,16 @@ public class UserPageController {
     public void switchToShop(){
         profileWindow.setVisible(false);
         marketWindow.setVisible(false);
-        shopWindow.setVisible(true);
+        shopWindow.setVisible(false);
+        OwnerShop.setVisible(true);
+
+        //
+        try {
+
+            PrintList.populateStocksGrid(user,gridOwnerStock,scrollOwnerStock,"marketCard");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public void logout(){
 
