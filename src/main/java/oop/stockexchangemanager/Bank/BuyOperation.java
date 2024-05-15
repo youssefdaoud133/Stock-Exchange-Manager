@@ -26,13 +26,7 @@ public class BuyOperation implements SingleAccountOperation {
           WithDraw.getInstance().DoOperation(bankAccount, quantity * stock.getPrice());
           stock.setQuantity(stock.getQuantity() - quantity);
            bankAccount.getUserAccount().getOwnedStocks().update(stock.getId(),quantity);
-
-
-
-          for (Map.Entry<Integer, Integer> entry : bankAccount.getUserAccount().getOwnedStocks().getData().entrySet()) {
-              System.out.println("Company name: " + Stocks.getInstance().read(entry.getKey()) + ", quantity: " + entry.getValue());
-          }
-
+           TransactionOpearation.buyFromAdmin(bankAccount.getUserAccount(),quantity,stock);
 
       }
       else {
