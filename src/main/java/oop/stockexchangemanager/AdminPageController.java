@@ -28,6 +28,7 @@ import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 public class AdminPageController  {
     private ObservableList<Stock> stocksList;
@@ -88,25 +89,33 @@ public class AdminPageController  {
 
     }
     @FXML
-    public void view(ActionEvent event){
+    public void view(ActionEvent event) {
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("viewGraph.fxml"));
-        Parent root = loader.load(); // This line can throw an IOException
-        // Access the controller of the loaded FXML
-        ViewGraphController controller = loader.getController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("viewGraph.fxml"));
+            Parent root = loader.load(); // This line can throw an IOException
+
+            // Access the controller of the loaded FXML
+            ViewGraphController controller = loader.getController();
+
+            // Get the selected stock and its history prices
+            int selectedID = tableview.getSelectionModel().getSelectedIndex();
+            Stock selectedStock = Stocks.getInstance().read(tableview.getItems().get(selectedID).getId());
+            String companyName = selectedStock.getCompanyName();
+            Stack<Float> historyPrices = selectedStock.getPriceHistory(); // Assuming this method exists
+
+            // Pass the history prices to the controller
+            controller.setHistoryPrices(historyPrices);
+
             Stage graphStage = new Stage();
             graphStage.setScene(new Scene(root));
-            int selectedID=tableview.getSelectionModel().getSelectedIndex();
-        String companyname= Stocks.getInstance().read(tableview.getItems().get(selectedID).getId()).getCompanyName();
-            graphStage.setTitle("StockExchangeManager - " + admin.getUserName()+" - "+companyname);
+            graphStage.setTitle("StockExchangeManager - " + admin.getUserName() + " - " + companyName);
             graphStage.show();
 
-    } catch (IOException e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace(); // Print the stack trace to understand what caused the exception
-        // Handle the exception, maybe show an error message to the user
-    }
-
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace(); // Print the stack trace to understand what caused the exception
+            // Handle the exception, maybe show an error message to the user
+        }
     }
     @FXML
     public void remove(ActionEvent event) {
