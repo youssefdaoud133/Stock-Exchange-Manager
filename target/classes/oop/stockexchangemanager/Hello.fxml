@@ -8,78 +8,52 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="fullscreen" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.HelloController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.HelloController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2d3250;" stylesheets="@style.css" GridPane.columnIndex="1">
          <children>
-            <AnchorPane layoutY="3.0" prefHeight="600.0" prefWidth="400.0" styleClass="gradient" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="472.0" styleClass="newAccount-text" stylesheets="@style.css" text="Create account" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="Microsoft JhengHei Light" size="24.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="newAccount" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="516.0" mnemonicParsing="false" onAction="#newAccount" prefHeight="38.0" prefWidth="218.0" style="-fx-pref-width: 250;" stylesheets="@style.css" text="Create New account" textAlignment="CENTER">
-                     <styleClass>
-                        <String fx:value="buttonStyle" />
-                        <String fx:value="signUp" />
-                     </styleClass></Button>
-                  <ImageView fitHeight="197.0" fitWidth="185.0" layoutX="108.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../images/show.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="300.0" layoutY="5.0" prefHeight="600.0" prefWidth="400.0" styleClass="white-form" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Button fx:id="login" alignment="CENTER" contentDisplay="CENTER" layoutX="151.0" layoutY="432.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="98.0" stylesheets="@style.css" text="Sign in" textAlignment="CENTER" AnchorPane.leftAnchor="151.0" AnchorPane.rightAnchor="151.39999999999998">
-                     <styleClass>
-                        <String fx:value="buttonStyle" />
-                        <String fx:value="login-button" />
-                     </styleClass></Button>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="140.0" prefHeight="35.0" prefWidth="106.0" styleClass="text-style" stylesheets="@style.css" text="Sign In" textAlignment="CENTER" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="99.20000000000005">
-                     <font>
-                        <Font name="Microsoft JhengHei Light" size="24.0" />
-                     </font>
-                     <textFill>
-                        <LinearGradient endX="0.9809160305343512" endY="0.6526717411652776" startX="0.396946550325583" startY="0.8053434896105118">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.09880000352859497" green="0.44965672492980957" blue="0.5199999809265137" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.006729475100942127">
-                                 <color>
-                                    <Color red="0.10499999672174454" green="0.5" blue="0.3724983036518097" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.3803921639919281" green="0.09803921729326248" blue="0.5215686559677124" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                  </Label>
-                  <TextField fx:id="email" layoutX="100.0" layoutY="249.0" promptText="Email" styleClass="field" stylesheets="@style.css" />
-                  <PasswordField fx:id="Password" layoutX="100.0" layoutY="332.0" promptText="Password" styleClass="field" stylesheets="@style.css" />
-                  <Label fx:id="ErrorMsg" alignment="CENTER" layoutX="84.0" layoutY="204.0" prefHeight="31.0" prefWidth="231.0" textFill="RED">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
+            <Label alignment="CENTER" layoutX="1.0" layoutY="73.0" prefHeight="54.0" prefWidth="375.0" styleClass="text-style" stylesheets="@style.css" text="Sign In" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI Light" size="36.0" />
+               </font></Label>
+            <TextField fx:id="email" layoutX="89.0" layoutY="197.0" maxWidth="218.0" prefHeight="31.0" prefWidth="218.0" promptText="E-mail" styleClass="field" stylesheets="@style.css" />
+            <PasswordField fx:id="Password" layoutX="88.0" layoutY="266.0" promptText="Password" styleClass="field" stylesheets="@style.css" />
+            <Label fx:id="ErrorMsg" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="148.0" prefHeight="20.0" prefWidth="375.0" textFill="WHITE" />
+            <Button layoutX="139.0" layoutY="345.0" mnemonicParsing="false" onAction="#login" stylesheets="@style.css" text="Sign in">
+               <styleClass>
+                  <String fx:value="buttonStyle" />
+                  <String fx:value="login-button" />
+               </styleClass>
+            </Button>
+            <Label layoutX="74.0" layoutY="423.0" text="Don't have an account ?" textFill="WHITE" />
+            <Button fx:id="newAccount" layoutX="226.0" layoutY="415.0" mnemonicParsing="false" onAction="#newAccount" style="-fx-background-color: transparent;" styleClass="signUp" stylesheets="@style.css" text="Sign up" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="gradient" stylesheets="@style.css">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="101.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/show.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="304.0" prefHeight="46.0" prefWidth="241.0" stylesheets="@style.css" text="Stock Mastery Starts Here" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
-</StackPane>
+</GridPane>
