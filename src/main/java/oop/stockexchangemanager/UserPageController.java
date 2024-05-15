@@ -90,6 +90,12 @@ public class UserPageController {
         marketWindow.setVisible(false);
         shopWindow.setVisible(false);
         OwnerShop.setVisible(true);
+        try {
+
+            PrintList.populateStocksGrid(user,gridOwnerStock,scrollOwnerStock,"marketCard");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     public void switchToMarket(){
@@ -110,16 +116,11 @@ public class UserPageController {
     public void switchToShop(){
         profileWindow.setVisible(false);
         marketWindow.setVisible(false);
-        shopWindow.setVisible(false);
-        OwnerShop.setVisible(true);
+        shopWindow.setVisible(true);
+        OwnerShop.setVisible(false);
 
         //
-        try {
 
-            PrintList.populateStocksGrid(user,gridOwnerStock,scrollOwnerStock,"marketCard");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     public void logout(){
 
