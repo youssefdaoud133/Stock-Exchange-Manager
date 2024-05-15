@@ -134,7 +134,7 @@ public class UserPageController {
         shopWindow.setVisible(true);
     }
     public void logout(){
-        AlterOperation.showConfirmationDialog("message");
+
         try { boolean confirmed = AlterOperation.showConfirmationDialog("Are you sure you want to logout?");
             if(confirmed){
                 logoutButton.getScene().getWindow().hide();

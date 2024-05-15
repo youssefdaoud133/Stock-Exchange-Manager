@@ -98,12 +98,8 @@ public class AdminPageController  {
             Stocks.getInstance().delete(tableview.getItems().get(selectedID).getId());
             tableview.getItems().remove(selectedID);
         } catch (Exception e) {
-//            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-//            errorAlert.setTitle("Error");
-//            errorAlert.setHeaderText(null);
-//            errorAlert.setContentText("Failed to delete stock");
-//            errorAlert.showAndWait();
-            AlterOperation.showErrorAlert(e.getMessage());
+
+            AlterOperation.showErrorAlert("Failed to delete stock");
         }
     }
 public void switchToAddStock(){
@@ -132,7 +128,7 @@ public void switchToShowStock(){
     }}
 
     public void logout(){
-        AlterOperation.showConfirmationDialog("message");
+
         try {
             boolean confirmed = AlterOperation.showConfirmationDialog("Are you sure you want to logout?");
             if(confirmed){
