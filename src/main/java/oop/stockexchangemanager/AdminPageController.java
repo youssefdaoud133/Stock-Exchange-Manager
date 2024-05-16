@@ -80,6 +80,8 @@ public class AdminPageController  {
     @FXML
     private Button removeButton;
     @FXML
+    private Button switchStateButton;
+    @FXML
     private Label adminName;
     @FXML
     private ImageView logoutIcon;

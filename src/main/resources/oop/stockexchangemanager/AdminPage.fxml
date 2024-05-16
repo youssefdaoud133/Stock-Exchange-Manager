@@ -84,14 +84,28 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar prefHeight="162.0" prefWidth="220.0" translateY="30.0">
+                              <ButtonBar layoutX="10.0" layoutY="130.0" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
+                                 <buttons>
+                                    <ImageView fitHeight="35.0" fitWidth="32.0" onMouseClicked="#switchToShowStock" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/stockLogo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="switchStateButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="193.0" style="-fx-background-color: transparent;" text="Switch state" textFill="WHITE">
+                                       <font>
+                                          <Font name="Microsoft JhengHei UI Light" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </buttons>
+                              </ButtonBar>
+                              <ButtonBar prefHeight="100.0" prefWidth="220.0" translateY="30.0">
                                 <buttons>
-                                    <ImageView fx:id="logoutIcon" fitHeight="29.0" fitWidth="23.0" onDragDetected="#logout" pickOnBounds="true" preserveRatio="true" translateX="-75.0" translateY="58.0">
+                                    <ImageView fx:id="logoutIcon" fitHeight="29.0" fitWidth="23.0" onDragDetected="#logout" pickOnBounds="true" preserveRatio="true" translateX="-75.0" translateY="28.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-105.0" translateY="58.0" />
+                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-105.0" translateY="28.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
