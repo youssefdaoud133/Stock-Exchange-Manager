@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +14,18 @@ public class ViewGraphController implements Initializable {
 
     @FXML
     private LineChart<Number, Number> chart; // Define the chart to accept Number types
+    @FXML
+    private Label closingPrice;
 
+    @FXML
+    private Label maximumPrice;
+
+    @FXML
+    private Label minimumPrice;
+
+    @FXML
+    private Label openingPrice;
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Initialization logic if needed
