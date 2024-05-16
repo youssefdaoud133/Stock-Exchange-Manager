@@ -7,6 +7,6 @@ import oop.stockexchangemanager.StockPackage.UserStock;
 
 public interface SingleAccountOperation {
     void doOperation(BankAccount bankAccount, Integer quantity, Stock stock);
-     void buyFromUser(User buyerUser, User sellerUser, UserStock userStock);
+     void buyFromUser(Integer quantity,User buyerUser, User sellerUser, UserStock userStock);
 
 }
