@@ -19,6 +19,7 @@ import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.StockOperation;
 import oop.stockexchangemanager.Utils.AlterOperation;
@@ -32,18 +33,32 @@ import java.util.Stack;
 
 public class AdminPageController  {
     private ObservableList<Stock> stocksList;
+    private ObservableList<User> usersList;
+    //
     @FXML
-    private TableView<?> usersTable;
+    private TableView<Stock> stocksTable;
     @FXML
-    private TableColumn<?, ?> emailSection;
+    private TableColumn<Stock, String> companyNameSection;
     @FXML
-    private TableColumn<?, ?> lastTransection;
+    private TableColumn<Stock, Float> priceSection;
     @FXML
-    private TableColumn<?, ?> usernameSection;
+    private TableColumn<Stock,Integer> quantitySection;
     @FXML
-    private TableColumn<?, ?> balanceSection;
+    private TableColumn<Stock, String> adminNameSection;
     @FXML
-    private TableColumn<?, ?> birthdateSection;
+    private TableColumn<Stock, Integer> stockIDSection;
+
+
+    @FXML
+    private TableView<User> usersTable;
+    @FXML
+    private TableColumn<User, String> emailSection;
+
+    @FXML
+    private TableColumn<User, String> usernameSection;
+    @FXML
+    private TableColumn<User, String> balanceSection;
+
 
 
     public TextField companyNameField;
@@ -68,18 +83,7 @@ public class AdminPageController  {
     private Label adminName;
     @FXML
     private ImageView logoutIcon;
-    @FXML
-    private TableView<Stock> stocksTable;
-    @FXML
-    private TableColumn<Stock, String> companyNameSection;
-    @FXML
-    private TableColumn<Stock, Float> priceSection;
-    @FXML
-    private TableColumn<Stock,Integer> quantitySection;
-    @FXML
-    private TableColumn<Stock, String> adminNameSection;
-    @FXML
-    private TableColumn<Stock, Integer> stockIDSection;
+
     @FXML
     private AnchorPane basePane;
     @FXML
@@ -151,6 +155,10 @@ public void switchToShowUsers(){
     addWindow.setVisible(false);
     stocksWindow.setVisible(false);
     usersWindow.setVisible(true);
+    usersList.addAll(Users.getInstance().readAll());
+
+    // Set the items of the TableView to the ObservableList
+    usersTable.setItems(usersList);
 }
 public void switchToShowStock(){
     addWindow.setVisible(false);
@@ -198,6 +206,7 @@ public void switchToShowStock(){
     public void initialize() {
         // Initialize ObservableList for customers
         stocksList = FXCollections.observableArrayList();
+        usersList = FXCollections.observableArrayList();
 
         // Bind TableColumn to Customer properties
         companyNameSection.setCellValueFactory(new PropertyValueFactory<>("companyName"));
@@ -209,6 +218,18 @@ public void switchToShowStock(){
 
         // Set the items of the TableView to the ObservableList
         stocksTable.setItems(stocksList);
+
+        ///////////////////////////////////////////////////////
+        // Bind TableColumn to Customer properties
+        emailSection.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        usernameSection.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+        balanceSection.setCellValueFactory(new PropertyValueFactory<>("balance"));
+
+
+        usersList.addAll(Users.getInstance().readAll());
+
+        // Set the items of the TableView to the ObservableList
+        usersTable.setItems(usersList);
     }
 
 }

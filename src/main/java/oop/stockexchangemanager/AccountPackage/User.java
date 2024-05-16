@@ -6,11 +6,14 @@ import oop.stockexchangemanager.Database.OwnedStocks;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 public class User extends Account{
     BankAccount bankAccount;
    OwnedStocks ownedStocks=new OwnedStocks();
    TransactionHistory transactionHistory=new TransactionHistory();
+
+
 
     public void setOwnedStocks(OwnedStocks ownedStocks) {
         this.ownedStocks = ownedStocks;
@@ -34,6 +37,12 @@ public class User extends Account{
         this.bankAccount = bankAccount;
     }
 
+    public  String getBalance(){
+        return (bankAccount.getBalance()+"");
+    };
+    public Stack<Transaction> getTransactions() {
+        return transactionHistory.getTransactions();
+    }
 
 
     public    static User  Generate(String UserName, String Password, String Email, DatePicker birthdate) {
