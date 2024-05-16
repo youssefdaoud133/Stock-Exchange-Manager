@@ -100,14 +100,28 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
+                              <ButtonBar layoutX="10.0" layoutY="185.0" onMouseClicked="#switchToNotifications" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
+                                 <buttons>
+                                    <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+                                       <image>
+                                          <Image url="@../../images/Bell.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="notificationsButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToNotifications" prefHeight="54.0" prefWidth="140.0" style="-fx-background-color: transparent;" text="Notifications" textFill="WHITE" translateX="-7.0">
+                                       <font>
+                                          <Font name="Microsoft JhengHei Light" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </buttons>
+                              </ButtonBar>
                               <ButtonBar prefHeight="114.0" prefWidth="226.0">
                                 <buttons>
-                                    <ImageView fitHeight="29.0" fitWidth="23.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="35.0">
+                                    <ImageView fitHeight="29.0" fitWidth="23.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="30.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-120.0" translateY="35.0" />
+                                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-120.0" translateY="30.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
@@ -125,11 +139,11 @@
                      <children>
                         <AnchorPane fx:id="marketWindow" layoutX="263.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
-                              <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" layoutX="6.0" layoutY="7.0" pannable="true" prefHeight="470.0" prefWidth="682.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" layoutX="6.0" layoutY="7.0" pannable="true" prefHeight="470.0" prefWidth="682.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                 <content>
                                   <AnchorPane layoutX="-10.0" layoutY="-10.0" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="680.0" style="-fx-background-color: #2d3250;" translateX="-10.0" translateY="-10.0">
                                        <children>
-                                          <GridPane fx:id="grid" layoutX="-12.0" layoutY="-16.0" prefHeight="493.6" prefWidth="679.2" style="-fx-background-color: #2d3250;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <GridPane fx:id="grid" layoutX="-12.0" layoutY="-16.0" prefHeight="446.0" prefWidth="656.0" style="-fx-background-color: #2d3250;" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="0.0">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
@@ -189,15 +203,21 @@
                               <Line endX="240.19998168945312" endY="-4.57763671875E-5" layoutX="253.0" layoutY="133.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
                               <Line endX="243.39999389648438" endY="-3.0517578125E-5" layoutX="253.0" layoutY="269.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
                               <Line endX="244.99993896484375" endY="-9.1552734375E-5" layoutX="253.0" layoutY="392.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
+                              <Button fx:id="subscribeButton" layoutX="561.0" layoutY="421.0" mnemonicParsing="false" onAction="#subscribe" stylesheets="@style.css" text="Subscribe">
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="login-button" />
+                                 </styleClass>
+                              </Button>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="shopWindow" layoutX="94.0" layoutY="103.2" prefHeight="483.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="103.0">
                            <children>
-                              <ScrollPane fx:id="scrollUserStock" hbarPolicy="ALWAYS" pannable="true" prefHeight="463.0" prefWidth="686.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scrollUserStock" hbarPolicy="ALWAYS" pannable="true" prefHeight="463.0" prefWidth="686.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="674.0" style="-fx-background-color: transparent;">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="680.0" style="-fx-background-color: transparent;" translateX="-10.0" translateY="-10.0">
                                        <children>
-                                          <GridPane fx:id="gridUserStock" prefHeight="453.0" prefWidth="676.0" style="-fx-background-color: #2d3250;">
+                                          <GridPane fx:id="gridUserStock" prefHeight="446.0" prefWidth="654.0" style="-fx-background-color: #2d3250;">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                              </columnConstraints>
@@ -219,13 +239,13 @@
                                     <Font size="18.0" />
                                  </font></Label>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="OwnerShop" layoutX="15.0" layoutY="101.0" prefHeight="480.0" prefWidth="700.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false">
+                        <AnchorPane fx:id="OwnerShop" layoutX="15.0" layoutY="101.0" prefHeight="480.0" prefWidth="689.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
-                              <ScrollPane fx:id="scrollOwnerStock" hbarPolicy="ALWAYS" layoutX="7.0" layoutY="9.0" pannable="true" prefHeight="463.0" prefWidth="686.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scrollOwnerStock" hbarPolicy="ALWAYS" layoutX="7.0" layoutY="9.0" pannable="true" prefHeight="463.0" prefWidth="686.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="674.0" style="-fx-background-color: transparent;">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="680.0" style="-fx-background-color: transparent;" translateX="-10.0" translateY="-10.0">
                                        <children>
-                                          <GridPane fx:id="gridOwnerStock" prefHeight="453.0" prefWidth="676.0" style="-fx-background-color: #2d3250;">
+                                          <GridPane fx:id="gridOwnerStock" prefHeight="443.0" prefWidth="655.0" style="-fx-background-color: #2d3250;">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                              </columnConstraints>
@@ -249,6 +269,15 @@
                                     <TableColumn fx:id="transectionTypeSection" prefWidth="150.40005493164062" text="TransectionType" />
                                     <TableColumn fx:id="quantitySection" prefWidth="119.99996948242188" text="Quantity" />
                                     <TableColumn fx:id="amountSection" prefWidth="156.800048828125" text="Total amount" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="notifications" layoutX="188.0" layoutY="241.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                           <children>
+                              <TableView fx:id="notificationsTable" layoutX="22.0" layoutY="16.0" prefHeight="443.0" prefWidth="651.0">
+                                <columns>
+                                  <TableColumn fx:id="notificationsColumn" prefWidth="650.400008392334" text="Notifications content" />
                                 </columns>
                               </TableView>
                            </children>

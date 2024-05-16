@@ -2,6 +2,7 @@ package oop.stockexchangemanager;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -58,6 +59,8 @@ public class UserPageController {
     private User user;
 
     @FXML
+    private Button notificationsButton;
+    @FXML
     private Button logoutButton;
 
     @FXML
@@ -78,6 +81,13 @@ public class UserPageController {
     private AnchorPane shopWindow;
     @FXML
     private AnchorPane transectionsWindow;
+    @FXML
+    private AnchorPane notifications;
+
+    @FXML
+    private TableView<?> notificationsTable;
+    @FXML
+    private TableColumn<?, ?> notificationsColumn;
     @FXML
     private TableView<Transaction> transectionsTable;
     @FXML
@@ -114,14 +124,22 @@ public class UserPageController {
         transactionList.addAll(user.getTransactionHistory().readAll());
         transectionsTable.setItems(transactionList);
     }
+    public void switchToNotifications(){
+        profileWindow.setVisible(false);
+        marketWindow.setVisible(false);
+        shopWindow.setVisible(false);
+        OwnerShop.setVisible(false);
+        transectionsWindow.setVisible(false);
+        notifications.setVisible(true);
+        updateTransactionList();
+    }
         public void switchToTransections(){
-
-
         profileWindow.setVisible(false);
         marketWindow.setVisible(false);
         shopWindow.setVisible(false);
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(true);
+        notifications.setVisible(false);
             updateTransactionList();
     }
     public void switchToProfile(){
@@ -130,6 +148,7 @@ public class UserPageController {
         shopWindow.setVisible(false);
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(false);
+        notifications.setVisible(false);
     }
     public void switchToOwnerShop(){
         if(Rtk.state) {
@@ -138,6 +157,7 @@ public class UserPageController {
             shopWindow.setVisible(false);
             transectionsWindow.setVisible(false);
             OwnerShop.setVisible(true);
+            notifications.setVisible(false);
             try {
                 PrintList.populateOwnerStocksGrid(user, gridOwnerStock, scrollOwnerStock, "sellCard");
             } catch (IOException e) {
@@ -156,6 +176,7 @@ public class UserPageController {
             shopWindow.setVisible(false);
             OwnerShop.setVisible(false);
             transectionsWindow.setVisible(false);
+            notifications.setVisible(false);
             try {
                 PrintList.populateStocksGrid(user, grid, scroll, "marketCard");
             } catch (IOException e) {
@@ -174,6 +195,7 @@ public class UserPageController {
             shopWindow.setVisible(true);
             OwnerShop.setVisible(false);
             transectionsWindow.setVisible(false);
+            notifications.setVisible(false);
             try {
                 PrintList.populateUserStocksGrid(user, gridUserStock, scrollUserStock, "userCard");
             } catch (IOException e) {
@@ -236,5 +258,8 @@ public class UserPageController {
             AlterOperation.showErrorAlert("Failed to view stock");
         }
         System.out.println("from add money");
+    }
+
+    public void subscribe(ActionEvent event) {
     }
 }
