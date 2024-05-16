@@ -44,7 +44,7 @@
                         </Label>
                         <VBox layoutX="-2.0" layoutY="255.0" prefHeight="346.0" prefWidth="226.0">
                            <children>
-                              <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="226.0">
+                              <ButtonBar layoutX="10.0" layoutY="10.0" onMouseClicked="#switchToMarket" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToMarket" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -58,7 +58,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="70.0" prefHeight="60.0" prefWidth="226.0">
+                              <ButtonBar layoutX="10.0" layoutY="70.0" onMouseClicked="#switchToShop" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -72,7 +72,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="69.0" prefHeight="60.0" prefWidth="220.0">
+                              <ButtonBar layoutX="10.0" layoutY="69.0" onMouseClicked="#switchToOwnerShop" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -86,7 +86,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="99.0" prefHeight="60.0" prefWidth="226.0">
+                              <ButtonBar layoutX="10.0" layoutY="99.0" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                                        <image>
@@ -102,17 +102,17 @@
                               </ButtonBar>
                               <ButtonBar prefHeight="114.0" prefWidth="226.0">
                                 <buttons>
-                                    <ImageView fitHeight="29.0" fitWidth="23.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="40.0">
+                                    <ImageView fitHeight="29.0" fitWidth="23.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="35.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE" translateX="-120.0" translateY="40.0" />
+                                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-120.0" translateY="35.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
                         </VBox>
-                        <Button fx:id="profileButton" layoutX="67.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchToProfile" style="-fx-background-color: transparent;" text="View profile" textFill="WHITE">
+                        <Button fx:id="profileButton" layoutX="67.0" layoutY="217.0" mnemonicParsing="false" onAction="#switchToProfile" styleClass="viewProfile" stylesheets="@style.css" text="View profile" textFill="WHITE">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -121,15 +121,15 @@
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="600.0" prefWidth="550.0" styleClass="background-style" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="marketWindow" layoutX="263.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="marketWindow" layoutX="263.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
-                              <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" layoutX="1.0" layoutY="-2.0" pannable="true" prefHeight="482.0" prefWidth="699.0" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" layoutX="7.0" layoutY="7.0" pannable="true" prefHeight="470.0" prefWidth="680.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="698.0">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="682.0" style="-fx-background-color: transparent;">
                                        <children>
-                                          <GridPane fx:id="grid" prefHeight="470.0" prefWidth="682.0">
+                                          <GridPane fx:id="grid" layoutX="-12.0" layoutY="-16.0" prefHeight="494.0" prefWidth="694.0" style="-fx-background-color: #2d3250;">
                                             <columnConstraints>
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
@@ -139,9 +139,9 @@
                                 </content>
                               </ScrollPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
-                              <Label layoutX="110.0" layoutY="90.0" text="Username :">
+                              <Label layoutX="110.0" layoutY="90.0" text="Username :" textFill="WHITE">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
@@ -151,7 +151,7 @@
                                     <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="112.0" layoutY="223.0" text="E-mail :">
+                              <Label layoutX="112.0" layoutY="223.0" text="E-mail :" textFill="WHITE">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
@@ -161,7 +161,7 @@
                                     <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="112.0" layoutY="350.0" text="Birth date :">
+                              <Label layoutX="112.0" layoutY="350.0" text="Birth date :" textFill="WHITE">
                                  <font>
                                     <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
@@ -171,32 +171,28 @@
                                     <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="58.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="29.0" fitWidth="33.0" layoutX="61.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/email-Icon.png" />
+                                    <Image url="@../../images/whiteEmail.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="32.0" fitWidth="44.0" layoutX="63.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="59.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/username-icon.png" />
+                                    <Image url="@../../images/adminIcon.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="38.0" fitWidth="29.0" layoutX="63.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="45.0" fitWidth="39.0" layoutX="61.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../images/date-icon.png" />
+                                    <Image url="@../../images/date.png" />
                                  </image>
                               </ImageView>
-                              <Line endX="232.19998168945312" endY="-3.0517578125E-5" layoutX="253.0" layoutY="133.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#8d58ad" />
-                              <Line endX="232.19998168945312" endY="-3.0517578125E-5" layoutX="253.0" layoutY="269.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#8d58ad" />
-                              <Line endX="232.19998168945312" endY="-3.0517578125E-5" layoutX="253.0" layoutY="392.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#8d58ad" />
+                              <Line endX="240.19998168945312" endY="-4.57763671875E-5" layoutX="253.0" layoutY="133.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
+                              <Line endX="243.39999389648438" endY="-3.0517578125E-5" layoutX="253.0" layoutY="269.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
+                              <Line endX="244.99993896484375" endY="-9.1552734375E-5" layoutX="253.0" layoutY="392.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
                            </children>
-                           <styleClass>
-                              <String fx:value="shadow" />
-                              <String fx:value="white-form" />
-                           </styleClass>
                         </AnchorPane>
-                        <AnchorPane fx:id="shopWindow" layoutX="94.0" layoutY="103.2" prefHeight="483.0" prefWidth="694.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="103.0" />
-                        <AnchorPane layoutX="148.0" layoutY="10.0" prefHeight="78.0" prefWidth="694.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="508.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="shopWindow" layoutX="94.0" layoutY="103.2" prefHeight="483.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="103.0" />
+                        <AnchorPane layoutX="148.0" layoutY="10.0" prefHeight="78.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="508.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <ImageView fitHeight="64.0" fitWidth="202.0" layoutX="485.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -208,13 +204,13 @@
                                     <Font size="18.0" />
                                  </font></Label>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="OwnerShop" layoutX="15.0" layoutY="101.0" prefHeight="484.0" prefWidth="699.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false">
+                        <AnchorPane fx:id="OwnerShop" layoutX="15.0" layoutY="101.0" prefHeight="480.0" prefWidth="700.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false">
                            <children>
-                              <ScrollPane fx:id="scrollOwnerStock" hbarPolicy="ALWAYS" layoutX="1.0" layoutY="-2.0" pannable="true" prefHeight="482.0" prefWidth="699.0" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scrollOwnerStock" hbarPolicy="ALWAYS" layoutX="7.0" layoutY="9.0" pannable="true" prefHeight="463.0" prefWidth="686.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="698.0">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="700.0" style="-fx-background-color: transparent;">
                                        <children>
-                                          <GridPane fx:id="gridOwnerStock" prefHeight="470.0" prefWidth="682.0">
+                                          <GridPane fx:id="gridOwnerStock" prefHeight="480.0" prefWidth="700.0" style="-fx-background-color: #2d3250;">
                                              <columnConstraints>
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                              </columnConstraints>
@@ -225,13 +221,13 @@
                               </ScrollPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="transectionsWindow" layoutX="24.0" layoutY="114.0" prefHeight="482.0" prefWidth="694.0" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="transectionsWindow" layoutX="24.0" layoutY="114.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <styleClass>
                               <String fx:value="shadow" />
                               <String fx:value="white-form" />
                            </styleClass>
                            <children>
-                              <TableView layoutX="15.0" layoutY="14.0" prefHeight="420.0" prefWidth="669.0">
+                              <TableView layoutX="15.0" layoutY="14.0" prefHeight="420.0" prefWidth="669.0" stylesheets="@style.css">
                                 <columns>
                                   <TableColumn fx:id="usernameSection" prefWidth="90.40002536773682" text="Name" />
                                   <TableColumn fx:id="sourceSection" prefWidth="100.79999542236328" text="Source" />

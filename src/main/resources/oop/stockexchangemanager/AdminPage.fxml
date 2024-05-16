@@ -42,7 +42,7 @@
                         <Line endX="74.99996948242188" layoutX="127.0" layoutY="229.0" startX="-109.80003356933594" stroke="WHITE" />
                         <VBox layoutX="48.0" layoutY="282.0" prefHeight="370.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
                            <children>
-                              <ButtonBar prefHeight="60.0" prefWidth="220.0">
+                              <ButtonBar onMouseClicked="#switchToAddStock" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
                                 <buttons>
                                     <ImageView fitHeight="36.0" fitWidth="35.0" onMouseClicked="#switchToAddStock" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -56,7 +56,7 @@
                                     </Button>
                                 </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="220.0">
+                              <ButtonBar layoutX="10.0" layoutY="10.0" onMouseClicked="#switchToShowStock" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="35.0" fitWidth="32.0" onMouseClicked="#switchToShowStock" pickOnBounds="true" preserveRatio="true" translateY="-5.0">
                                        <image>
@@ -77,7 +77,7 @@
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
+                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
@@ -86,18 +86,17 @@
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="600.0" prefWidth="550.0" styleClass="background-style" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TableView fx:id="tableview" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
                                 <columns>
-                                  <TableColumn fx:id="stockIDSection" prefWidth="66.40004348754883" text="Stock ID" />
-                                  <TableColumn fx:id="companyNameSection" prefWidth="168.7999725341797" text="Company name" />
-                                    <TableColumn fx:id="quantitySection" prefWidth="96.80003356933594" text="Quantity" />
-                                    <TableColumn fx:id="priceSection" prefWidth="84.79998779296875" text="Price" />
-                                    <TableColumn fx:id="adminNameSection" prefWidth="128.79998779296875" text="Admin name" />
-                                    <TableColumn fx:id="adminNameSection1" prefWidth="156.79997558593755" />
+                                  <TableColumn fx:id="stockIDSection" prefWidth="75.20003128051758" text="Stock ID" />
+                                  <TableColumn fx:id="companyNameSection" prefWidth="160.79998779296875" text="Company name" />
+                                    <TableColumn fx:id="quantitySection" prefWidth="128.80003356933594" text="Quantity" />
+                                    <TableColumn fx:id="priceSection" prefWidth="114.39996337890625" text="Price" />
+                                    <TableColumn fx:id="adminNameSection" prefWidth="189.60003662109375" text="Admin name" />
                                 </columns>
                               </TableView>
                               <Button fx:id="deleteButton" layoutX="54.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
@@ -120,36 +119,36 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <TextField fx:id="companyNameField" layoutX="41.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
-                              <TextField fx:id="quantityField" alignment="TOP_LEFT" layoutX="351.0" layoutY="113.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
-                              <TextField fx:id="priceField" layoutX="43.0" layoutY="254.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
-                              <Label layoutX="43.0" layoutY="72.0" prefHeight="32.0" prefWidth="194.0" text="Company name ">
+                              <TextField fx:id="companyNameField" layoutX="323.0" layoutY="73.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="quantityField" alignment="TOP_LEFT" layoutX="323.0" layoutY="179.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <TextField fx:id="priceField" layoutX="323.0" layoutY="285.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <Label layoutX="65.0" layoutY="73.0" prefHeight="32.0" prefWidth="194.0" text="Company name " textFill="WHITE">
                                  <font>
-                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
+                                    <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="348.0" layoutY="76.0" prefHeight="24.0" prefWidth="120.0" text="Quantity">
+                              <Label layoutX="68.0" layoutY="183.0" prefHeight="24.0" prefWidth="120.0" text="Quantity" textFill="WHITE">
                                  <font>
-                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
+                                    <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="41.0" layoutY="216.0" prefHeight="32.0" prefWidth="94.0" text="Price">
+                              <Label layoutX="65.0" layoutY="285.0" prefHeight="32.0" prefWidth="94.0" text="Price" textFill="WHITE">
                                  <font>
-                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
+                                    <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="addButton" layoutX="273.0" layoutY="451.0" mnemonicParsing="false" onAction="#addStock" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
+                              <Button fx:id="addButton" layoutX="300.0" layoutY="494.0" mnemonicParsing="false" onAction="#addStock" prefHeight="35.0" prefWidth="120.0" stylesheets="@style.css" text="Add">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
                                  </styleClass>
                               </Button>
-                              <TextField fx:id="descroptionField" alignment="TOP_LEFT" layoutX="351.0" layoutY="254.0" prefHeight="90.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
-                              <Label layoutX="348.0" layoutY="216.0" prefHeight="32.0" prefWidth="156.0" text="Description">
+                              <TextField fx:id="descroptionField" alignment="TOP_LEFT" layoutX="323.0" layoutY="392.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
+                              <Label layoutX="65.0" layoutY="392.0" prefHeight="32.0" prefWidth="156.0" text="Description" textFill="WHITE">
                                  <font>
-                                    <Font name="Microsoft JhengHei UI Light" size="14.0" />
+                                    <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
                            </children>

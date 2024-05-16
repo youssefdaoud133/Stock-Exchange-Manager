@@ -35,6 +35,7 @@
                <styleClass>
                   <String fx:value="buttonStyle" />
                   <String fx:value="login-button" />
+                  <String fx:value="shadow" />
                </styleClass>
             </Button>
             <Label layoutX="74.0" layoutY="423.0" text="Don't have an account ?" textFill="WHITE" />

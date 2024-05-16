@@ -20,10 +20,11 @@
                   <Image url="@../../images/users.png" />
                </image>
             </ImageView>
-            <Button fx:id="signup" layoutX="460.0" layoutY="346.0" mnemonicParsing="false" onAction="#signup" prefHeight="35.0" prefWidth="154.0" stylesheets="@style.css" text="Sign Up">
+            <Button fx:id="signup" layoutX="521.0" layoutY="346.0" mnemonicParsing="false" onAction="#signup" prefHeight="35.0" prefWidth="154.0" stylesheets="@style.css" text="Sign Up">
                <styleClass>
                   <String fx:value="buttonStyle" />
-                  <String fx:value="signUp" />
+                  <String fx:value="login-button" />
+                  <String fx:value="shadow" />
                </styleClass></Button>
             <Label fx:id="ErrorMsg" alignment="CENTER" layoutX="206.0" layoutY="413.0" prefHeight="28.0" prefWidth="270.0" textFill="WHITE">
                <font>

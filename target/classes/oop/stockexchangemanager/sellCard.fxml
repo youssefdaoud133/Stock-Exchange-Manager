@@ -10,30 +10,30 @@
 
 <AnchorPane prefHeight="263.0" prefWidth="255.0" styleClass="cardStyle" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.SellCardController">
    <children>
-      <ImageView fitHeight="132.0" fitWidth="238.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="132.0" fitWidth="238.0" layoutX="56.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/stocks.png" />
+            <Image url="@../../images/stockLogo.png" />
          </image>
       </ImageView>
-      <Label fx:id="companyName" layoutX="18.0" layoutY="155.0" prefHeight="26.0" prefWidth="238.0" text="Company name ">
+      <Label fx:id="companyName" layoutX="18.0" layoutY="155.0" prefHeight="26.0" prefWidth="238.0" text="Company name " textFill="WHITE">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="182.0" prefHeight="26.0" prefWidth="95.0" text="Quantity">
+      <Label layoutX="18.0" layoutY="182.0" prefHeight="26.0" prefWidth="95.0" text="Quantity" textFill="WHITE">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="PriceField" layoutX="18.0" layoutY="219.0" prefHeight="30.0" prefWidth="95.0" promptText="Price" styleClass="text-field" stylesheets="@style.css" />
-      <Button fx:id="sellButton" layoutX="202.0" layoutY="219.0" mnemonicParsing="false" onAction="#sellOperation" prefHeight="30.0" prefWidth="49.0" text="Sell" />
+      <TextField fx:id="PriceField" layoutX="18.0" layoutY="219.0" prefHeight="30.0" prefWidth="95.0" promptText="Price" styleClass="cardField" stylesheets="@style.css" />
+      <Button fx:id="sellButton" layoutX="198.0" layoutY="219.0" mnemonicParsing="false" onAction="#sellOperation" prefHeight="30.0" prefWidth="49.0" styleClass="cardButtons" stylesheets="@style.css" text="Sell" />
       <Label fx:id="quantityLabel" layoutX="114.0" layoutY="182.0" prefHeight="26.0" prefWidth="118.0">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="146.0" layoutY="210.0" text="Live" textFill="#06e751" />
-      <Label fx:id="LivePrice" alignment="CENTER" layoutX="120.0" layoutY="228.0" prefHeight="28.0" prefWidth="78.0">
+      <Label layoutX="134.0" layoutY="209.0" text="Live" textFill="#06e751" />
+      <Label fx:id="LivePrice" alignment="CENTER" layoutX="107.0" layoutY="229.0" prefHeight="28.0" prefWidth="78.0">
          <font>
             <Font size="19.0" />
          </font>

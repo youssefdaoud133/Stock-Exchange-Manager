@@ -95,18 +95,18 @@
 }
 .table-view{
 -fx-background-color : transparent;
- -fx-border-color: white;
+ -fx-border-color: #f9b17a;
 -fx-border-radius: 8px;
 -fx-padding : 0px;
 }
 .table-view .placeholder {
-    -fx-text-fill: white; /* Change the prompt text color */
+    -fx-text-fill: white;
 }
 .table-view .table-column{
 -fx-alignment : CENTER;
 }
 .table-view .column-header-background{
- -fx-background-color: white;
+ -fx-background-color: linear-gradient(to bottom right,#424769,#4B6382,#f9b17a);
 -fx-background-insets: 0 0 0 0;
 -fx-background-radius: 8px 8px 0px 0px;
 }
@@ -115,7 +115,7 @@
 -fx-size: 40px;
 }
 .table-view .column-header .label{
--fx-text-fill :#041938;
+-fx-text-fill :white;
 -fx-font-family:"Arial";
 }
 .tableButtons{
@@ -128,15 +128,15 @@
 }
 .tableButtons:hover {
     -fx-transition-duration: 0.3s; /* Transition duration */
-        -fx-background-color:  linear-gradient( to bottom right,white,#676f9d,#f9b17a);
+    -fx-background-color: linear-gradient( to bottom right,white,#676f9d,#f9b17a);
 }
 .mainButtons{
- -fx-background-color: transparent;
+  -fx-background-color: transparent;
   -fx-text-fill: white;
 }
 .mainButtons:hover {
     -fx-transition-duration: 0.3s; /* Transition duration */
-    -fx-background-color:  linear-gradient( to bottom right,#2B3D5B,#4B6382,#C3C3C3,#f9b17a);
+    -fx-background-color:  linear-gradient( to bottom right,#2d3250,#4B6382,#f9b17a);
 }
 .logout{
  -fx-background-color: transparent;
@@ -153,23 +153,89 @@
 -fx-text-fill : #170814;
 -fx-border-width: 2px;
 -fx-font-family:"Tahoma";
-/* -fx-border-radius: 4px;  */
 }
 .textField:focused{
 -fx-border-width: 3px;
 -fx-background-color : white;
 }
 .profile-Labels{
--fx-background-color : white;
+-fx-text-fill : white;
+-fx-background-color : transparent;
 -fx-font-family:"Microsoft JhengHei UI Light";
 /* -fx-border-radius: 4px;  */
 }
+.viewProfile{
+-fx-background-color : transparent;
+-fx-text-fill : white;
+}
+.viewProfile:hover{
+-fx-text-fill :linear-gradient( to bottom right,white,#676f9d,#f9b17a);
+}
 .cardStyle{
--fx-border-width: 5px;
--fx-background-color : white;
--fx-border-color: linear-gradient( to bottom right,#30c5d2,#471069);
+-fx-border-width: 3px;
+-fx-background-color :#2d3250;
+-fx-border-color: linear-gradient(to bottom right,#424769,#4B6382,white,#f9b17a);
+}
+.cardButtons{
+-fx-border-width: 1px;
+-fx-background-color: transparent;
+-fx-border-color:#f9b17a;
+-fx-text-fill: white;
+-fx-font-family: "Microsoft YaHei UI";
+}
+.cardButtons:hover{
+-fx-transition-duration: 0.3s; /* Transition duration */
+-fx-background-color:  linear-gradient( to bottom right,white,#676f9d,#f9b17a);
+-fx-text-fill:#2d3250 ;
+-fx-font-family: "Microsoft YaHei UI";
+}
+/* Style the ScrollPane */
+.scroll-pane {
+    -fx-background-color:#2d3250 ; /* Background color */
+    -fx-padding: 10px; /* Padding */
 }
 
+/* Style the scroll bars */
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color:white ; /* Scroll bar background color */
+}
+
+.scroll-pane .scroll-bar:vertical .thumb,
+.scroll-pane .scroll-bar:horizontal .thumb {
+    -fx-background-color:linear-gradient( to bottom right,#676f9d,#f9b17a); /* Scroll bar thumb color */
+}
+.cardField {
+    -fx-pref-width: 88px; /* Set preferred width to 200 pixels */
+    -fx-prompt-text-fill: white;
+    -fx-text-fill: white;
+    -fx-border-color:#f9b17a ;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 5px;
+    -fx-background-color: transparent;
+}
+/* Style the LineChart */
+.chart-line-symbol {
+    -fx-background-color: transparent; /* Remove symbol background color */
+}
+/* Style the LineChart plot area */
+.chart-plot-background {
+    -fx-background-color: transparent; /* Make plot area transparent */
+}
+/* Style the LineChart series lines */
+.chart-series-line {
+    -fx-stroke:white; /* Set line color */
+}
+/* Style the data points */
+.chart-line-symbol:hover {
+    -fx-background-color: #4CAF50, white; /* Data point color and hover effect */
+    -fx-background-insets: 0, 2; /* Padding for hover effect */
+    -fx-background-radius: 5px; /* Rounded corners */
+}
+/* Style the data point labels */
+.chart-line-symbol .chart-label {
+    -fx-text-fill: white; /* Label text color */
+}
 
 
 
