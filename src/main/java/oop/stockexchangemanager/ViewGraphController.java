@@ -25,7 +25,7 @@ public class ViewGraphController implements Initializable {
 
     @FXML
     private Label openingPrice;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Initialization logic if needed
@@ -35,6 +35,9 @@ public class ViewGraphController implements Initializable {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
 
         int index = 0;
+        historyPrices.push(15f);
+        historyPrices.push(80f);
+
         for (Float price : historyPrices) {
             series.getData().add(new XYChart.Data<>(index, price));
             index++;
@@ -43,6 +46,11 @@ public class ViewGraphController implements Initializable {
 
         // Add series to chart
         chart.getData().add(series);
+
+        closingPrice.setText(String.valueOf(historyPrices.peek()));
+        maximumPrice.setText(String.valueOf(findMaxPrice(historyPrices)));
+        minimumPrice.setText(String.valueOf(findMinPrice(historyPrices)));
+        openingPrice.setText(String.valueOf(historyPrices.get(0)));
     }
 
     private int findAverageIndex(Stack<Float> historyPrices, Float averagePrice) {
@@ -66,30 +74,26 @@ public class ViewGraphController implements Initializable {
         return index; // Index of the price closest to the average
     }
 
-    private int findMinIndex(Stack<Float> historyPrices) {
-        // Find the index of the minimum price
-        int index = 0;
+    private float findMinPrice(Stack<Float> historyPrices) {
+        // Find the minimum price
         float minPrice = Float.MAX_VALUE;
-        for (int i = 0; i < historyPrices.size(); i++) {
-            if (historyPrices.get(i) < minPrice) {
-                minPrice = historyPrices.get(i);
-                index = i;
+        for (Float price : historyPrices) {
+            if (price < minPrice) {
+                minPrice = price;
             }
         }
-        return index; // Index of the minimum price
+        return minPrice; // Minimum price
     }
 
-    private int findMaxIndex(Stack<Float> historyPrices) {
-        // Find the index of the maximum price
-        int index = 0;
+    private float findMaxPrice(Stack<Float> historyPrices) {
+        // Find the maximum price
         float maxPrice = Float.MIN_VALUE;
-        for (int i = 0; i < historyPrices.size(); i++) {
-            if (historyPrices.get(i) > maxPrice) {
-                maxPrice = historyPrices.get(i);
-                index = i;
+        for (Float price : historyPrices) {
+            if (price > maxPrice) {
+                maxPrice = price;
             }
         }
-        return index; // Index of the maximum price
+        return maxPrice; // Maximum price
     }
 
 }
