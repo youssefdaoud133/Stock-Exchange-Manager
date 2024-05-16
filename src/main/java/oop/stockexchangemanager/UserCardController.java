@@ -43,6 +43,7 @@ public class UserCardController {
     public void setData(UserStock userStock, User user){
         this.stock= Stocks.getInstance().read(userStock.getStockId());
         this.user=user;
+        this.userStock = userStock;
 
         companyName.setText(stock.getCompanyName());
        price.setText(""+userStock.getUserPrice());
@@ -51,8 +52,10 @@ public class UserCardController {
     }
     public void buyOperation(){
         try {
+            System.out.println(userStock.getUserId());
             BuyOperation.getInstance().buyFromUser(quantitySelector.getValue(),user, Users.getInstance().read(userStock.getUserId()) , userStock);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             AlterOperation.showErrorAlert(e.getMessage());
         }
     }

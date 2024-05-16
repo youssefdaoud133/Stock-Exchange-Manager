@@ -49,7 +49,7 @@ public class BuyOperation implements SingleAccountOperation {
          sellerUser.getOwnedStocks().update(userStock.getStockId(),-quantity);
          WithDraw.getInstance().DoOperation(buyerUser.getBankAccount(),userStock.getUserPrice()* quantity);
          Deposit.getInstance().DoOperation(sellerUser.getBankAccount(),userStock.getUserPrice()* quantity);
-         TransactionOpearation.buyFromUser(sellerUser,buyerUser,quantity,Stocks.getInstance().read(userStock.getId()),userStock.getUserPrice());
+         TransactionOpearation.buyFromUser(sellerUser,buyerUser,quantity,Stocks.getInstance().read(userStock.getStockId()),userStock.getUserPrice());
          Stocks.getInstance().read(userStock.getStockId()).setPrice(userStock.getUserPrice());
       }
       else {
