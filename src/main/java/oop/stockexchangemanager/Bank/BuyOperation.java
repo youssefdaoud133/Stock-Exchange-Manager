@@ -1,7 +1,9 @@
 package oop.stockexchangemanager.Bank;
 
+import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.StockPackage.Stock;
+import oop.stockexchangemanager.StockPackage.UserStock;
 
 import java.util.Map;
 
@@ -35,5 +37,18 @@ public class BuyOperation implements SingleAccountOperation {
           throw new IllegalArgumentException("Your quantity isn't enough");
       }
     }
+    @Override
+    public void buyFromUser(User buyerUser, User sellerUser, UserStock userStock) {
+//
+//      if() {
+//
+//
+//
+//      }
+//      else {
+//          throw new IllegalArgumentException("Your quantity isn't enough");
+//      }
+    }
+
 }
 
