@@ -111,10 +111,9 @@ public class AdminPageController  {
             graphStage.setTitle("StockExchangeManager - " + admin.getUserName() + " - " + companyName);
             graphStage.show();
 
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace(); // Print the stack trace to understand what caused the exception
-            // Handle the exception, maybe show an error message to the user
+        } catch (Exception e) {
+
+            AlterOperation.showErrorAlert("Failed to view stock");
         }
     }
     @FXML
