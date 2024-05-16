@@ -1,12 +1,16 @@
 package oop.stockexchangemanager;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import oop.stockexchangemanager.AccountPackage.Transaction;
 import oop.stockexchangemanager.AccountPackage.User;
 
 import java.io.IOException;
@@ -16,12 +20,15 @@ import java.util.List;
 import java.util.Optional;
 
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
+import oop.stockexchangemanager.StockPackage.UserStock;
 import oop.stockexchangemanager.Utils.AlterOperation;
 import oop.stockexchangemanager.Utils.PrintList;
 
 public class UserPageController {
+    private ObservableList<Transaction> transactionList;
     public Button Ownershop;
     public AnchorPane OwnerShop;
     public ScrollPane scrollOwnerStock;
@@ -64,29 +71,25 @@ public class UserPageController {
     @FXML
     private AnchorPane transectionsWindow;
     @FXML
-    private TableView<?> transectionsTable;
+    private TableView<Transaction> transectionsTable;
     @FXML
-    private TableColumn<?, ?> amountSection;
+    private TableColumn<UserStock, Double> amountSection;
     @FXML
-    private TableColumn<?, ?> quantitySection;
+    private TableColumn<Transaction, Integer> quantitySection;
     @FXML
-    private TableColumn<?, ?> sourceSection;
+    private TableColumn<Transaction,Integer> sourceSection;
     @FXML
-    private TableColumn<?, ?> sourceTypeSection;
+    private TableColumn<Transaction, String> sourceTypeSection;
     @FXML
-    private TableColumn<?, ?> transectionTypeSection;
-    @FXML
-    private TableColumn<?, ?> usernameSection;
-
+    private TableColumn<Transaction, String> transectionTypeSection;
+ 
 
     public void setUser(User user) {
         this.user = user;
         updateUI();
+        updateTransactionList();
     }
-    @FXML
-    public void initialize(){
-         // Update UI with user data
-    };
+
 
     // Method to update UI with user data
     private void updateUI() {
@@ -98,12 +101,18 @@ public class UserPageController {
         birthday.setText(formattedBirthday);
         balance.setText(user.getBankAccount().getBalance()+"");
     }
-    public void switchToTransections(){
+    private void updateTransactionList() {
+        transactionList.clear();
+        transactionList.addAll(user.getTransactionHistory().readAll());
+        transectionsTable.setItems(transactionList);
+    }
+        public void switchToTransections(){
         profileWindow.setVisible(false);
         marketWindow.setVisible(false);
         shopWindow.setVisible(false);
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(true);
+            updateTransactionList();
     }
     public void switchToProfile(){
         profileWindow.setVisible(true);
@@ -152,6 +161,25 @@ public class UserPageController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void initialize() {
+        // Initialize ObservableList for customers
+        transactionList = FXCollections.observableArrayList();
+
+        // Bind TableColumn to Customer properties
+        amountSection.setCellValueFactory(new PropertyValueFactory<>("totalAmount"));
+        quantitySection.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        sourceSection.setCellValueFactory(new PropertyValueFactory<>("sourceId"));
+        sourceTypeSection.setCellValueFactory(new PropertyValueFactory<>("sourceType"));
+        transectionTypeSection.setCellValueFactory(new PropertyValueFactory<>("transactionType"));
+
+
+        // Set the items of the TableView to the ObservableList
+        transectionsTable.setItems(transactionList);
+
+
     }
 
 
