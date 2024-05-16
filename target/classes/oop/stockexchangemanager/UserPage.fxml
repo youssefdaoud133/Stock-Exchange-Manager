@@ -65,7 +65,7 @@
                                           <Image url="@../../images/shopIcon.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="shopButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToShop" prefHeight="54.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="My shop" textFill="WHITE">
+                                    <Button fx:id="shopButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToShop" prefHeight="54.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="User shop" textFill="WHITE">
                                        <font>
                                           <Font name="Microsoft JhengHei Light" size="18.0" />
                                        </font>
@@ -139,7 +139,7 @@
                                 </content>
                               </ScrollPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
                               <Label layoutX="110.0" layoutY="90.0" text="Username :" textFill="WHITE">
                                  <font>
@@ -191,7 +191,22 @@
                               <Line endX="244.99993896484375" endY="-9.1552734375E-5" layoutX="253.0" layoutY="392.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="shopWindow" layoutX="94.0" layoutY="103.2" prefHeight="483.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="103.0" />
+                        <AnchorPane fx:id="shopWindow" layoutX="94.0" layoutY="103.2" prefHeight="483.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="103.0">
+                           <children>
+                              <ScrollPane fx:id="scrollUserStock" hbarPolicy="ALWAYS" pannable="true" prefHeight="463.0" prefWidth="686.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="674.0" style="-fx-background-color: transparent;">
+                                       <children>
+                                          <GridPane fx:id="gridUserStock" prefHeight="453.0" prefWidth="676.0" style="-fx-background-color: #2d3250;">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
                         <AnchorPane layoutX="148.0" layoutY="10.0" prefHeight="78.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="508.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <ImageView fitHeight="64.0" fitWidth="202.0" layoutX="485.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
@@ -221,7 +236,7 @@
                               </ScrollPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="transectionsWindow" layoutX="24.0" layoutY="114.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="transectionsWindow" layoutX="24.0" layoutY="114.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <styleClass>
                               <String fx:value="shadow" />
                               <String fx:value="white-form" />
@@ -229,12 +244,11 @@
                            <children>
                               <TableView fx:id="transectionsTable" layoutX="15.0" layoutY="14.0" prefHeight="420.0" prefWidth="669.0" stylesheets="@style.css">
                                 <columns>
-                                  <TableColumn fx:id="usernameSection" prefWidth="90.40002536773682" text="Name" />
-                                  <TableColumn fx:id="sourceSection" prefWidth="100.79999542236328" text="Source" />
-                                    <TableColumn fx:id="sourceTypeSection" prefWidth="91.99998474121094" text="SourceType" />
-                                    <TableColumn fx:id="transectionTypeSection" prefWidth="152.0" text="TransectionType" />
-                                    <TableColumn fx:id="quantitySection" prefWidth="95.19998168945312" text="Quantity" />
-                                    <TableColumn fx:id="amountSection" prefWidth="151.2000732421875" text="Total amount" />
+                                  <TableColumn fx:id="sourceSection" prefWidth="138.40003299713135" text="Source" />
+                                    <TableColumn fx:id="sourceTypeSection" prefWidth="106.39999389648438" text="SourceType" />
+                                    <TableColumn fx:id="transectionTypeSection" prefWidth="150.40005493164062" text="TransectionType" />
+                                    <TableColumn fx:id="quantitySection" prefWidth="119.99996948242188" text="Quantity" />
+                                    <TableColumn fx:id="amountSection" prefWidth="156.800048828125" text="Total amount" />
                                 </columns>
                               </TableView>
                            </children>
