@@ -62,6 +62,8 @@ public class UserPageController {
     @FXML
     private AnchorPane shopWindow;
     @FXML
+    private AnchorPane transectionsWindow;
+    @FXML
     private TableView<?> transectionsTable;
     @FXML
     private TableColumn<?, ?> amountSection;
@@ -75,8 +77,7 @@ public class UserPageController {
     private TableColumn<?, ?> transectionTypeSection;
     @FXML
     private TableColumn<?, ?> usernameSection;
-    @FXML
-    private AnchorPane transectionsWindow;
+
 
     public void setUser(User user) {
         this.user = user;
@@ -97,35 +98,39 @@ public class UserPageController {
         birthday.setText(formattedBirthday);
         balance.setText(user.getBankAccount().getBalance()+"");
     }
+    public void switchToTransections(){
+        profileWindow.setVisible(false);
+        marketWindow.setVisible(false);
+        shopWindow.setVisible(false);
+        OwnerShop.setVisible(false);
+        transectionsWindow.setVisible(true);
+    }
     public void switchToProfile(){
         profileWindow.setVisible(true);
         marketWindow.setVisible(false);
         shopWindow.setVisible(false);
         OwnerShop.setVisible(false);
+        transectionsWindow.setVisible(false);
     }
     public void switchToOwnerShop(){
         profileWindow.setVisible(false);
         marketWindow.setVisible(false);
         shopWindow.setVisible(false);
+        transectionsWindow.setVisible(false);
         OwnerShop.setVisible(true);
         try {
-
             PrintList.populateOwnerStocksGrid(user,gridOwnerStock,scrollOwnerStock,"sellCard");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
     public void switchToMarket(){
         profileWindow.setVisible(false);
         marketWindow.setVisible(true);
         shopWindow.setVisible(false);
         OwnerShop.setVisible(false);
-
-
-
+        transectionsWindow.setVisible(false);
         try {
-
             PrintList.populateStocksGrid(user,grid,scroll,"marketCard");
         } catch (IOException e) {
             e.printStackTrace();
@@ -136,9 +141,7 @@ public class UserPageController {
         marketWindow.setVisible(false);
         shopWindow.setVisible(true);
         OwnerShop.setVisible(false);
-
-        //
-
+        transectionsWindow.setVisible(false);
     }
     public void logout(){
 

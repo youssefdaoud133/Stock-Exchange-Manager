@@ -19,6 +19,7 @@ import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.StockOperation;
 import oop.stockexchangemanager.Utils.AlterOperation;
@@ -32,14 +33,38 @@ import java.util.Stack;
 
 public class AdminPageController  {
     private ObservableList<Stock> stocksList;
+    private ObservableList<User> usersList;
+    //
     @FXML
-    private TableView<Stock> tableview;
+    private TableView<Stock> stocksTable;
+    @FXML
+    private TableColumn<Stock, String> companyNameSection;
+    @FXML
+    private TableColumn<Stock, Float> priceSection;
+    @FXML
+    private TableColumn<Stock,Integer> quantitySection;
+    @FXML
+    private TableColumn<Stock, String> adminNameSection;
+    @FXML
+    private TableColumn<Stock, Integer> stockIDSection;
+
+
+    @FXML
+    private TableView<User> usersTable;
+    @FXML
+    private TableColumn<User, String> emailSection;
+
+    @FXML
+    private TableColumn<User, String> usernameSection;
+    @FXML
+    private TableColumn<User, String> balanceSection;
+
+
+
     public TextField companyNameField;
     public TextField quantityField;
     public TextField priceField;
-
-
-   public TextField descroptionField;
+    public TextField descroptionField;
     @FXML
     private Button addStock;
     @FXML
@@ -50,32 +75,25 @@ public class AdminPageController  {
     private Button deleteButton;
     @FXML
     private Button addButton;
-
+    @FXML
+    private Button showUsersButton;
+    @FXML
+    private Button removeButton;
     @FXML
     private Label adminName;
     @FXML
     private ImageView logoutIcon;
-    @FXML
-    private TableColumn<Stock, String> companyNameSection;
 
-    @FXML
-    private TableColumn<Stock, Float> priceSection;
 
-    @FXML
-    private TableColumn<Stock,Integer> quantitySection;
-
-    @FXML
-    private TableColumn<Stock, String> adminNameSection;
-    @FXML
-    private TableColumn<Stock, Integer> stockIDSection;
 
     @FXML
     private AnchorPane basePane;
-
     @FXML
     private AnchorPane addWindow;
     @FXML
     private AnchorPane stocksWindow;
+    @FXML
+    private AnchorPane usersWindow;
     @FXML
     private GridPane gridPane;
     private double x =0;
@@ -83,7 +101,21 @@ public class AdminPageController  {
 
     private Admin admin;
     @FXML
+    public void removeUser(ActionEvent event) {
+        try {
+            int selectedID=usersTable.getSelectionModel().getSelectedIndex();
+            Users.getInstance().delete(usersTable.getItems().get(selectedID).getId());
+            usersTable.getItems().remove(selectedID);
+        } catch (Exception e) {
+
+            AlterOperation.showErrorAlert("Failed to delete stock");
+        }
+
+
+    }
+    @FXML
     public void edit(ActionEvent event){
+
 
     }
     @FXML
@@ -96,8 +128,8 @@ public class AdminPageController  {
             ViewGraphController controller = loader.getController();
 
             // Get the selected stock and its history prices
-            int selectedID = tableview.getSelectionModel().getSelectedIndex();
-            Stock selectedStock = Stocks.getInstance().read(tableview.getItems().get(selectedID).getId());
+            int selectedID = stocksTable.getSelectionModel().getSelectedIndex();
+            Stock selectedStock = Stocks.getInstance().read(stocksTable.getItems().get(selectedID).getId());
             String companyName = selectedStock.getCompanyName();
             Stack<Float> historyPrices = selectedStock.getPriceHistory(); // Assuming this method exists
 
@@ -117,9 +149,9 @@ public class AdminPageController  {
     @FXML
     public void remove(ActionEvent event) {
         try {
-            int selectedID=tableview.getSelectionModel().getSelectedIndex();
-            Stocks.getInstance().delete(tableview.getItems().get(selectedID).getId());
-            tableview.getItems().remove(selectedID);
+            int selectedID=stocksTable.getSelectionModel().getSelectedIndex();
+            Stocks.getInstance().delete(stocksTable.getItems().get(selectedID).getId());
+            stocksTable.getItems().remove(selectedID);
         } catch (Exception e) {
 
             AlterOperation.showErrorAlert("Failed to delete stock");
@@ -128,10 +160,21 @@ public class AdminPageController  {
 public void switchToAddStock(){
     addWindow.setVisible(true);
     stocksWindow.setVisible(false);
+    usersWindow.setVisible(false);
+}
+public void switchToShowUsers(){
+    addWindow.setVisible(false);
+    stocksWindow.setVisible(false);
+    usersWindow.setVisible(true);
+    usersList.addAll(Users.getInstance().readAll());
+
+    // Set the items of the TableView to the ObservableList
+    usersTable.setItems(usersList);
 }
 public void switchToShowStock(){
     addWindow.setVisible(false);
     stocksWindow.setVisible(true);
+    usersWindow.setVisible(false);
 }
     public void addStock() {
         try {
@@ -144,7 +187,7 @@ public void switchToShowStock(){
             Stock AddedStock = StockOperation.AddStock(companyName, price, quantity, adminName, adminId);
             stocksList.add(AddedStock);
 
-            tableview.refresh();
+            stocksTable.refresh();
             AlterOperation.showSuccessAlert("Stock added successfully.");
         } catch (Exception e) {
             AlterOperation.showErrorAlert(e.getMessage());
@@ -174,6 +217,7 @@ public void switchToShowStock(){
     public void initialize() {
         // Initialize ObservableList for customers
         stocksList = FXCollections.observableArrayList();
+        usersList = FXCollections.observableArrayList();
 
         // Bind TableColumn to Customer properties
         companyNameSection.setCellValueFactory(new PropertyValueFactory<>("companyName"));
@@ -184,7 +228,19 @@ public void switchToShowStock(){
         stocksList.addAll(Stocks.getInstance().readAll());
 
         // Set the items of the TableView to the ObservableList
-        tableview.setItems(stocksList);
+        stocksTable.setItems(stocksList);
+
+        ///////////////////////////////////////////////////////
+        // Bind TableColumn to Customer properties
+        emailSection.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        usernameSection.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+        balanceSection.setCellValueFactory(new PropertyValueFactory<>("balance"));
+
+
+        usersList.addAll(Users.getInstance().readAll());
+
+        // Set the items of the TableView to the ObservableList
+        usersTable.setItems(usersList);
     }
 
 }

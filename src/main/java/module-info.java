@@ -10,7 +10,7 @@ module oop.stockexchangemanager {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-
+    opens oop.stockexchangemanager.AccountPackage to javafx.base;
     opens oop.stockexchangemanager to javafx.fxml;
     opens oop.stockexchangemanager.StockPackage to javafx.base;
 

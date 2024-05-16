@@ -70,14 +70,28 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar prefHeight="222.0" prefWidth="220.0" translateY="30.0">
+                              <ButtonBar layoutX="10.0" layoutY="70.0" onMouseClicked="#switchToShowUsers" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
+                                 <buttons>
+                                    <ImageView fitHeight="35.0" fitWidth="32.0" onMouseClicked="#switchToShowStock" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/showUsers.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="showUsersButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToShowUsers" prefHeight="60.0" prefWidth="193.0" style="-fx-background-color: transparent;" text="Show users" textFill="WHITE">
+                                       <font>
+                                          <Font name="Microsoft JhengHei UI Light" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </buttons>
+                              </ButtonBar>
+                              <ButtonBar prefHeight="162.0" prefWidth="220.0" translateY="30.0">
                                 <buttons>
-                                    <ImageView fx:id="logoutIcon" fitHeight="29.0" fitWidth="23.0" onDragDetected="#logout" pickOnBounds="true" preserveRatio="true" translateX="-75.0" translateY="80.0">
+                                    <ImageView fx:id="logoutIcon" fitHeight="29.0" fitWidth="23.0" onDragDetected="#logout" pickOnBounds="true" preserveRatio="true" translateX="-75.0" translateY="58.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-110.0" translateY="80.0" />
+                                  <Button fx:id="logoutButton" minWidth="38.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="100.0" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-105.0" translateY="58.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
@@ -88,9 +102,9 @@
                <center>
                   <AnchorPane prefHeight="600.0" prefWidth="550.0" styleClass="background-style" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <TableView fx:id="tableview" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
+                              <TableView fx:id="stocksTable" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
                                 <columns>
                                   <TableColumn fx:id="stockIDSection" prefWidth="75.20003128051758" text="Stock ID" />
                                   <TableColumn fx:id="companyNameSection" prefWidth="160.79998779296875" text="Company name" />
@@ -151,6 +165,23 @@
                                     <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                  </font>
                               </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="usersWindow" layoutX="165.0" layoutY="188.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                           <children>
+                              <TableView fx:id="usersTable" layoutX="16.8" layoutY="16.8" prefHeight="466.0" prefWidth="668.0" AnchorPane.bottomAnchor="88.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+                                <columns>
+                                  <TableColumn fx:id="usernameSection" prefWidth="172.0000770688057" text="Username" />
+                                  <TableColumn fx:id="emailSection" prefWidth="315.99993896484375" text="E-mail" />
+                                    <TableColumn fx:id="balanceSection" prefWidth="178.4000244140625" text="Balance" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="removeButton" layoutX="300.0" layoutY="506.0" mnemonicParsing="false" onAction="#removeUser" stylesheets="@style.css" text="Remove">
+                                 <styleClass>
+                                    <String fx:value="tableButtons" />
+                                    <String fx:value="buttonStyle" />
+                                 </styleClass>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </children>
