@@ -171,11 +171,9 @@
                            <children>
                               <TableView fx:id="usersTable" layoutX="16.8" layoutY="16.8" prefHeight="466.0" prefWidth="668.0" AnchorPane.bottomAnchor="88.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                                 <columns>
-                                  <TableColumn fx:id="usernameSection" prefWidth="100.80000686645508" text="Username" />
-                                  <TableColumn fx:id="emailSection" prefWidth="215.1999969482422" text="E-mail" />
-                                    <TableColumn fx:id="birthdateSection" prefWidth="117.60003662109375" text="Birthdate" />
-                                    <TableColumn fx:id="balanceSection" prefWidth="92.0" text="Balance" />
-                                    <TableColumn fx:id="lastTransection" prefWidth="156.0" text="Last transection" />
+                                  <TableColumn fx:id="usernameSection" prefWidth="172.0000770688057" text="Username" />
+                                  <TableColumn fx:id="emailSection" prefWidth="315.99993896484375" text="E-mail" />
+                                    <TableColumn fx:id="balanceSection" prefWidth="178.4000244140625" text="Balance" />
                                 </columns>
                               </TableView>
                               <Button fx:id="removeButton" layoutX="300.0" layoutY="506.0" mnemonicParsing="false" onAction="#removeUser" stylesheets="@style.css" text="Remove">
