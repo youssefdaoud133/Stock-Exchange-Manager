@@ -1,5 +1,7 @@
 package oop.stockexchangemanager.Utils;
 
+import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
@@ -22,7 +24,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-public class PrintList {
+public class PrintList  {
     public static void populateStocksGrid(User user, GridPane grid, ScrollPane scroll, String controllerName) throws IOException {
         List<Stock> stocks = new ArrayList<>();
         stocks.addAll(Stocks.getInstance().readAll());
