@@ -26,6 +26,7 @@ import java.util.Optional;
 import java.util.Stack;
 
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.UserSubscriber;
 import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
@@ -261,5 +262,12 @@ public class UserPageController {
     }
 
     public void subscribe(ActionEvent event) {
+        try {
+            UserSubscriber.getInstance().create(user.getId(), user);
+        }
+        catch (Exception e)
+        {
+            AlterOperation.showErrorAlert(e.getMessage());
+        }
     }
 }

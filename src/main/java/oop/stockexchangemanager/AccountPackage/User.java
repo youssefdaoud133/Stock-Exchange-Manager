@@ -13,7 +13,25 @@ public class User extends Account{
    OwnedStocks ownedStocks=new OwnedStocks();
    TransactionHistory transactionHistory=new TransactionHistory();
 
+   Stack<String> notfications=new Stack<>();
 
+  private boolean isSubscribed=false;
+
+    public Stack<String> getNotfications() {
+        return notfications;
+    }
+
+    public void setNotfications(Stack<String> notfications) {
+        this.notfications = notfications;
+    }
+
+    public boolean isSubscribed() {
+        return isSubscribed;
+    }
+
+    public void setSubscribed(boolean subscribed) {
+        isSubscribed = subscribed;
+    }
 
     public void setOwnedStocks(OwnedStocks ownedStocks) {
         this.ownedStocks = ownedStocks;
