@@ -27,13 +27,13 @@
       </Label>
       <TextField fx:id="PriceField" layoutX="18.0" layoutY="219.0" prefHeight="30.0" prefWidth="95.0" promptText="Price" styleClass="cardField" stylesheets="@style.css" />
       <Button fx:id="sellButton" layoutX="198.0" layoutY="219.0" mnemonicParsing="false" onAction="#sellOperation" prefHeight="30.0" prefWidth="49.0" styleClass="cardButtons" stylesheets="@style.css" text="Sell" />
-      <Label fx:id="quantityLabel" layoutX="114.0" layoutY="182.0" prefHeight="26.0" prefWidth="118.0">
+      <Label fx:id="quantityLabel" layoutX="114.0" layoutY="182.0" prefHeight="26.0" prefWidth="118.0" textFill="WHITE">
          <font>
             <Font name="Microsoft JhengHei Light" size="18.0" />
          </font>
       </Label>
       <Label layoutX="134.0" layoutY="209.0" text="Live" textFill="#06e751" />
-      <Label fx:id="LivePrice" alignment="CENTER" layoutX="107.0" layoutY="229.0" prefHeight="28.0" prefWidth="78.0">
+      <Label fx:id="LivePrice" alignment="CENTER" layoutX="107.0" layoutY="229.0" prefHeight="28.0" prefWidth="78.0" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>

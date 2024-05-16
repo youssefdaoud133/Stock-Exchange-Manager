@@ -99,19 +99,19 @@
                                     <TableColumn fx:id="adminNameSection" prefWidth="189.60003662109375" text="Admin name" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="deleteButton" layoutX="54.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
+                              <Button fx:id="deleteButton" layoutX="89.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="editButton" layoutX="275.0" layoutY="492.0" mnemonicParsing="false" onAction="#edit" stylesheets="@style.css" text="Edit">
+                              <Button fx:id="editButton" layoutX="300.0" layoutY="492.0" mnemonicParsing="false" onAction="#edit" stylesheets="@style.css" text="Edit">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="viewButton" layoutX="498.0" layoutY="492.0" mnemonicParsing="false" onAction="#view" stylesheets="@style.css" text="View">
+                              <Button fx:id="viewButton" layoutX="512.0" layoutY="492.0" mnemonicParsing="false" onAction="#view" stylesheets="@style.css" text="View">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />

@@ -214,10 +214,6 @@
     -fx-padding: 5px;
     -fx-background-color: transparent;
 }
-/* Style the LineChart */
-.chart-line-symbol {
-    -fx-background-color: transparent; /* Remove symbol background color */
-}
 /* Style the LineChart plot area */
 .chart-plot-background {
     -fx-background-color: transparent; /* Make plot area transparent */
@@ -225,12 +221,6 @@
 /* Style the LineChart series lines */
 .chart-series-line {
     -fx-stroke:white; /* Set line color */
-}
-/* Style the data points */
-.chart-line-symbol:hover {
-    -fx-background-color: #4CAF50, white; /* Data point color and hover effect */
-    -fx-background-insets: 0, 2; /* Padding for hover effect */
-    -fx-background-radius: 5px; /* Rounded corners */
 }
 /* Style the data point labels */
 .chart-line-symbol .chart-label {
