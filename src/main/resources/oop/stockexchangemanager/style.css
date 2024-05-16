@@ -226,6 +226,9 @@
 .chart-line-symbol .chart-label {
     -fx-text-fill: white; /* Label text color */
 }
-
+.custom-scroll-pane {
+    -fx-background:#2d3250;
+    -fx-background-color:#2d3250;
+}
 
 

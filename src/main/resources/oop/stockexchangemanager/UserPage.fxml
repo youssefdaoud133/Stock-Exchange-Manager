@@ -125,7 +125,7 @@
                      <children>
                         <AnchorPane fx:id="marketWindow" layoutX="263.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
-                              <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" layoutX="6.0" layoutY="7.0" pannable="true" prefHeight="470.0" prefWidth="682.0" style="-fx-background-color: #2d3250;" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scroll" hbarPolicy="ALWAYS" layoutX="6.0" layoutY="7.0" pannable="true" prefHeight="470.0" prefWidth="682.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS">
                                 <content>
                                   <AnchorPane layoutX="-10.0" layoutY="-10.0" minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="680.0" style="-fx-background-color: #2d3250;" translateX="-10.0" translateY="-10.0">
                                        <children>
@@ -193,7 +193,7 @@
                         </AnchorPane>
                         <AnchorPane fx:id="shopWindow" layoutX="94.0" layoutY="103.2" prefHeight="483.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="103.0">
                            <children>
-                              <ScrollPane fx:id="scrollUserStock" hbarPolicy="ALWAYS" pannable="true" prefHeight="463.0" prefWidth="686.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scrollUserStock" hbarPolicy="ALWAYS" pannable="true" prefHeight="463.0" prefWidth="686.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="674.0" style="-fx-background-color: transparent;">
                                        <children>
@@ -221,7 +221,7 @@
                            </children></AnchorPane>
                         <AnchorPane fx:id="OwnerShop" layoutX="15.0" layoutY="101.0" prefHeight="480.0" prefWidth="700.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false">
                            <children>
-                              <ScrollPane fx:id="scrollOwnerStock" hbarPolicy="ALWAYS" layoutX="7.0" layoutY="9.0" pannable="true" prefHeight="463.0" prefWidth="686.0" style="-fx-background-color: transparent;" vbarPolicy="ALWAYS">
+                              <ScrollPane fx:id="scrollOwnerStock" hbarPolicy="ALWAYS" layoutX="7.0" layoutY="9.0" pannable="true" prefHeight="463.0" prefWidth="686.0" styleClass="custom-scroll-pane" stylesheets="@style.css" vbarPolicy="ALWAYS">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="674.0" style="-fx-background-color: transparent;">
                                        <children>
