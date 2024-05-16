@@ -262,4 +262,6 @@ public class UserPageController {
 
     public void subscribe(ActionEvent event) {
     }
+    public void export(ActionEvent event) {
+    }
 }
