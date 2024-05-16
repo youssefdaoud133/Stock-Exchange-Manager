@@ -55,8 +55,6 @@ public class AdminPageController  {
     private Label adminName;
     @FXML
     private ImageView logoutIcon;
-
-
     @FXML
     private TableColumn<Stock, String> companyNameSection;
 
