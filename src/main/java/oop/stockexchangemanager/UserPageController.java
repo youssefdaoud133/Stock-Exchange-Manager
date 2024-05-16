@@ -5,12 +5,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import oop.stockexchangemanager.AccountPackage.Transaction;
 import oop.stockexchangemanager.AccountPackage.User;
 
@@ -19,6 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Stack;
 
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.Database.Users;
@@ -193,6 +197,25 @@ public class UserPageController {
 
 
     public void AddMoney(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("deposit.fxml"));
+            Parent root = loader.load(); // This line can throw an IOException
+
+            // Access the controller of the loaded FXML
+            DepositController controller = loader.getController();
+
+            // Pass the history prices to the controller
+            controller.setData(user);
+
+            Stage graphStage = new Stage();
+            graphStage.setScene(new Scene(root));
+            graphStage.setTitle("StockExchangeManager - " + user.getUserName() );
+            graphStage.show();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            AlterOperation.showErrorAlert("Failed to view stock");
+        }
         System.out.println("from add money");
     }
 }

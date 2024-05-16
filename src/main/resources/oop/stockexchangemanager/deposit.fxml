@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="470.0" prefWidth="650.0" styleClass="background-style" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.stockexchangemanager.DepositController">
    <children>
       <Label layoutX="262.0" layoutY="63.0" styleClass="text-style" stylesheets="@style.css" text="Deposit" />
@@ -17,7 +16,7 @@
             <Font name="Microsoft JhengHei UI Light" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="submitButton" layoutX="275.0" layoutY="350.0" mnemonicParsing="false" stylesheets="@style.css" text="Submit">
+      <Button fx:id="submitButton" layoutX="275.0" layoutY="350.0" mnemonicParsing="false" onAction="#submitButtonAction" stylesheets="@style.css" text="Submit">
          <styleClass>
             <String fx:value="buttonStyle" />
             <String fx:value="tableButtons" />
