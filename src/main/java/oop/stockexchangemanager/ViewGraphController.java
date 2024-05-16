@@ -7,7 +7,6 @@ import javafx.scene.chart.XYChart;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Stack;
 
 public class ViewGraphController implements Initializable {
 
@@ -19,16 +18,40 @@ public class ViewGraphController implements Initializable {
         // Initialization logic if needed
     }
 
-    public void setHistoryPrices(Stack<Float> historyPrices) {
-        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+    public void setHistoryPrices(
+            Float openingPrice,
+            Float closingPrice,
+            Float averagePrice,
+            Float minimumPrice,
+            Float maximumPrice
+    ) {
+        // Clear any previous data
+        chart.getData().clear();
 
-        int index = 0;
-        for (Float price : historyPrices) {
-            series.getData().add(new XYChart.Data<>(index, price));
-            index++;
-        }
+        // Create series for each metric
+        XYChart.Series<Number, Number> openingSeries = new XYChart.Series<>();
+        openingSeries.setName("Opening Price");
 
-        // Add series to chart
-        chart.getData().add(series);
+        XYChart.Series<Number, Number> closingSeries = new XYChart.Series<>();
+        closingSeries.setName("Closing Price");
+
+        XYChart.Series<Number, Number> averageSeries = new XYChart.Series<>();
+        averageSeries.setName("Average Price");
+
+        XYChart.Series<Number, Number> minimumSeries = new XYChart.Series<>();
+        minimumSeries.setName("Minimum Price");
+
+        XYChart.Series<Number, Number> maximumSeries = new XYChart.Series<>();
+        maximumSeries.setName("Maximum Price");
+
+        // Populate the series with data points
+        openingSeries.getData().add(new XYChart.Data<>(0, openingPrice));
+        closingSeries.getData().add(new XYChart.Data<>(0, closingPrice));
+        averageSeries.getData().add(new XYChart.Data<>(0, averagePrice));
+        minimumSeries.getData().add(new XYChart.Data<>(0, minimumPrice));
+        maximumSeries.getData().add(new XYChart.Data<>(0, maximumPrice));
+
+        // Add all series to the chart
+        chart.getData().addAll(openingSeries, closingSeries, averageSeries, minimumSeries, maximumSeries);
     }
 }

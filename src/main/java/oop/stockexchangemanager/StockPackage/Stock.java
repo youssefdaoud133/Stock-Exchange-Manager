@@ -8,19 +8,16 @@ import java.util.Stack;
 public class Stock {
     protected String companyName;
     protected String AdminName;
-    protected  int AdminId;
-    protected Stack<Float> priceHistory =new Stack<>(); // Stack to hold the history of prices
-    protected  static int  idGenerator =1;
-    protected   int  id ;
-    protected  int Quantity;
+    protected int AdminId;
+    protected Stack<Float> priceHistory = new Stack<>(); // Stack to hold the history of prices
+    protected static int idGenerator = 1;
+    protected int id;
+    protected int Quantity;
 
 
-
-
-    public static Stock Generate(String companyName, float price, int Quantity, String AdminName,int AdminId)
-    {
-        Stock stock=new Stock();
-        stock.id=Stock.idGenerator;
+    public static Stock Generate(String companyName, float price, int Quantity, String AdminName, int AdminId) {
+        Stock stock = new Stock();
+        stock.id = Stock.idGenerator;
         Stock.idGenerator++;
         stock.setCompanyName(companyName);
         stock.setAdminId(AdminId);
@@ -51,14 +48,14 @@ public class Stock {
         this.id = id;
     }
 
-    public String getAdminName()
-    {
+    public String getAdminName() {
         return AdminName;
     }
-    private void setAdminName(String AdminName)
-    {
-        this.AdminName=AdminName;
+
+    private void setAdminName(String AdminName) {
+        this.AdminName = AdminName;
     }
+
     public String getCompanyName() {
         return companyName;
     }
@@ -71,9 +68,10 @@ public class Stock {
         }
     }
 
-public float getPrice() {
-    return priceHistory.peek(); // Returns the top element of the stack without removing it
-}
+    public float getPrice() {
+        return priceHistory.peek(); // Returns the top element of the stack without removing it
+    }
+
 
     public void setPrice(float price) {
         if (StockDto.validatePrice(price)) {
@@ -83,7 +81,7 @@ public float getPrice() {
         }
     }
 
-    // Method to get the price history
+
     public Stack<Float> getPriceHistory() {
         return priceHistory;
     }
@@ -91,7 +89,6 @@ public float getPrice() {
     public int getId() {
         return id;
     }
-
 
 
     public int getQuantity() {
@@ -106,6 +103,65 @@ public float getPrice() {
         }
     }
 
+    public Float getOpeningPriceHistory() {
+        if (!priceHistory.isEmpty()) {
+            return priceHistory.firstElement(); // Returns the first input in the price history stack (opening price)
+        } else {
+            throw new IllegalStateException("Price history is empty");
+        }
+    }
 
+    public Float getClosingPriceHistory() {
+        if (!priceHistory.isEmpty()) {
+            return priceHistory.peek(); // Returns the last input in the price history stack (closing price)
+        } else {
+            throw new IllegalStateException("Price history is empty");
+        }
+    }
 
+    public Float getAveragePriceHistory() {
+        if (priceHistory.isEmpty()) {
+            throw new IllegalStateException("Price history is empty");
+        }
+
+        float sum = 0;
+        for (Float price : priceHistory) {
+            sum += price;
+        }
+        return sum / priceHistory.size(); // Calculate the average price
+
+    }
+
+    public Float getMinimumPriceHistory() {
+        if (priceHistory.isEmpty()) {
+            throw new IllegalStateException("Price history is empty");
+        }
+
+        float minPrice = priceHistory.get(0); // Initialize minPrice with the first price
+        for (Float price : priceHistory) {
+            if (price < minPrice) {
+                minPrice = price; // Update minPrice if the current price is smaller
+            }
+        }
+        return minPrice; // Return the minimum price
+
+    }
+
+    public Float getMaximumPriceHistory() {
+        if (priceHistory.isEmpty()) {
+            throw new IllegalStateException("Price history is empty");
+        }
+
+        float maxPrice = priceHistory.get(0); // Initialize maxPrice with the first price
+        for (Float price : priceHistory) {
+            if (price > maxPrice) {
+                maxPrice = price; // Update maxPrice if the current price is larger
+            }
+        }
+        return maxPrice; // Return the maximum price
+    }
 }
+
+
+
+       

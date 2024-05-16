@@ -100,15 +100,20 @@ public class AdminPageController  {
             // Get the selected stock and its history prices
             int selectedID = tableview.getSelectionModel().getSelectedIndex();
             Stock selectedStock = Stocks.getInstance().read(tableview.getItems().get(selectedID).getId());
-            String companyName = selectedStock.getCompanyName();
-            Stack<Float> historyPrices = selectedStock.getPriceHistory(); // Assuming this method exists
+
+            // Retrieve the opening, closing, average, minimum, and maximum prices
+            Float openingPrice = selectedStock.getOpeningPriceHistory();
+            Float closingPrice = selectedStock.getClosingPriceHistory();
+            Float averagePrice = selectedStock.getAveragePriceHistory();
+            Float minimumPrice = selectedStock.getMinimumPriceHistory();
+            Float maximumPrice = selectedStock.getMaximumPriceHistory();
 
             // Pass the history prices to the controller
-            controller.setHistoryPrices(historyPrices);
+            controller.setHistoryPrices(openingPrice, closingPrice, averagePrice, minimumPrice, maximumPrice);
 
             Stage graphStage = new Stage();
             graphStage.setScene(new Scene(root));
-            graphStage.setTitle("StockExchangeManager - " + admin.getUserName() + " - " + companyName);
+            graphStage.setTitle("StockExchangeManager - " + admin.getUserName() + " - " + selectedStock.getCompanyName());
             graphStage.show();
 
         } catch (IOException e) {
@@ -117,6 +122,12 @@ public class AdminPageController  {
             // Handle the exception, maybe show an error message to the user
         }
     }
+
+
+
+
+
+
     @FXML
     public void remove(ActionEvent event) {
         try {
