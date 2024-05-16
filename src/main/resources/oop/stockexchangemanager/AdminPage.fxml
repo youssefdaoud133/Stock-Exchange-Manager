@@ -84,14 +84,14 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="130.0" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
+                              <ButtonBar layoutX="10.0" layoutY="130.0" onMouseClicked="#switchToStatesWindow" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="35.0" fitWidth="32.0" onMouseClicked="#switchToShowStock" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../images/stockLogo.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="switchStateButton" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="60.0" prefWidth="193.0" style="-fx-background-color: transparent;" text="Switch state" textFill="WHITE">
+                                    <Button fx:id="switchStateButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToStatesWindow" prefHeight="60.0" prefWidth="193.0" style="-fx-background-color: transparent;" text="Switch state" textFill="WHITE">
                                        <font>
                                           <Font name="Microsoft JhengHei UI Light" size="18.0" />
                                        </font>
@@ -181,7 +181,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="usersWindow" layoutX="165.0" layoutY="188.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="usersWindow" layoutX="165.0" layoutY="188.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TableView fx:id="usersTable" layoutX="16.8" layoutY="16.8" prefHeight="466.0" prefWidth="668.0" AnchorPane.bottomAnchor="88.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                                 <columns>
@@ -194,6 +194,16 @@
                                  <styleClass>
                                     <String fx:value="tableButtons" />
                                     <String fx:value="buttonStyle" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="switchStateWindow" layoutX="186.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                           <children>
+                              <Button fx:id="switchButton" layoutX="300.0" layoutY="277.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="tableButtons" />
                                  </styleClass>
                               </Button>
                            </children>

@@ -82,6 +82,9 @@ public class AdminPageController  {
     @FXML
     private Button switchStateButton;
     @FXML
+    private Button switchButton;
+
+    @FXML
     private Label adminName;
     @FXML
     private ImageView logoutIcon;
@@ -97,11 +100,16 @@ public class AdminPageController  {
     @FXML
     private AnchorPane usersWindow;
     @FXML
+    private AnchorPane switchStateWindow;
+    @FXML
     private GridPane gridPane;
     private double x =0;
     private double y =0;
 
     private Admin admin;
+    public void switchState(ActionEvent event){
+
+    }
     @FXML
     public void removeUser(ActionEvent event) {
         try {
@@ -159,15 +167,23 @@ public class AdminPageController  {
             AlterOperation.showErrorAlert("Failed to delete stock");
         }
     }
+    public void switchToStatesWindow(){
+        addWindow.setVisible(false);
+        stocksWindow.setVisible(false);
+        usersWindow.setVisible(false);
+        switchStateWindow.setVisible(true);
+    }
 public void switchToAddStock(){
     addWindow.setVisible(true);
     stocksWindow.setVisible(false);
     usersWindow.setVisible(false);
+    switchStateWindow.setVisible(false);
 }
 public void switchToShowUsers(){
     addWindow.setVisible(false);
     stocksWindow.setVisible(false);
     usersWindow.setVisible(true);
+    switchStateWindow.setVisible(false);
     usersList.addAll(Users.getInstance().readAll());
 
     // Set the items of the TableView to the ObservableList
@@ -177,6 +193,7 @@ public void switchToShowStock(){
     addWindow.setVisible(false);
     stocksWindow.setVisible(true);
     usersWindow.setVisible(false);
+    switchStateWindow.setVisible(false);
 }
     public void addStock() {
         try {
