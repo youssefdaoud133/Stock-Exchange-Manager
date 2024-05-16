@@ -8,6 +8,7 @@ import javafx.scene.control.SpinnerValueFactory;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Bank.BuyOperation;
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.UserStock;
 import oop.stockexchangemanager.Utils.AlterOperation;
@@ -50,7 +51,7 @@ public class UserCardController {
     }
     public void buyOperation(){
         try {
-            BuyOperation.getInstance().doOperation(user.getBankAccount(), quantitySelector.getValue(), stock);
+            BuyOperation.getInstance().buyFromUser(quantitySelector.getValue(),user, Users.getInstance().read(userStock.getUserId()) , userStock);
         } catch (Exception e) {
             AlterOperation.showErrorAlert(e.getMessage());
         }

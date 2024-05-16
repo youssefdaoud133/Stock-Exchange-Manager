@@ -3,7 +3,7 @@ package oop.stockexchangemanager.StockPackage;
 public class UserStock {
     private   static int  idGenerator =1;
     private    int  id ;
-    private  int userId;
+    private  int userId;// for the seller
     private  int stockId;
     private  float userPrice;
     private  int userQuantity;

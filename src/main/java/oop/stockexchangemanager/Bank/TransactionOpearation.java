@@ -11,8 +11,9 @@ public class TransactionOpearation {
     {
        user.getTransactionHistory().addTransaction(new Transaction(user.getId(), stock.getAdminId(),"buy",Quantity, stock.getPrice(),Quantity*stock.getPrice(), stock.getId(),"admin" ));
     }
-    public static void buyFromUser(User source, User destination,int Quantity,Stock stock)
+    public static void buyFromUser(User source, User destination,int Quantity,Stock stock,float Priceunit)
     {
-        destination.getTransactionHistory().addTransaction(new Transaction(destination.getId(), source.getId(),"buy",Quantity, stock.getPrice(),Quantity*stock.getPrice(), stock.getId(),"user" ));
+        destination.getTransactionHistory().addTransaction(new Transaction(destination.getId(), source.getId(),"buy",Quantity, Priceunit,Quantity*Priceunit, stock.getId(),"user" ));
+        source.getTransactionHistory().addTransaction(new Transaction(source.getId(),destination.getId(),"sell",Quantity,Priceunit,Quantity*Priceunit,stock.getId(),"user" ));
     }
 }
