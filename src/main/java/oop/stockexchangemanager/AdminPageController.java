@@ -100,10 +100,20 @@ public class AdminPageController  {
     private Admin admin;
     @FXML
     public void removeUser(ActionEvent event) {
+        try {
+            int selectedID=usersTable.getSelectionModel().getSelectedIndex();
+            Users.getInstance().delete(usersTable.getItems().get(selectedID).getId());
+            usersTable.getItems().remove(selectedID);
+        } catch (Exception e) {
+
+            AlterOperation.showErrorAlert("Failed to delete stock");
+        }
+
 
     }
     @FXML
     public void edit(ActionEvent event){
+
 
     }
     @FXML
