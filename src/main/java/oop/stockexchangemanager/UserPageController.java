@@ -115,6 +115,8 @@ public class UserPageController {
         transectionsTable.setItems(transactionList);
     }
         public void switchToTransections(){
+
+
         profileWindow.setVisible(false);
         marketWindow.setVisible(false);
         shopWindow.setVisible(false);
@@ -130,39 +132,56 @@ public class UserPageController {
         transectionsWindow.setVisible(false);
     }
     public void switchToOwnerShop(){
-        profileWindow.setVisible(false);
-        marketWindow.setVisible(false);
-        shopWindow.setVisible(false);
-        transectionsWindow.setVisible(false);
-        OwnerShop.setVisible(true);
-        try {
-            PrintList.populateOwnerStocksGrid(user,gridOwnerStock,scrollOwnerStock,"sellCard");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(Rtk.state) {
+            profileWindow.setVisible(false);
+            marketWindow.setVisible(false);
+            shopWindow.setVisible(false);
+            transectionsWindow.setVisible(false);
+            OwnerShop.setVisible(true);
+            try {
+                PrintList.populateOwnerStocksGrid(user, gridOwnerStock, scrollOwnerStock, "sellCard");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            AlterOperation.showErrorAlert("the session is closed");
         }
     }
     public void switchToMarket(){
-        profileWindow.setVisible(false);
-        marketWindow.setVisible(true);
-        shopWindow.setVisible(false);
-        OwnerShop.setVisible(false);
-        transectionsWindow.setVisible(false);
-        try {
-            PrintList.populateStocksGrid(user,grid,scroll,"marketCard");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(Rtk.state) {
+            profileWindow.setVisible(false);
+            marketWindow.setVisible(true);
+            shopWindow.setVisible(false);
+            OwnerShop.setVisible(false);
+            transectionsWindow.setVisible(false);
+            try {
+                PrintList.populateStocksGrid(user, grid, scroll, "marketCard");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            AlterOperation.showErrorAlert("the session is closed");
         }
     }
     public void switchToShop(){
-        profileWindow.setVisible(false);
-        marketWindow.setVisible(false);
-        shopWindow.setVisible(true);
-        OwnerShop.setVisible(false);
-        transectionsWindow.setVisible(false);
-        try {
-            PrintList.populateUserStocksGrid(user,gridUserStock,scrollUserStock,"userCard");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(Rtk.state) {
+            profileWindow.setVisible(false);
+            marketWindow.setVisible(false);
+            shopWindow.setVisible(true);
+            OwnerShop.setVisible(false);
+            transectionsWindow.setVisible(false);
+            try {
+                PrintList.populateUserStocksGrid(user, gridUserStock, scrollUserStock, "userCard");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            AlterOperation.showErrorAlert("the session is closed");
         }
     }
     public void logout(){
