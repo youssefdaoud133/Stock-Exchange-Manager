@@ -9,9 +9,12 @@ import javafx.scene.layout.Region;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Collections;
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.UserStocks;
 import oop.stockexchangemanager.MarketCardController;
 import oop.stockexchangemanager.SellCardController;
 import oop.stockexchangemanager.StockPackage.Stock;
+import oop.stockexchangemanager.StockPackage.UserStock;
+import oop.stockexchangemanager.UserCardController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,6 +53,44 @@ public class PrintList {
 
 
     }
+
+
+    public static void populateUserStocksGrid(User user, GridPane grid, ScrollPane scroll, String controllerName) throws IOException {
+        List<UserStock> userStocks = new ArrayList<>();
+        userStocks.addAll(UserStocks.getInstance().readAll());
+        int column = 0;
+        int row = 1;
+
+
+        for (int i = 0; i < userStocks.size(); i++) {
+            if (userStocks.get(i).getUserId() == user.getId()) {
+                continue;
+            } else {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(UserCardController.class.getResource(controllerName + ".fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                UserCardController itemController = fxmlLoader.getController();
+                itemController.setData(userStocks.get(i), user);
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row); // (child, column, row)
+                PrintList.GridOperation(grid, scroll, anchorPane);
+
+            }
+        }
+        PrintList.ScrollOperation(grid,scroll);
+
+
+
+
+
+    }
+
 
     public static void populateOwnerStocksGrid(User user, GridPane grid, ScrollPane scroll, String controllerName) throws IOException {
 //        List<Stock> stocks = new ArrayList<>();

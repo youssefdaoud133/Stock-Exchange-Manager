@@ -28,11 +28,14 @@ import oop.stockexchangemanager.Utils.AlterOperation;
 import oop.stockexchangemanager.Utils.PrintList;
 
 public class UserPageController {
+    public ScrollPane scrollUserStock;
+    public GridPane gridUserStock;
     private ObservableList<Transaction> transactionList;
     public Button Ownershop;
     public AnchorPane OwnerShop;
     public ScrollPane scrollOwnerStock;
     public GridPane gridOwnerStock;
+
     @FXML
     private GridPane grid;
 
@@ -151,6 +154,11 @@ public class UserPageController {
         shopWindow.setVisible(true);
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(false);
+        try {
+            PrintList.populateUserStocksGrid(user,gridUserStock,scrollUserStock,"userCard");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public void logout(){
 
