@@ -20,6 +20,7 @@ import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.Database.Users;
+import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.StockOperation;
 import oop.stockexchangemanager.Utils.AlterOperation;
@@ -108,6 +109,7 @@ public class AdminPageController  {
 
     private Admin admin;
     public void switchState(ActionEvent event){
+        Rtk.state=!Rtk.state;
 
     }
     @FXML
