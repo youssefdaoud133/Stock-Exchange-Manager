@@ -263,7 +263,14 @@ public class UserPageController {
 
     public void subscribe(ActionEvent event) {
         try {
-            UserSubscriber.getInstance().create(user.getId(), user);
+            if(!user.isSubscribed()){
+                UserSubscriber.getInstance().create(user.getId(), user);
+                user.setSubscribed(true);
+                AlterOperation.showSuccessAlert("congratulations you have subscribed");
+            }else {
+                AlterOperation.showSuccessAlert("already you subscribed");
+            }
+
         }
         catch (Exception e)
         {

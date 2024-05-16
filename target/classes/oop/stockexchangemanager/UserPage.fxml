@@ -273,14 +273,18 @@
                               </TableView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="notifications" layoutX="188.0" layoutY="241.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="notifications" layoutX="188.0" layoutY="241.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
-                              <TableView fx:id="notificationsTable" layoutX="22.0" layoutY="16.0" prefHeight="443.0" prefWidth="651.0">
+                              <TableView fx:id="notificationsTable" layoutX="22.0" layoutY="16.0" prefHeight="443.0" prefWidth="651.0" styleClass="shadow" stylesheets="@style.css">
                                 <columns>
                                   <TableColumn fx:id="notificationsColumn" prefWidth="650.400008392334" text="Notifications content" />
                                 </columns>
                               </TableView>
                            </children>
+                           <styleClass>
+                              <String fx:value="background-style" />
+                              <String fx:value="shadow" />
+                           </styleClass>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
