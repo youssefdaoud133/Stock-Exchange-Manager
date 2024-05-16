@@ -229,12 +229,11 @@
                            <children>
                               <TableView fx:id="transectionsTable" layoutX="15.0" layoutY="14.0" prefHeight="420.0" prefWidth="669.0" stylesheets="@style.css">
                                 <columns>
-                                  <TableColumn fx:id="usernameSection" prefWidth="90.40002536773682" text="Name" />
-                                  <TableColumn fx:id="sourceSection" prefWidth="100.79999542236328" text="Source" />
-                                    <TableColumn fx:id="sourceTypeSection" prefWidth="91.99998474121094" text="SourceType" />
-                                    <TableColumn fx:id="transectionTypeSection" prefWidth="152.0" text="TransectionType" />
-                                    <TableColumn fx:id="quantitySection" prefWidth="95.19998168945312" text="Quantity" />
-                                    <TableColumn fx:id="amountSection" prefWidth="151.2000732421875" text="Total amount" />
+                                  <TableColumn fx:id="sourceSection" prefWidth="138.40003299713135" text="Source" />
+                                    <TableColumn fx:id="sourceTypeSection" prefWidth="106.39999389648438" text="SourceType" />
+                                    <TableColumn fx:id="transectionTypeSection" prefWidth="150.40005493164062" text="TransectionType" />
+                                    <TableColumn fx:id="quantitySection" prefWidth="119.99996948242188" text="Quantity" />
+                                    <TableColumn fx:id="amountSection" prefWidth="156.800048828125" text="Total amount" />
                                 </columns>
                               </TableView>
                            </children>
