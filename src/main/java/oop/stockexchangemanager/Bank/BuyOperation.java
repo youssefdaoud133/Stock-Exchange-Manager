@@ -7,6 +7,7 @@ import oop.stockexchangemanager.Database.UserSubscriber;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.UserStock;
 import oop.stockexchangemanager.UserPage;
+import oop.stockexchangemanager.Utils.SendNotificitions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,11 +59,9 @@ public class BuyOperation implements SingleAccountOperation {
          TransactionOpearation.buyFromUser(sellerUser,buyerUser,quantity,Stocks.getInstance().read(userStock.getStockId()),userStock.getUserPrice());
          Stocks.getInstance().read(userStock.getStockId()).setPrice(userStock.getUserPrice());
          userStock.setUserQuantity( userStock.getUserQuantity() - quantity );
-         List<User> supscribesUsers = new ArrayList<>();
-         supscribesUsers.addAll(UserSubscriber.getInstance().readAll());
-         for(User user: supscribesUsers){
-             user.setNotfications(Stocks.getInstance().read(userStock.getStockId()).getCompanyName()+" have changed");
-         }
+         SendNotificitions.sendToSubscribesUsers(Stocks.getInstance().read(userStock.getStockId()).getCompanyName()+" have changed");
+
+
 
 
       }

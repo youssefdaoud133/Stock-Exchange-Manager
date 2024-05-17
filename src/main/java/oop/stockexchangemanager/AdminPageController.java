@@ -19,12 +19,14 @@ import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.UserSubscriber;
 import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.ExportOperation.CSVexporter;
 import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.StockOperation;
 import oop.stockexchangemanager.Utils.AlterOperation;
+import oop.stockexchangemanager.Utils.SendNotificitions;
 
 import java.io.IOException;
 import java.net.URL;
@@ -85,6 +87,9 @@ public class AdminPageController  {
     public void switchState(ActionEvent event){
         Rtk.state=!Rtk.state;
         updateStateLabel();
+        SendNotificitions.sendToSubscribesUsers("session opened");
+
+        AlterOperation.showSuccessAlert("Stock added successfully.");
     }
     private void updateStateLabel() {
         if (Rtk.state) {
@@ -193,6 +198,8 @@ public void switchToShowStock(){
             stocksList.add(AddedStock);
 
             stocksTable.refresh();
+            SendNotificitions.sendToSubscribesUsers(AddedStock.getCompanyName()+" added from admin");
+
             AlterOperation.showSuccessAlert("Stock added successfully.");
         } catch (Exception e) {
             AlterOperation.showErrorAlert(e.getMessage());
