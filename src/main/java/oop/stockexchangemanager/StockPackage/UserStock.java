@@ -13,7 +13,10 @@ public class UserStock {
     {
         UserStock userStock=new UserStock();
         userStock.id=Stock.idGenerator;
-        UserStock.idGenerator++;
+        synchronized (UserStock.class) {
+            userStock.id = idGenerator++;
+        }
+
         userStock.setUserId(userId);
         userStock.setStockId(stockId);
         userStock.setUserPrice(userPrice);
