@@ -98,7 +98,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <Button mnemonicParsing="false" onAction="#exportData" prefHeight="60.0" prefWidth="220.0" style="-fx-background-color: transparent;" text="Export data" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#exportData" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css" text="Export data" textFill="WHITE">
                                  <font>
                                     <Font name="Microsoft YaHei UI Light" size="18.0" />
                                  </font>
@@ -132,19 +132,13 @@
                                     <TableColumn fx:id="adminNameSection" prefWidth="189.60003662109375" text="Admin name" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="deleteButton" layoutX="89.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
+                              <Button fx:id="deleteButton" layoutX="178.0" layoutY="492.0" mnemonicParsing="false" onAction="#remove" stylesheets="@style.css" text="Delete">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="editButton" layoutX="300.0" layoutY="492.0" mnemonicParsing="false" onAction="#edit" stylesheets="@style.css" text="Edit">
-                                 <styleClass>
-                                    <String fx:value="buttonStyle" />
-                                    <String fx:value="login-button" />
-                                 </styleClass>
-                              </Button>
-                              <Button fx:id="viewButton" layoutX="512.0" layoutY="492.0" mnemonicParsing="false" onAction="#view" stylesheets="@style.css" text="View">
+                              <Button fx:id="viewButton" layoutX="420.0" layoutY="492.0" mnemonicParsing="false" onAction="#view" stylesheets="@style.css" text="View">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
@@ -205,12 +199,14 @@
                         </AnchorPane>
                         <AnchorPane fx:id="switchStateWindow" layoutX="186.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <Button fx:id="switchButton" layoutX="308.0" layoutY="279.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
+                              <Button fx:id="switchButton" layoutX="300.0" layoutY="345.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="tableButtons" />
                                  </styleClass>
                               </Button>
+                              <Label layoutX="122.0" layoutY="192.0" styleClass="text-style" stylesheets="@style.css" text="Session state :" />
+                              <Label fx:id="sessionState" alignment="CENTER" layoutX="349.0" layoutY="192.0" prefHeight="47.0" prefWidth="257.0" styleClass="text-style" stylesheets="@style.css" textFill="WHITE" />
                            </children>
                         </AnchorPane>
                      </children>

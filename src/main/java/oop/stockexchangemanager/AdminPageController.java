@@ -33,6 +33,7 @@ import java.util.ResourceBundle;
 import java.util.Stack;
 
 public class AdminPageController  {
+    public Label sessionState;
     private ObservableList<Stock> stocksList;
     private ObservableList<User> usersList;
     //
@@ -67,33 +68,9 @@ public class AdminPageController  {
     public TextField priceField;
     public TextField descroptionField;
     @FXML
-    private Button addStock;
-    @FXML
-    private Button showStock;
-    @FXML
     private Button logoutButton;
     @FXML
-    private Button deleteButton;
-    @FXML
-    private Button addButton;
-    @FXML
-    private Button showUsersButton;
-    @FXML
-    private Button removeButton;
-    @FXML
-    private Button switchStateButton;
-    @FXML
-    private Button switchButton;
-
-    @FXML
     private Label adminName;
-    @FXML
-    private ImageView logoutIcon;
-
-
-
-    @FXML
-    private AnchorPane basePane;
     @FXML
     private AnchorPane addWindow;
     @FXML
@@ -102,15 +79,20 @@ public class AdminPageController  {
     private AnchorPane usersWindow;
     @FXML
     private AnchorPane switchStateWindow;
-    @FXML
-    private GridPane gridPane;
     private double x =0;
     private double y =0;
 
     private Admin admin;
     public void switchState(ActionEvent event){
         Rtk.state=!Rtk.state;
-
+        updateStateLabel();
+    }
+    private void updateStateLabel() {
+        if (Rtk.state) {
+            sessionState.setText("Opened");
+        } else {
+            sessionState.setText("Closed");
+        }
     }
     @FXML
     public void removeUser(ActionEvent event) {
@@ -122,11 +104,6 @@ public class AdminPageController  {
 
             AlterOperation.showErrorAlert("Failed to delete stock");
         }
-
-
-    }
-    @FXML
-    public void edit(ActionEvent event){
 
 
     }
@@ -267,6 +244,5 @@ public void switchToShowStock(){
     }
 
     public void exportData(ActionEvent event) {
-
     }
 }
