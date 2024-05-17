@@ -121,9 +121,9 @@
                <center>
                   <AnchorPane prefHeight="600.0" prefWidth="550.0" styleClass="background-style" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <TableView fx:id="stocksTable" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0">
+                              <TableView fx:id="stocksTable" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0" AnchorPane.bottomAnchor="121.59999999999991" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="13.599999999999909" AnchorPane.topAnchor="27.199999999999932">
                                 <columns>
                                   <TableColumn fx:id="stockIDSection" prefWidth="75.20003128051758" text="Stock ID" />
                                   <TableColumn fx:id="companyNameSection" prefWidth="160.79998779296875" text="Company name" />
@@ -197,7 +197,7 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="switchStateWindow" layoutX="186.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="switchStateWindow" layoutX="186.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <Button fx:id="switchButton" layoutX="300.0" layoutY="345.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
                                  <styleClass>

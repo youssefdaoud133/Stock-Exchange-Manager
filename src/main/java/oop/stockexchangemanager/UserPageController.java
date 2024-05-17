@@ -37,13 +37,21 @@ import oop.stockexchangemanager.Utils.AlterOperation;
 import oop.stockexchangemanager.Utils.PrintList;
 
 public class UserPageController {
+    private ObservableList<Stock> stocksList;
+    @FXML
+    private TableView<Stock> stocksTable;
+    @FXML
+    private TableColumn<Stock, String> companyNameSection;
+    @FXML
+    private TableColumn<Stock, Float> priceSection;
+    @FXML
+    private TableColumn<Stock,Integer> quantitySection1;
+    @FXML
+    private TableColumn<Stock, String> adminNameSection;
+    @FXML
+    private TableColumn<Stock, Integer> stockIDSection;
     public AnchorPane stocksWindow;
-    public TableView stocksTable;
-    public TableColumn stockIDSection;
-    public TableColumn companyNameSection;
-    public TableColumn quantitySection1;
-    public TableColumn priceSection;
-    public TableColumn adminNameSection;
+
     private ObservableList<String> notificationsList;
     public ScrollPane scrollUserStock;
     public GridPane gridUserStock;
@@ -256,9 +264,21 @@ public class UserPageController {
 
     @FXML
     public void initialize() {
+        stocksList = FXCollections.observableArrayList();
         // Initialize ObservableList for customers
         transactionList = FXCollections.observableArrayList();
         notificationsList = FXCollections.observableArrayList();
+
+        // Bind TableColumn to Customer properties
+        companyNameSection.setCellValueFactory(new PropertyValueFactory<>("companyName"));
+        priceSection.setCellValueFactory(new PropertyValueFactory<>("priceHistory"));
+        quantitySection1.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+        adminNameSection.setCellValueFactory(new PropertyValueFactory<>("AdminName"));
+        stockIDSection.setCellValueFactory(new PropertyValueFactory<>("id"));
+        stocksList.addAll(Stocks.getInstance().readAll());
+
+        // Set the items of the TableView to the ObservableList
+        stocksTable.setItems(stocksList);
 
         notificationsColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
 
@@ -362,15 +382,52 @@ public class UserPageController {
     }
 
     public void switchToStocksWindow(ActionEvent event) {
-        profileWindow.setVisible(false);
-        marketWindow.setVisible(false);
-        shopWindow.setVisible(false);
-        OwnerShop.setVisible(false);
-        transectionsWindow.setVisible(false);
-        notifications.setVisible(false);
-        stocksWindow.setVisible(true);
+        if(user.isSubscribed()){
+            profileWindow.setVisible(false);
+            marketWindow.setVisible(false);
+            shopWindow.setVisible(false);
+            OwnerShop.setVisible(false);
+            transectionsWindow.setVisible(false);
+            notifications.setVisible(false);
+            stocksWindow.setVisible(true);
+            stocksList.clear();
+            stocksList.addAll(Stocks.getInstance().readAll());
+
+            // Set the items of the TableView to the ObservableList
+            stocksTable.setItems(stocksList);
+
+        }else {
+            AlterOperation.showErrorAlert("you are in community edition");
+        }
+
     }
 
+    @FXML
     public void view(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("viewGraph.fxml"));
+            Parent root = loader.load(); // This line can throw an IOException
+
+            // Access the controller of the loaded FXML
+            ViewGraphController controller = loader.getController();
+
+            // Get the selected stock and its history prices
+            int selectedID = stocksTable.getSelectionModel().getSelectedIndex();
+            Stock selectedStock = Stocks.getInstance().read(stocksTable.getItems().get(selectedID).getId());
+            String companyName = selectedStock.getCompanyName();
+            Stack<Float> historyPrices = selectedStock.getPriceHistory(); // Assuming this method exists
+
+            // Pass the history prices to the controller
+            controller.setHistoryPrices(historyPrices);
+
+            Stage graphStage = new Stage();
+            graphStage.setScene(new Scene(root));
+            graphStage.setTitle("StockExchangeManager - " + user.getUserName() + " - " + companyName);
+            graphStage.show();
+
+        } catch (Exception e) {
+
+            AlterOperation.showErrorAlert("Failed to view stock");
+        }
     }
 }

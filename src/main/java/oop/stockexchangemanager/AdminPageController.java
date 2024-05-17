@@ -169,10 +169,16 @@ public void switchToShowUsers(){
     usersTable.setItems(usersList);
 }
 public void switchToShowStock(){
+
     addWindow.setVisible(false);
     stocksWindow.setVisible(true);
     usersWindow.setVisible(false);
     switchStateWindow.setVisible(false);
+    stocksList.clear();
+    stocksList.addAll(Stocks.getInstance().readAll());
+
+    // Set the items of the TableView to the ObservableList
+    stocksTable.setItems(stocksList);
 
 }
     public void addStock() {
