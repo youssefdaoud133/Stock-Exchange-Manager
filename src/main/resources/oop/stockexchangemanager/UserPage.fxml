@@ -153,7 +153,7 @@
                                 </content>
                               </ScrollPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
                               <Label layoutX="110.0" layoutY="90.0" text="Username :" textFill="WHITE">
                                  <font>
@@ -203,10 +203,20 @@
                               <Line endX="240.19998168945312" endY="-4.57763671875E-5" layoutX="253.0" layoutY="133.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
                               <Line endX="243.39999389648438" endY="-3.0517578125E-5" layoutX="253.0" layoutY="269.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
                               <Line endX="244.99993896484375" endY="-9.1552734375E-5" layoutX="253.0" layoutY="392.0" startX="0.8000335693359375" startY="-4.57763671875E-5" stroke="#f9b17a" />
-                              <Button fx:id="subscribeButton" layoutX="561.0" layoutY="421.0" mnemonicParsing="false" onAction="#subscribe" stylesheets="@style.css" text="Subscribe">
+                              <Button fx:id="subscribeButton" layoutX="561.0" layoutY="360.0" mnemonicParsing="false" onAction="#subscribe" stylesheets="@style.css" text="Subscribe">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="login-button" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                              <Button fx:id="exportButton" layoutX="552.0" layoutY="419.0" mnemonicParsing="false" onAction="#export" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #f9b17a;" stylesheets="@style.css" text="Export data" textFill="#2d3250">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="shadow" />
                                  </styleClass>
                               </Button>
                            </children>
