@@ -44,7 +44,7 @@
                         </Label>
                         <VBox layoutX="-2.0" layoutY="255.0" prefHeight="346.0" prefWidth="226.0">
                            <children>
-                              <ButtonBar layoutX="10.0" layoutY="10.0" onMouseClicked="#switchToMarket" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
+                              <ButtonBar layoutX="10.0" layoutY="10.0" onMouseClicked="#switchToMarket" prefHeight="70.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToMarket" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -58,7 +58,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="70.0" onMouseClicked="#switchToShop" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
+                              <ButtonBar layoutX="10.0" layoutY="70.0" onMouseClicked="#switchToShop" prefHeight="70.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="52.0" fitWidth="49.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true" translateX="10.0">
                                        <image>
@@ -72,7 +72,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="69.0" onMouseClicked="#switchToOwnerShop" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
+                              <ButtonBar layoutX="10.0" layoutY="69.0" onMouseClicked="#switchToOwnerShop" prefHeight="70.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -86,7 +86,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="99.0" onMouseClicked="#switchToTransections" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
+                              <ButtonBar layoutX="10.0" layoutY="99.0" onMouseClicked="#switchToTransections" prefHeight="70.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                                        <image>
@@ -100,7 +100,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar layoutX="10.0" layoutY="185.0" onMouseClicked="#switchToNotifications" prefHeight="60.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
+                              <ButtonBar layoutX="10.0" layoutY="185.0" onMouseClicked="#switchToNotifications" prefHeight="70.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
                                  <buttons>
                                     <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                                        <image>
@@ -114,14 +114,28 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-                              <ButtonBar prefHeight="114.0" prefWidth="226.0">
+                              <ButtonBar layoutX="10.0" layoutY="204.0" onMouseClicked="#switchToNotifications" prefHeight="70.0" prefWidth="226.0" styleClass="mainButtons" stylesheets="@style.css">
+                                 <buttons>
+                                    <ImageView fitHeight="25.0" fitWidth="53.0" onMouseClicked="#switchToShop" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
+                                       <image>
+                                          <Image url="@../../images/show.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToStocksWindow" prefHeight="54.0" prefWidth="140.0" style="-fx-background-color: transparent;" text="Show stocks" textFill="WHITE" translateX="-7.0">
+                                       <font>
+                                          <Font name="Microsoft JhengHei Light" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </buttons>
+                              </ButtonBar>
+                              <ButtonBar prefHeight="70.0" prefWidth="226.0">
                                 <buttons>
-                                    <ImageView fitHeight="29.0" fitWidth="23.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="30.0">
+                                    <ImageView fitHeight="29.0" fitWidth="23.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="5.0">
                                        <image>
                                           <Image url="@../../images/logout.png" />
                                        </image>
                                     </ImageView>
-                                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-120.0" translateY="30.0" />
+                                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" styleClass="logout" stylesheets="@style.css" text="Logout" textFill="WHITE" translateX="-120.0" translateY="5.0" />
                                 </buttons>
                               </ButtonBar>
                            </children>
@@ -153,7 +167,7 @@
                                 </content>
                               </ScrollPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
                               <Label layoutX="110.0" layoutY="90.0" text="Username :" textFill="WHITE">
                                  <font>
@@ -296,6 +310,30 @@
                               <String fx:value="background-style" />
                               <String fx:value="shadow" />
                            </styleClass>
+                        </AnchorPane>
+                        <AnchorPane fx:id="stocksWindow" layoutX="162.0" layoutY="219.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="background-style" />
+                           </styleClass>
+                           <children>
+                              <TableView fx:id="stocksTable" layoutX="12.0" layoutY="14.0" prefHeight="395.0" prefWidth="670.0" styleClass="shadow" stylesheets="@style.css">
+                                 <columns>
+                                    <TableColumn fx:id="stockIDSection" prefWidth="75.20003128051758" text="Stock ID" />
+                                    <TableColumn fx:id="companyNameSection" prefWidth="160.79998779296875" text="Company name" />
+                                    <TableColumn fx:id="quantitySection1" prefWidth="128.80003356933594" text="Quantity" />
+                                    <TableColumn fx:id="priceSection" prefWidth="132.0" text="Price" />
+                                    <TableColumn fx:id="adminNameSection" prefWidth="172.79989624023438" text="Admin name" />
+                                 </columns>
+                              </TableView>
+                              <Button fx:id="viewButton" layoutX="297.0" layoutY="432.0" mnemonicParsing="false" onAction="#view" stylesheets="@style.css" text="View">
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="login-button" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                           </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>

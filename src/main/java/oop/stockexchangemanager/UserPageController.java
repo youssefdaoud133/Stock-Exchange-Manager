@@ -37,6 +37,13 @@ import oop.stockexchangemanager.Utils.AlterOperation;
 import oop.stockexchangemanager.Utils.PrintList;
 
 public class UserPageController {
+    public AnchorPane stocksWindow;
+    public TableView stocksTable;
+    public TableColumn stockIDSection;
+    public TableColumn companyNameSection;
+    public TableColumn quantitySection1;
+    public TableColumn priceSection;
+    public TableColumn adminNameSection;
     private ObservableList<String> notificationsList;
     public ScrollPane scrollUserStock;
     public GridPane gridUserStock;
@@ -145,6 +152,7 @@ public class UserPageController {
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(false);
         notifications.setVisible(true);
+        stocksWindow.setVisible(false);
         updateNotificationsList();
         updateTransactionList();
         updatePrice();
@@ -156,6 +164,7 @@ public class UserPageController {
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(true);
         notifications.setVisible(false);
+            stocksWindow.setVisible(false);
             updateTransactionList();
             updatePrice();
     }
@@ -166,6 +175,7 @@ public class UserPageController {
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(false);
         notifications.setVisible(false);
+        stocksWindow.setVisible(false);
         updatePrice();
     }
     public void switchToOwnerShop(){
@@ -175,6 +185,7 @@ public class UserPageController {
             shopWindow.setVisible(false);
             transectionsWindow.setVisible(false);
             OwnerShop.setVisible(true);
+            stocksWindow.setVisible(false);
             notifications.setVisible(false);
             try {
                 PrintList.populateOwnerStocksGrid(user, gridOwnerStock, scrollOwnerStock, "sellCard");
@@ -196,6 +207,7 @@ public class UserPageController {
             OwnerShop.setVisible(false);
             transectionsWindow.setVisible(false);
             notifications.setVisible(false);
+            stocksWindow.setVisible(false);
             try {
                 PrintList.populateStocksGrid(user, grid, scroll, "marketCard");
             } catch (IOException e) {
@@ -218,6 +230,7 @@ public class UserPageController {
             OwnerShop.setVisible(false);
             transectionsWindow.setVisible(false);
             notifications.setVisible(false);
+            stocksWindow.setVisible(false);
             try {
                 PrintList.populateUserStocksGrid(user, gridUserStock, scrollUserStock, "userCard");
                 updatePrice();
@@ -346,5 +359,18 @@ public class UserPageController {
             }
         }
         return maxPrice; // Maximum price
+    }
+
+    public void switchToStocksWindow(ActionEvent event) {
+        profileWindow.setVisible(false);
+        marketWindow.setVisible(false);
+        shopWindow.setVisible(false);
+        OwnerShop.setVisible(false);
+        transectionsWindow.setVisible(false);
+        notifications.setVisible(false);
+        stocksWindow.setVisible(true);
+    }
+
+    public void view(ActionEvent event) {
     }
 }
