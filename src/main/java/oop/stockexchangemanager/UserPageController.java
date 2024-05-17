@@ -281,15 +281,37 @@ public class UserPageController {
     public void export(ActionEvent event) {
         CSVexporter.createBlankCSV("src/main/java/oop/stockexchangemanager/historyCSV/StocksHistory.csv");
         List<String[]> dataToAdd = new ArrayList<>();
-        String[] row0 = {"Company Name"};
+        String[] row0 = {"Company Name","Open Price" ,"Maximum price","Minimum Price","closed price"};
         dataToAdd.add(row0);
         List<Stock> ourStocks = new ArrayList<>();
         ourStocks.addAll(Stocks.getInstance().readAll());
         for(Stock stock: ourStocks){
-            String[] row = new String[]{stock.getCompanyName()};
+            String[] row = new String[]{stock.getCompanyName(),String.valueOf(stock.getPriceHistory().getFirst()),String.valueOf(findMaxPrice(stock.getPriceHistory())),String.valueOf(findMinPrice(stock.getPriceHistory())),String.valueOf(stock.getPriceHistory().peek())};
             dataToAdd.add(row);
         }
         CSVexporter.writeDataToCSV("src/main/java/oop/stockexchangemanager/historyCSV/StocksHistory.csv" , dataToAdd);
         System.out.println("done");
+    }
+
+    private float findMinPrice(Stack<Float> historyPrices) {
+        // Find the minimum price
+        float minPrice = Float.MAX_VALUE;
+        for (Float price : historyPrices) {
+            if (price < minPrice) {
+                minPrice = price;
+            }
+        }
+        return minPrice; // Minimum price
+    }
+
+    private float findMaxPrice(Stack<Float> historyPrices) {
+        // Find the maximum price
+        float maxPrice = Float.MIN_VALUE;
+        for (Float price : historyPrices) {
+            if (price > maxPrice) {
+                maxPrice = price;
+            }
+        }
+        return maxPrice; // Maximum price
     }
 }
