@@ -3,6 +3,9 @@ package oop.stockexchangemanager.Database;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.UserStock;
 
+import java.util.Iterator;
+import java.util.Map;
+
 public class UserStocks extends Collections<UserStock>{
     private static UserStocks instance;
 
@@ -22,6 +25,16 @@ public class UserStocks extends Collections<UserStock>{
         }
 
         return instance;
+    }
+
+    public void removeStocksByUserId(int userId) {
+        Iterator<Map.Entry<Integer, UserStock>> iterator = data.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<Integer, UserStock> entry = iterator.next();
+            if (entry.getValue().getUserId() == userId) {
+                iterator.remove();
+            }
+        }
     }
 
 

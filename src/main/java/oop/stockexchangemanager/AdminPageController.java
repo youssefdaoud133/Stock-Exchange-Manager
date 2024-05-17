@@ -19,6 +19,7 @@ import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.UserStocks;
 import oop.stockexchangemanager.Database.UserSubscriber;
 import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.ExportOperation.CSVexporter;
@@ -105,6 +106,7 @@ public class AdminPageController  {
         try {
             int selectedID=usersTable.getSelectionModel().getSelectedIndex();
             Users.getInstance().delete(usersTable.getItems().get(selectedID).getId());
+            UserStocks.getInstance().removeStocksByUserId(usersTable.getItems().get(selectedID).getId());
             usersTable.getItems().remove(selectedID);
         } catch (Exception e) {
 
