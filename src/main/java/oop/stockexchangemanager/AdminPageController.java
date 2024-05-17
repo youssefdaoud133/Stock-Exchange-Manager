@@ -264,4 +264,7 @@ public void switchToShowStock(){
         usersTable.setItems(usersList);
     }
 
+    public void exportData(ActionEvent event) {
+
+    }
 }

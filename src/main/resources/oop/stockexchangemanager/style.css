@@ -5,6 +5,10 @@
  -fx-background-color:#2d3250;
 }
 .ButtonColor{
+  -fx-text-fill: #2d3250;
+  -fx-font-family: "Roboto";
+  -fx-font-weight: bold;
+  -fx-font-size:16px;
 -fx-background-color: #f9b17a;
 }
 .bgColor{
