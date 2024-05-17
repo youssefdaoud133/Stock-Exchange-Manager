@@ -167,7 +167,7 @@
                                 </content>
                               </ScrollPane>
                            </children></AnchorPane>
-                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="profileWindow" layoutX="25.0" layoutY="104.0" prefHeight="482.0" prefWidth="694.0" style="-fx-border-color: #f9b17a;" styleClass="background-style" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <children>
                               <Label layoutX="110.0" layoutY="90.0" text="Username :" textFill="WHITE">
                                  <font>
@@ -311,7 +311,7 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </AnchorPane>
-                        <AnchorPane fx:id="stocksWindow" layoutX="162.0" layoutY="219.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="162.0" layoutY="219.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="104.0">
                            <styleClass>
                               <String fx:value="shadow" />
                               <String fx:value="background-style" />
