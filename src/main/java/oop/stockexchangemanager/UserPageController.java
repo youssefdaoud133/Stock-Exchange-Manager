@@ -133,7 +133,7 @@ public class UserPageController {
         updateTransactionList();
     }
 
-    private void updatePrice(){
+    public void updatePrice(){
         balance.setText(user.getBankAccount().getBalance()+"");
     }
 
@@ -217,7 +217,7 @@ public class UserPageController {
             notifications.setVisible(false);
             stocksWindow.setVisible(false);
             try {
-                PrintList.populateStocksGrid(user, grid, scroll, "marketCard");
+                PrintList.populateStocksGrid(this,user, grid, scroll, "marketCard");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -240,7 +240,7 @@ public class UserPageController {
             notifications.setVisible(false);
             stocksWindow.setVisible(false);
             try {
-                PrintList.populateUserStocksGrid(user, gridUserStock, scrollUserStock, "userCard");
+                PrintList.populateUserStocksGrid(this,user, gridUserStock, scrollUserStock, "userCard");
                 updatePrice();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -311,6 +311,7 @@ public class UserPageController {
 
             // Pass the history prices to the controller
             controller.setData(user);
+            controller.setUserPageController(this);
 
             Stage graphStage = new Stage();
             graphStage.setScene(new Scene(root));

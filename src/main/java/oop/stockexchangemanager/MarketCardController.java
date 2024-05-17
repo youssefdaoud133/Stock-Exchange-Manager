@@ -23,8 +23,11 @@ public class MarketCardController {
 
     private Stock stock;
     private User user;
-
+    private UserPageController userPageController;
     private  SpinnerValueFactory<Integer> spinnerValueFactory;
+    public void setUserPageController(UserPageController userPageController) {
+        this.userPageController = userPageController;
+    }
 
     public  void initialize(){
         SpinnerValueFactory<Integer> spinnerValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
@@ -43,6 +46,9 @@ public class MarketCardController {
     public void buyOperation(){
         try {
             BuyOperation.getInstance().doOperation(user.getBankAccount(), quantitySelector.getValue(), stock);
+
+            userPageController.updatePrice();
+
         } catch (Exception e) {
             AlterOperation.showErrorAlert(e.getMessage());
         }

@@ -15,6 +15,7 @@ import oop.stockexchangemanager.SellCardController;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.UserStock;
 import oop.stockexchangemanager.UserCardController;
+import oop.stockexchangemanager.UserPageController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 public class PrintList {
-    public static void populateStocksGrid(User user, GridPane grid, ScrollPane scroll, String controllerName) throws IOException {
+    public static void populateStocksGrid(UserPageController userPageController,User user, GridPane grid, ScrollPane scroll, String controllerName) throws IOException {
         List<Stock> stocks = new ArrayList<>();
         stocks.addAll(Stocks.getInstance().readAll());
         int column = 0;
@@ -37,6 +38,8 @@ public class PrintList {
 
                 MarketCardController itemController = fxmlLoader.getController();
                 itemController.setData(stocks.get(i), user);
+                itemController.setUserPageController(userPageController);
+
 
                 if (column == 2) {
                     column = 0;
@@ -55,7 +58,7 @@ public class PrintList {
     }
 
 
-    public static void populateUserStocksGrid(User user, GridPane grid, ScrollPane scroll, String controllerName) throws IOException {
+    public static void populateUserStocksGrid(UserPageController userPageController, User user, GridPane grid, ScrollPane scroll, String controllerName) throws IOException {
         List<UserStock> userStocks = new ArrayList<>();
         userStocks.addAll(UserStocks.getInstance().readAll());
         int column = 0;
@@ -70,8 +73,11 @@ public class PrintList {
                 fxmlLoader.setLocation(UserCardController.class.getResource(controllerName + ".fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
+
+
                 UserCardController itemController = fxmlLoader.getController();
                 itemController.setData(userStocks.get(i), user);
+                itemController.setUserPageController(userPageController);
 
                 if (column == 2) {
                     column = 0;

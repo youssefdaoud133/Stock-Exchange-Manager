@@ -31,6 +31,9 @@ public class UserCardController {
     private UserStock userStock;
     private User user;
 
+    private UserPageController userPageController;
+
+
 
     private  SpinnerValueFactory<Integer> spinnerValueFactory;
 
@@ -38,6 +41,9 @@ public class UserCardController {
         SpinnerValueFactory<Integer> spinnerValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
         spinnerValueFactory.setValue(1);
         quantitySelector.setValueFactory(spinnerValueFactory);
+    }
+    public void setUserPageController(UserPageController userPageController) {
+        this.userPageController = userPageController;
     }
 
     public void setData(UserStock userStock, User user){
@@ -54,6 +60,8 @@ public class UserCardController {
         try {
             System.out.println(userStock.getUserId());
             BuyOperation.getInstance().buyFromUser(quantitySelector.getValue(),user, Users.getInstance().read(userStock.getUserId()) , userStock);
+            userPageController.updatePrice();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             AlterOperation.showErrorAlert(e.getMessage());

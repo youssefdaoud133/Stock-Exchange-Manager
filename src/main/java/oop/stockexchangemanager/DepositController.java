@@ -18,6 +18,10 @@ public class DepositController {
     private Button submitButton;
     private   User user ;
 
+    private UserPageController userPageController;
+    public void setUserPageController(UserPageController userPageController) {
+        this.userPageController = userPageController;
+    }
     public void setData( User user){
         this.user=user;
     }
@@ -32,6 +36,7 @@ public class DepositController {
 
             // Perform the deposit operation
             Deposit.getInstance().DoOperation(user.getBankAccount(), depositAmount);
+            userPageController.updatePrice();
 
             // Clear the input field
             depositField.clear();
