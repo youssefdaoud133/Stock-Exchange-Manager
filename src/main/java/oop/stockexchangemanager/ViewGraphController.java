@@ -35,7 +35,7 @@ public class ViewGraphController implements Initializable {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
 
         int index = 0;
-    
+
 
         for (Float price : historyPrices) {
             series.getData().add(new XYChart.Data<>(index, price));

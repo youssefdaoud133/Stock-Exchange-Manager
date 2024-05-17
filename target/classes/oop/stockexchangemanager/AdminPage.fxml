@@ -200,10 +200,16 @@
                         </AnchorPane>
                         <AnchorPane fx:id="switchStateWindow" layoutX="186.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-                              <Button fx:id="switchButton" layoutX="300.0" layoutY="277.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
+                              <Button fx:id="switchButton" layoutX="300.0" layoutY="222.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="tableButtons" />
+                                 </styleClass>
+                              </Button>
+                              <Button layoutX="284.0" layoutY="318.0" mnemonicParsing="false" onAction="#exportData" prefHeight="35.0" prefWidth="131.0" stylesheets="@style.css" text="Export data">
+                                 <styleClass>
+                                    <String fx:value="buttonStyle" />
+                                    <String fx:value="ButtonColor" />
                                  </styleClass>
                               </Button>
                            </children>
