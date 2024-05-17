@@ -1,6 +1,5 @@
 # Stock-Exchange-Manager-OOP-DesignPattern-Java
 
-# Stock Exchange Manager
 ## Overview
 <p align="center">
   <img src="./Readmeimages/Sign in image.png" alt="Alt text" />
