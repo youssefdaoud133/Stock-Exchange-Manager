@@ -4,6 +4,7 @@ import oop.stockexchangemanager.AccountPackage.Account;
 import oop.stockexchangemanager.AccountPackage.User;
 
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 //
@@ -32,6 +33,25 @@ public class Users extends Collections<User> {
         }
 
         return instance;
+    }
+    // Method to check if email already exists
+    public boolean emailExists(String email) {
+        Collection<User> users = readAll();
+        for (User user : users) {
+            if (user.getEmail().equalsIgnoreCase(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean uaernameExists(String username) {
+        Collection<User> users = readAll();
+        for (User user : users) {
+            if (user.getUserName().equalsIgnoreCase(username)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

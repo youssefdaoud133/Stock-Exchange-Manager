@@ -48,6 +48,14 @@ public class SignupController {
             if(!Objects.equals(password, confirmPass)) {
                 throw new IllegalArgumentException("Invalid confirm password");
             }
+            if (Users.getInstance().emailExists(Email)) {
+                throw new IllegalArgumentException("Email already in use");
+            }
+            if (Users.getInstance().uaernameExists(UserName)) {
+                throw new IllegalArgumentException("UserName already in use");
+            }
+
+
             Authentication.SignUp(UserName,password,Email,selectedDate);
             SignupController.stage.close();
 
