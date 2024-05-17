@@ -98,11 +98,7 @@
                                     </Button>
                                  </buttons>
                               </ButtonBar>
-<<<<<<< HEAD
-                              <Button mnemonicParsing="false" onAction="#exportData" prefHeight="60.0" prefWidth="220.0" style="-fx-background-color: transparent;" text="Export data" textFill="WHITE">
-=======
                               <Button mnemonicParsing="false" onAction="#exportData" prefHeight="60.0" prefWidth="220.0" styleClass="mainButtons" stylesheets="@style.css" text="Export data" textFill="WHITE">
->>>>>>> narges
                                  <font>
                                     <Font name="Microsoft YaHei UI Light" size="18.0" />
                                  </font>
@@ -203,21 +199,14 @@
                         </AnchorPane>
                         <AnchorPane fx:id="switchStateWindow" layoutX="186.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
-<<<<<<< HEAD
-                              <Button fx:id="switchButton" layoutX="308.0" layoutY="279.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
-=======
                               <Button fx:id="switchButton" layoutX="300.0" layoutY="345.0" mnemonicParsing="false" onAction="#switchState" stylesheets="@style.css" text="Switch">
->>>>>>> narges
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
                                     <String fx:value="tableButtons" />
                                  </styleClass>
                               </Button>
-<<<<<<< HEAD
-=======
                               <Label layoutX="122.0" layoutY="192.0" styleClass="text-style" stylesheets="@style.css" text="Session state :" />
                               <Label fx:id="sessionState" alignment="CENTER" layoutX="349.0" layoutY="192.0" prefHeight="47.0" prefWidth="257.0" styleClass="text-style" stylesheets="@style.css" textFill="WHITE" />
->>>>>>> narges
                            </children>
                         </AnchorPane>
                      </children>

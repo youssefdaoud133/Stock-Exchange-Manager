@@ -20,6 +20,7 @@ import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.Database.Users;
+import oop.stockexchangemanager.ExportOperation.CSVexporter;
 import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.StockOperation;
@@ -28,9 +29,7 @@ import oop.stockexchangemanager.Utils.AlterOperation;
 import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import java.util.Stack;
+import java.util.*;
 
 public class AdminPageController  {
     public Label sessionState;
@@ -243,6 +242,41 @@ public void switchToShowStock(){
         usersTable.setItems(usersList);
     }
 
+
     public void exportData(ActionEvent event) {
+        CSVexporter.createBlankCSV("src/main/java/oop/stockexchangemanager/historyCSV/StocksHistory.csv");
+        List<String[]> dataToAdd = new ArrayList<>();
+        String[] row0 = {"Company Name","Open Price" ,"Maximum price","Minimum Price","closed price"};
+        dataToAdd.add(row0);
+        List<Stock> ourStocks = new ArrayList<>();
+        ourStocks.addAll(Stocks.getInstance().readAll());
+        for(Stock stock: ourStocks){
+            String[] row = new String[]{stock.getCompanyName(),String.valueOf(stock.getPriceHistory().getFirst()),String.valueOf(findMaxPrice(stock.getPriceHistory())),String.valueOf(findMinPrice(stock.getPriceHistory())),String.valueOf(stock.getPriceHistory().peek())};
+            dataToAdd.add(row);
+        }
+        CSVexporter.writeDataToCSV("src/main/java/oop/stockexchangemanager/historyCSV/StocksHistory.csv" , dataToAdd);
+        System.out.println("done");
+    }
+
+    private float findMinPrice(Stack<Float> historyPrices) {
+        // Find the minimum price
+        float minPrice = Float.MAX_VALUE;
+        for (Float price : historyPrices) {
+            if (price < minPrice) {
+                minPrice = price;
+            }
+        }
+        return minPrice; // Minimum price
+    }
+
+    private float findMaxPrice(Stack<Float> historyPrices) {
+        // Find the maximum price
+        float maxPrice = Float.MIN_VALUE;
+        for (Float price : historyPrices) {
+            if (price > maxPrice) {
+                maxPrice = price;
+            }
+        }
+        return maxPrice; // Maximum price
     }
 }
