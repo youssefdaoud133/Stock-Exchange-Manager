@@ -89,8 +89,6 @@ public class AdminPageController  {
         Rtk.state=!Rtk.state;
         updateStateLabel();
 
-
-        AlterOperation.showSuccessAlert("Stock added successfully.");
     }
     private void updateStateLabel() {
         if (Rtk.state) {
