@@ -210,12 +210,13 @@
                                     <String fx:value="shadow" />
                                  </styleClass>
                               </Button>
-                              <Button fx:id="exportButton" layoutX="552.0" layoutY="419.0" mnemonicParsing="false" onAction="#export" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #f9b17a;" stylesheets="@style.css" text="Export data" textFill="#2d3250">
+                              <Button fx:id="exportButton" layoutX="552.0" layoutY="419.0" mnemonicParsing="false" onAction="#export" prefHeight="35.0" prefWidth="118.0" stylesheets="@style.css" text="Export data" textFill="#2d3250">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                                  <styleClass>
                                     <String fx:value="buttonStyle" />
+                                    <String fx:value="ButtonColor" />
                                     <String fx:value="shadow" />
                                  </styleClass>
                               </Button>
