@@ -144,12 +144,16 @@ public class AdminPageController  {
     @FXML
     public void remove(ActionEvent event) {
         try {
-            int selectedID=stocksTable.getSelectionModel().getSelectedIndex();
-            Stocks.getInstance().delete(stocksTable.getItems().get(selectedID).getId());
-            stocksTable.getItems().remove(selectedID);
-            SendNotificitions.sendToSubscribesUsers(Stocks.getInstance().read(stocksTable.getItems().get(selectedID).getId()).getCompanyName()+" admin has deleted this stock ");
+            int selectedID = stocksTable.getSelectionModel().getSelectedIndex();
+            if (selectedID >= 0) {
+                Stock stockToRemove = stocksTable.getItems().get(selectedID);
+                Stocks.getInstance().delete(stockToRemove.getId());
+                stocksTable.getItems().remove(selectedID);
+                SendNotificitions.sendToSubscribesUsers(stockToRemove.getCompanyName() + " admin has deleted this stock ");
+            } else {
+                AlterOperation.showErrorAlert("No stock selected.");
+            }
         } catch (Exception e) {
-
             AlterOperation.showErrorAlert("Failed to delete stock");
         }
     }
