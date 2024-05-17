@@ -21,8 +21,8 @@ public class User extends Account{
         return notfications;
     }
 
-    public void setNotfications(Stack<String> notfications) {
-        this.notfications = notfications;
+    public void setNotfications(String string) {
+        this.notfications.push(string);
     }
 
     public boolean isSubscribed() {

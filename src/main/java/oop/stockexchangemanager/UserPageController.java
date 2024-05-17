@@ -133,6 +133,9 @@ public class UserPageController {
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(false);
         notifications.setVisible(true);
+        for(String noti: user.getNotfications()){
+            System.out.println(noti);
+        }
         updateTransactionList();
     }
         public void switchToTransections(){
@@ -191,6 +194,8 @@ public class UserPageController {
         }
     }
     public void switchToShop(){
+
+
         if(Rtk.state) {
             profileWindow.setVisible(false);
             marketWindow.setVisible(false);

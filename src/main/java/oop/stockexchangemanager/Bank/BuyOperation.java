@@ -2,9 +2,14 @@ package oop.stockexchangemanager.Bank;
 
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
+import oop.stockexchangemanager.Database.UserStocks;
+import oop.stockexchangemanager.Database.UserSubscriber;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.UserStock;
+import oop.stockexchangemanager.UserPage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class BuyOperation implements SingleAccountOperation {
@@ -51,6 +56,13 @@ public class BuyOperation implements SingleAccountOperation {
          Deposit.getInstance().DoOperation(sellerUser.getBankAccount(),userStock.getUserPrice()* quantity);
          TransactionOpearation.buyFromUser(sellerUser,buyerUser,quantity,Stocks.getInstance().read(userStock.getStockId()),userStock.getUserPrice());
          Stocks.getInstance().read(userStock.getStockId()).setPrice(userStock.getUserPrice());
+         List<User> supscribesUsers = new ArrayList<>();
+         supscribesUsers.addAll(UserSubscriber.getInstance().readAll());
+         for(User user: supscribesUsers){
+             user.setNotfications(Stocks.getInstance().read(userStock.getStockId()).getCompanyName()+" have changed");
+         }
+
+
       }
       else {
           throw new IllegalArgumentException("Your quantity isn't enough");
