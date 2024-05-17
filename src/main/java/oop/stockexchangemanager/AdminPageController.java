@@ -87,15 +87,17 @@ public class AdminPageController  {
     public void switchState(ActionEvent event){
         Rtk.state=!Rtk.state;
         updateStateLabel();
-        SendNotificitions.sendToSubscribesUsers("session opened");
+
 
         AlterOperation.showSuccessAlert("Stock added successfully.");
     }
     private void updateStateLabel() {
         if (Rtk.state) {
             sessionState.setText("Opened");
+            SendNotificitions.sendToSubscribesUsers("session opened");
         } else {
             sessionState.setText("Closed");
+            SendNotificitions.sendToSubscribesUsers("session closed");
         }
     }
     @FXML
