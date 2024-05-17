@@ -147,6 +147,7 @@ public class AdminPageController  {
             int selectedID=stocksTable.getSelectionModel().getSelectedIndex();
             Stocks.getInstance().delete(stocksTable.getItems().get(selectedID).getId());
             stocksTable.getItems().remove(selectedID);
+            SendNotificitions.sendToSubscribesUsers(Stocks.getInstance().read(stocksTable.getItems().get(selectedID).getId()).getCompanyName()+" admin has deleted this stock ");
         } catch (Exception e) {
 
             AlterOperation.showErrorAlert("Failed to delete stock");
