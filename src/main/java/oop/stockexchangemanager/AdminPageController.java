@@ -146,6 +146,7 @@ public class AdminPageController  {
         try {
             int selectedID = stocksTable.getSelectionModel().getSelectedIndex();
             if (selectedID >= 0) {
+                System.out.println(selectedID);
                 Stock stockToRemove = stocksTable.getItems().get(selectedID);
                 Stocks.getInstance().delete(stockToRemove.getId());
                 stocksTable.getItems().remove(selectedID);
