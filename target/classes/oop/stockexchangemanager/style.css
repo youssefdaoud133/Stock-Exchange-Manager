@@ -4,6 +4,9 @@
 .background-style{
  -fx-background-color:#2d3250;
 }
+.ButtonColor{
+-fx-background-color: #f9b17a;
+}
 .bgColor{
 -fx-background-color:linear-gradient( to bottom right,#2B3D5B,#4B6382,#f9b17a);
 }

@@ -28,6 +28,7 @@ import java.util.Stack;
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.Database.UserSubscriber;
 import oop.stockexchangemanager.Database.Users;
+import oop.stockexchangemanager.ExportOperation.CSVexporter;
 import oop.stockexchangemanager.RTK.Rtk;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.UserStock;
@@ -278,5 +279,17 @@ public class UserPageController {
         }
     }
     public void export(ActionEvent event) {
+        CSVexporter.createBlankCSV("src/main/java/oop/stockexchangemanager/historyCSV/StocksHistory.csv");
+        List<String[]> dataToAdd = new ArrayList<>();
+        String[] row0 = {"Company Name"};
+        dataToAdd.add(row0);
+        List<Stock> ourStocks = new ArrayList<>();
+        ourStocks.addAll(Stocks.getInstance().readAll());
+        for(Stock stock: ourStocks){
+            String[] row = new String[]{stock.getCompanyName()};
+            dataToAdd.add(row);
+        }
+        CSVexporter.writeDataToCSV("src/main/java/oop/stockexchangemanager/historyCSV/StocksHistory.csv" , dataToAdd);
+        System.out.println("done");
     }
 }
