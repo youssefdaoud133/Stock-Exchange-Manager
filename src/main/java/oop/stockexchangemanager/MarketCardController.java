@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Bank.BuyOperation;
+import oop.stockexchangemanager.Bank.Deposit;
+import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.Utils.AlterOperation;
 
@@ -44,13 +46,19 @@ public class MarketCardController {
 
     }
     public void buyOperation(){
-        try {
-            BuyOperation.getInstance().doOperation(user.getBankAccount(), quantitySelector.getValue(), stock);
 
-            userPageController.updatePrice();
 
-        } catch (Exception e) {
-            AlterOperation.showErrorAlert(e.getMessage());
+        if(Users.getInstance().read(user.getId()) !=null){
+            try {
+                BuyOperation.getInstance().doOperation(user.getBankAccount(), quantitySelector.getValue(), stock);
+
+                userPageController.updatePrice();
+
+            } catch (Exception e) {
+                AlterOperation.showErrorAlert(e.getMessage());
+            }
+        }else {
+            AlterOperation.showErrorAlert("admin removed you");
         }
     }
 

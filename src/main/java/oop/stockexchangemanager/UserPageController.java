@@ -154,39 +154,58 @@ public class UserPageController {
         transectionsTable.setItems(transactionList);
     }
     public void switchToNotifications(){
-        profileWindow.setVisible(false);
-        marketWindow.setVisible(false);
-        shopWindow.setVisible(false);
-        OwnerShop.setVisible(false);
-        transectionsWindow.setVisible(false);
-        notifications.setVisible(true);
-        stocksWindow.setVisible(false);
-        updateNotificationsList();
-        updateTransactionList();
-        updatePrice();
-    }
-        public void switchToTransections(){
-        profileWindow.setVisible(false);
-        marketWindow.setVisible(false);
-        shopWindow.setVisible(false);
-        OwnerShop.setVisible(false);
-        transectionsWindow.setVisible(true);
-        notifications.setVisible(false);
+        if(Users.getInstance().read(user.getId()) !=null){
+            profileWindow.setVisible(false);
+            marketWindow.setVisible(false);
+            shopWindow.setVisible(false);
+            OwnerShop.setVisible(false);
+            transectionsWindow.setVisible(false);
+            notifications.setVisible(true);
             stocksWindow.setVisible(false);
+            updateNotificationsList();
             updateTransactionList();
             updatePrice();
+
+        }else {
+            AlterOperation.showErrorAlert("admin removed you");
+        }
+
+    }
+        public void switchToTransections(){
+            if(Users.getInstance().read(user.getId()) !=null){
+                profileWindow.setVisible(false);
+                marketWindow.setVisible(false);
+                shopWindow.setVisible(false);
+                OwnerShop.setVisible(false);
+                transectionsWindow.setVisible(true);
+                notifications.setVisible(false);
+                stocksWindow.setVisible(false);
+                updateTransactionList();
+                updatePrice();
+
+            }else {
+                AlterOperation.showErrorAlert("admin removed you");
+            }
+
     }
     public void switchToProfile(){
-        profileWindow.setVisible(true);
-        marketWindow.setVisible(false);
-        shopWindow.setVisible(false);
-        OwnerShop.setVisible(false);
-        transectionsWindow.setVisible(false);
-        notifications.setVisible(false);
-        stocksWindow.setVisible(false);
-        updatePrice();
+        if(Users.getInstance().read(user.getId()) !=null){
+            profileWindow.setVisible(true);
+            marketWindow.setVisible(false);
+            shopWindow.setVisible(false);
+            OwnerShop.setVisible(false);
+            transectionsWindow.setVisible(false);
+            notifications.setVisible(false);
+            stocksWindow.setVisible(false);
+            updatePrice();
+
+        }else {
+            AlterOperation.showErrorAlert("admin removed you");
+        }
+
     }
     public void switchToOwnerShop(){
+        if(Users.getInstance().read(user.getId()) !=null){
         if(Rtk.state) {
             profileWindow.setVisible(false);
             marketWindow.setVisible(false);
@@ -205,9 +224,12 @@ public class UserPageController {
         else
         {
             AlterOperation.showErrorAlert("the session is closed");
+        }}else {
+            AlterOperation.showErrorAlert("admin removed you");
         }
     }
     public void switchToMarket(){
+        if(Users.getInstance().read(user.getId()) !=null){
         if(Rtk.state) {
             profileWindow.setVisible(false);
             marketWindow.setVisible(true);
@@ -226,30 +248,34 @@ public class UserPageController {
         else
         {
             AlterOperation.showErrorAlert("the session is closed");
+        }}else {
+            AlterOperation.showErrorAlert("admin removed you");
         }
     }
     public void switchToShop(){
+        if(Users.getInstance().read(user.getId()) !=null) {
 
-
-        if(Rtk.state) {
-            profileWindow.setVisible(false);
-            marketWindow.setVisible(false);
-            shopWindow.setVisible(true);
-            OwnerShop.setVisible(false);
-            transectionsWindow.setVisible(false);
-            notifications.setVisible(false);
-            stocksWindow.setVisible(false);
-            try {
-                PrintList.populateUserStocksGrid(this,user, gridUserStock, scrollUserStock, "userCard");
-                updatePrice();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (Rtk.state) {
+                profileWindow.setVisible(false);
+                marketWindow.setVisible(false);
+                shopWindow.setVisible(true);
+                OwnerShop.setVisible(false);
+                transectionsWindow.setVisible(false);
+                notifications.setVisible(false);
+                stocksWindow.setVisible(false);
+                try {
+                    PrintList.populateUserStocksGrid(this, user, gridUserStock, scrollUserStock, "userCard");
+                    updatePrice();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                AlterOperation.showErrorAlert("the session is closed");
             }
+            updatePrice();
+        }else {
+            AlterOperation.showErrorAlert("admin removed you");
         }
-        else {
-            AlterOperation.showErrorAlert("the session is closed");
-        }
-        updatePrice();
     }
     public void logout(){
 
@@ -302,31 +328,35 @@ public class UserPageController {
 
 
     public void AddMoney(MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("deposit.fxml"));
-            Parent root = loader.load(); // This line can throw an IOException
+        if(Users.getInstance().read(user.getId()) !=null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("deposit.fxml"));
+                Parent root = loader.load(); // This line can throw an IOException
 
-            // Access the controller of the loaded FXML
-            DepositController controller = loader.getController();
+                // Access the controller of the loaded FXML
+                DepositController controller = loader.getController();
 
-            // Pass the history prices to the controller
-            controller.setData(user);
-            controller.setUserPageController(this);
+                // Pass the history prices to the controller
+                controller.setData(user);
+                controller.setUserPageController(this);
 
-            Stage graphStage = new Stage();
-            graphStage.setScene(new Scene(root));
-            graphStage.setTitle("StockExchangeManager - " + user.getUserName() );
-            graphStage.setOnHidden(event -> {
-                // Function to execute when the window is closed
-                updatePrice();
-            });
-            graphStage.show();
+                Stage graphStage = new Stage();
+                graphStage.setScene(new Scene(root));
+                graphStage.setTitle("StockExchangeManager - " + user.getUserName());
+                graphStage.setOnHidden(event -> {
+                    // Function to execute when the window is closed
+                    updatePrice();
+                });
+                graphStage.show();
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            AlterOperation.showErrorAlert("Failed to view stock");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                AlterOperation.showErrorAlert("Failed to view stock");
+            }
+        }else {
+            AlterOperation.showErrorAlert("admin removed you");
+
         }
-        System.out.println("from add money");
     }
 
     public void subscribe(ActionEvent event) {
@@ -383,6 +413,7 @@ public class UserPageController {
     }
 
     public void switchToStocksWindow(ActionEvent event) {
+        if(Users.getInstance().read(user.getId()) !=null) {
         if(user.isSubscribed()){
             profileWindow.setVisible(false);
             marketWindow.setVisible(false);
@@ -399,6 +430,9 @@ public class UserPageController {
 
         }else {
             AlterOperation.showErrorAlert("you are in community edition");
+        }}else {
+            AlterOperation.showErrorAlert("admin removed you");
+
         }
 
     }

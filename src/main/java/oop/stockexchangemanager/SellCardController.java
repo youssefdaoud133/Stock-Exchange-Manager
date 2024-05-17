@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import oop.stockexchangemanager.AccountPackage.User;
 import oop.stockexchangemanager.Database.Stocks;
 import oop.stockexchangemanager.Database.UserStocks;
+import oop.stockexchangemanager.Database.Users;
 import oop.stockexchangemanager.StockPackage.Stock;
 import oop.stockexchangemanager.StockPackage.UserStock;
 import oop.stockexchangemanager.Utils.AlterOperation;
@@ -29,12 +30,18 @@ public class SellCardController {
     private int quantity;
 
     public void sellOperation(){
-        try{
-            UserStock userStock = UserStock.Generate(user.getId() , stock.getId(), Float.parseFloat(PriceField.getText()),quantity);
-            UserStocks.getInstance().create(userStock.getId(),userStock);
-        }catch (Exception e){
-            AlterOperation.showErrorAlert(e.getMessage());
+        if(Users.getInstance().read(user.getId()) !=null){
+            try{
+                UserStock userStock = UserStock.Generate(user.getId() , stock.getId(), Float.parseFloat(PriceField.getText()),quantity);
+                UserStocks.getInstance().create(userStock.getId(),userStock);
+            }catch (Exception e){
+                AlterOperation.showErrorAlert(e.getMessage());
+            }
+
+        }else {
+            AlterOperation.showErrorAlert("admin removed you");
         }
+
 
 
     }

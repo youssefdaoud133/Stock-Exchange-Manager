@@ -57,15 +57,21 @@ public class UserCardController {
 
     }
     public void buyOperation(){
-        try {
-            System.out.println(userStock.getUserId());
-            BuyOperation.getInstance().buyFromUser(quantitySelector.getValue(),user, Users.getInstance().read(userStock.getUserId()) , userStock);
-            userPageController.updatePrice();
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            AlterOperation.showErrorAlert(e.getMessage());
+        if(Users.getInstance().read(user.getId()) !=null){
+            try {
+                System.out.println(userStock.getUserId());
+                BuyOperation.getInstance().buyFromUser(quantitySelector.getValue(),user, Users.getInstance().read(userStock.getUserId()) , userStock);
+                userPageController.updatePrice();
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                AlterOperation.showErrorAlert(e.getMessage());
+            }
+        }else {
+            AlterOperation.showErrorAlert("admin removed you");
         }
+
     }
 
 
