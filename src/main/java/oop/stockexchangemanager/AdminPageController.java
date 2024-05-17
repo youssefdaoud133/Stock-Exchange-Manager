@@ -186,6 +186,7 @@ public void switchToShowUsers(){
     stocksWindow.setVisible(false);
     usersWindow.setVisible(true);
     switchStateWindow.setVisible(false);
+    usersList.clear();
     usersList.addAll(Users.getInstance().readAll());
 
     // Set the items of the TableView to the ObservableList
@@ -196,6 +197,7 @@ public void switchToShowStock(){
     stocksWindow.setVisible(true);
     usersWindow.setVisible(false);
     switchStateWindow.setVisible(false);
+
 }
     public void addStock() {
         try {

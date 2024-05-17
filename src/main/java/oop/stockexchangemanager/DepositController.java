@@ -28,6 +28,8 @@ public class DepositController {
             String inputText = depositField.getText();
             float depositAmount = Float.parseFloat(inputText);
 
+
+
             // Perform the deposit operation
             Deposit.getInstance().DoOperation(user.getBankAccount(), depositAmount);
 

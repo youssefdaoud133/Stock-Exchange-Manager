@@ -1,5 +1,6 @@
 package oop.stockexchangemanager;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -36,6 +37,7 @@ import oop.stockexchangemanager.Utils.AlterOperation;
 import oop.stockexchangemanager.Utils.PrintList;
 
 public class UserPageController {
+    private ObservableList<String> notificationsList;
     public ScrollPane scrollUserStock;
     public GridPane gridUserStock;
     private ObservableList<Transaction> transactionList;
@@ -87,9 +89,9 @@ public class UserPageController {
     private AnchorPane notifications;
 
     @FXML
-    private TableView<?> notificationsTable;
+    private TableView<String> notificationsTable;
     @FXML
-    private TableColumn<?, ?> notificationsColumn;
+    private TableColumn<String, String> notificationsColumn;
     @FXML
     private TableView<Transaction> transectionsTable;
     @FXML
@@ -102,12 +104,22 @@ public class UserPageController {
     private TableColumn<Transaction, String> sourceTypeSection;
     @FXML
     private TableColumn<Transaction, String> transectionTypeSection;
- 
+
+    private void updateNotificationsList() {
+        notificationsList.clear();
+        notificationsList.addAll(user.getNotfications());
+        notificationsTable.setItems(notificationsList);
+    }
+
 
     public void setUser(User user) {
         this.user = user;
         updateUI();
         updateTransactionList();
+    }
+
+    private void updatePrice(){
+        balance.setText(user.getBankAccount().getBalance()+"");
     }
 
 
@@ -133,10 +145,9 @@ public class UserPageController {
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(false);
         notifications.setVisible(true);
-        for(String noti: user.getNotfications()){
-            System.out.println(noti);
-        }
+        updateNotificationsList();
         updateTransactionList();
+        updatePrice();
     }
         public void switchToTransections(){
         profileWindow.setVisible(false);
@@ -146,6 +157,7 @@ public class UserPageController {
         transectionsWindow.setVisible(true);
         notifications.setVisible(false);
             updateTransactionList();
+            updatePrice();
     }
     public void switchToProfile(){
         profileWindow.setVisible(true);
@@ -154,6 +166,7 @@ public class UserPageController {
         OwnerShop.setVisible(false);
         transectionsWindow.setVisible(false);
         notifications.setVisible(false);
+        updatePrice();
     }
     public void switchToOwnerShop(){
         if(Rtk.state) {
@@ -168,6 +181,7 @@ public class UserPageController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            updatePrice();
         }
         else
         {
@@ -187,6 +201,7 @@ public class UserPageController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            updatePrice();
         }
         else
         {
@@ -205,6 +220,7 @@ public class UserPageController {
             notifications.setVisible(false);
             try {
                 PrintList.populateUserStocksGrid(user, gridUserStock, scrollUserStock, "userCard");
+                updatePrice();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -212,6 +228,7 @@ public class UserPageController {
         else {
             AlterOperation.showErrorAlert("the session is closed");
         }
+        updatePrice();
     }
     public void logout(){
 
@@ -228,6 +245,10 @@ public class UserPageController {
     public void initialize() {
         // Initialize ObservableList for customers
         transactionList = FXCollections.observableArrayList();
+        notificationsList = FXCollections.observableArrayList();
+
+        notificationsColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue()));
+
 
         // Bind TableColumn to Customer properties
         amountSection.setCellValueFactory(new PropertyValueFactory<>("totalAmount"));
@@ -236,6 +257,9 @@ public class UserPageController {
         sourceTypeSection.setCellValueFactory(new PropertyValueFactory<>("sourceType"));
         transectionTypeSection.setCellValueFactory(new PropertyValueFactory<>("transactionType"));
 
+
+
+        notificationsTable.setItems(notificationsList);
 
         // Set the items of the TableView to the ObservableList
         transectionsTable.setItems(transactionList);
@@ -258,6 +282,10 @@ public class UserPageController {
             Stage graphStage = new Stage();
             graphStage.setScene(new Scene(root));
             graphStage.setTitle("StockExchangeManager - " + user.getUserName() );
+            graphStage.setOnHidden(event -> {
+                // Function to execute when the window is closed
+                updatePrice();
+            });
             graphStage.show();
 
         } catch (Exception e) {
