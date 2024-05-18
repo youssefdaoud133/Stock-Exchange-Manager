@@ -54,6 +54,8 @@ The Stock Exchange Manager operates through a series of well-defined components 
 
 ## UML
 
+<img src="./Readmeimages/UML class (1)(1).svg" alt="SVG Image" />
+
 ## Features
 
 ### Admin Features
