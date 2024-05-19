@@ -58,6 +58,9 @@ public class User extends Account{
     public  String getBalance(){
         return (bankAccount.getBalance()+"");
     };
+    public  Float getBalanceinFloat(){
+        return (bankAccount.getBalance());
+    };
     public Stack<Transaction> getTransactions() {
         return transactionHistory.getTransactions();
     }

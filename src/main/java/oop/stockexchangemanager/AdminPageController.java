@@ -83,6 +83,22 @@ public class AdminPageController  {
     private AnchorPane switchStateWindow;
     private double x =0;
     private double y =0;
+    @FXML
+    public AnchorPane currentAnchorPane;
+
+    public void setCurrentAnchorPane(AnchorPane anchorPane) {
+        // Hide the currently visible pane
+        if (currentAnchorPane != null) {
+
+            currentAnchorPane.setVisible(false);
+        }else {
+            addWindow.setVisible(false);
+        }
+
+        // Update the reference to the new pane and show it
+        currentAnchorPane = anchorPane;
+        currentAnchorPane.setVisible(true);
+    }
 
     private Admin admin;
     public void switchState(ActionEvent event){
@@ -159,22 +175,16 @@ public class AdminPageController  {
         }
     }
     public void switchToStatesWindow(){
-        addWindow.setVisible(false);
-        stocksWindow.setVisible(false);
-        usersWindow.setVisible(false);
-        switchStateWindow.setVisible(true);
+        setCurrentAnchorPane(switchStateWindow);
+
     }
 public void switchToAddStock(){
-    addWindow.setVisible(true);
-    stocksWindow.setVisible(false);
-    usersWindow.setVisible(false);
-    switchStateWindow.setVisible(false);
+    setCurrentAnchorPane(addWindow);
+
 }
 public void switchToShowUsers(){
-    addWindow.setVisible(false);
-    stocksWindow.setVisible(false);
-    usersWindow.setVisible(true);
-    switchStateWindow.setVisible(false);
+    setCurrentAnchorPane(usersWindow);
+
     usersList.clear();
     usersList.addAll(Users.getInstance().readAll());
 
@@ -182,11 +192,8 @@ public void switchToShowUsers(){
     usersTable.setItems(usersList);
 }
 public void switchToShowStock(){
+    setCurrentAnchorPane(stocksWindow);
 
-    addWindow.setVisible(false);
-    stocksWindow.setVisible(true);
-    usersWindow.setVisible(false);
-    switchStateWindow.setVisible(false);
     stocksList.clear();
     stocksList.addAll(Stocks.getInstance().readAll());
 

@@ -120,6 +120,23 @@ public class UserPageController {
     @FXML
     private TableColumn<Transaction, String> transectionTypeSection;
 
+    @FXML
+    public AnchorPane currentAnchorPane;
+
+    public void setCurrentAnchorPane(AnchorPane anchorPane) {
+        // Hide the currently visible pane
+        if (currentAnchorPane != null) {
+
+            currentAnchorPane.setVisible(false);
+        }else {
+            profileWindow.setVisible(false);
+        }
+
+        // Update the reference to the new pane and show it
+        currentAnchorPane = anchorPane;
+        currentAnchorPane.setVisible(true);
+    }
+
     private void updateNotificationsList() {
         notificationsList.clear();
         notificationsList.addAll(user.getNotfications());
@@ -155,13 +172,8 @@ public class UserPageController {
     }
     public void switchToNotifications(){
         if(Users.getInstance().read(user.getId()) !=null){
-            profileWindow.setVisible(false);
-            marketWindow.setVisible(false);
-            shopWindow.setVisible(false);
-            OwnerShop.setVisible(false);
-            transectionsWindow.setVisible(false);
-            notifications.setVisible(true);
-            stocksWindow.setVisible(false);
+            setCurrentAnchorPane(notifications);
+
             updateNotificationsList();
             updateTransactionList();
             updatePrice();
@@ -173,13 +185,8 @@ public class UserPageController {
     }
         public void switchToTransections(){
             if(Users.getInstance().read(user.getId()) !=null){
-                profileWindow.setVisible(false);
-                marketWindow.setVisible(false);
-                shopWindow.setVisible(false);
-                OwnerShop.setVisible(false);
-                transectionsWindow.setVisible(true);
-                notifications.setVisible(false);
-                stocksWindow.setVisible(false);
+                setCurrentAnchorPane(transectionsWindow);
+
                 updateTransactionList();
                 updatePrice();
 
@@ -190,13 +197,8 @@ public class UserPageController {
     }
     public void switchToProfile(){
         if(Users.getInstance().read(user.getId()) !=null){
-            profileWindow.setVisible(true);
-            marketWindow.setVisible(false);
-            shopWindow.setVisible(false);
-            OwnerShop.setVisible(false);
-            transectionsWindow.setVisible(false);
-            notifications.setVisible(false);
-            stocksWindow.setVisible(false);
+            setCurrentAnchorPane(profileWindow);
+
             updatePrice();
 
         }else {
@@ -207,13 +209,8 @@ public class UserPageController {
     public void switchToOwnerShop(){
         if(Users.getInstance().read(user.getId()) !=null){
         if(Rtk.state) {
-            profileWindow.setVisible(false);
-            marketWindow.setVisible(false);
-            shopWindow.setVisible(false);
-            transectionsWindow.setVisible(false);
-            OwnerShop.setVisible(true);
-            stocksWindow.setVisible(false);
-            notifications.setVisible(false);
+            setCurrentAnchorPane(OwnerShop);
+
             try {
                 PrintList.populateOwnerStocksGrid(user, gridOwnerStock, scrollOwnerStock, "sellCard");
             } catch (IOException e) {
@@ -231,13 +228,8 @@ public class UserPageController {
     public void switchToMarket(){
         if(Users.getInstance().read(user.getId()) !=null){
         if(Rtk.state) {
-            profileWindow.setVisible(false);
-            marketWindow.setVisible(true);
-            shopWindow.setVisible(false);
-            OwnerShop.setVisible(false);
-            transectionsWindow.setVisible(false);
-            notifications.setVisible(false);
-            stocksWindow.setVisible(false);
+            setCurrentAnchorPane(marketWindow);
+
             try {
                 PrintList.populateStocksGrid(this,user, grid, scroll, "marketCard");
             } catch (IOException e) {
@@ -256,13 +248,9 @@ public class UserPageController {
         if(Users.getInstance().read(user.getId()) !=null) {
 
             if (Rtk.state) {
-                profileWindow.setVisible(false);
-                marketWindow.setVisible(false);
-                shopWindow.setVisible(true);
-                OwnerShop.setVisible(false);
-                transectionsWindow.setVisible(false);
-                notifications.setVisible(false);
-                stocksWindow.setVisible(false);
+                setCurrentAnchorPane(shopWindow);
+
+
                 try {
                     PrintList.populateUserStocksGrid(this, user, gridUserStock, scrollUserStock, "userCard");
                     updatePrice();
@@ -415,13 +403,9 @@ public class UserPageController {
     public void switchToStocksWindow(ActionEvent event) {
         if(Users.getInstance().read(user.getId()) !=null) {
         if(user.isSubscribed()){
-            profileWindow.setVisible(false);
-            marketWindow.setVisible(false);
-            shopWindow.setVisible(false);
-            OwnerShop.setVisible(false);
-            transectionsWindow.setVisible(false);
-            notifications.setVisible(false);
-            stocksWindow.setVisible(true);
+            setCurrentAnchorPane(stocksWindow);
+
+
             stocksList.clear();
             stocksList.addAll(Stocks.getInstance().readAll());
 

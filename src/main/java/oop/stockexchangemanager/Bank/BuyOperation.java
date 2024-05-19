@@ -50,7 +50,7 @@ public class BuyOperation implements SingleAccountOperation {
         // update in the transaction history in the buyer and seller
 ;
 
-     if(quantity<=  sellerUser.getOwnedStocks().read(userStock.getStockId()) ) {
+     if(quantity<=  sellerUser.getOwnedStocks().read(userStock.getStockId()) && userStock.getUserPrice()* quantity < buyerUser.getBalanceinFloat() ) {
 
          buyerUser.getOwnedStocks().update(userStock.getStockId(),quantity);
          sellerUser.getOwnedStocks().update(userStock.getStockId(),-quantity);
@@ -66,7 +66,7 @@ public class BuyOperation implements SingleAccountOperation {
 
       }
       else {
-          throw new IllegalArgumentException("Your quantity isn't enough");
+          throw new IllegalArgumentException("(quantity  / money) isn't enough");
       }
     }
 

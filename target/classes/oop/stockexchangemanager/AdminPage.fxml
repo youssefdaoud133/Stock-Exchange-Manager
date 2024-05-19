@@ -121,7 +121,7 @@
                <center>
                   <AnchorPane prefHeight="600.0" prefWidth="550.0" styleClass="background-style" stylesheets="@style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="stocksWindow" layoutX="18.0" layoutY="24.0" prefHeight="550.0" prefWidth="500.0" style="-fx-border-color: #f9b17a;" styleClass="shadow" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TableView fx:id="stocksTable" layoutX="16.0" layoutY="28.0" prefHeight="420.0" prefWidth="669.0" AnchorPane.bottomAnchor="121.59999999999991" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="13.599999999999909" AnchorPane.topAnchor="27.199999999999932">
                                 <columns>
@@ -146,7 +146,7 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                        <AnchorPane fx:id="addWindow" layoutX="79.0" layoutY="130.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                            <children>
                               <TextField fx:id="companyNameField" layoutX="323.0" layoutY="73.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
                               <TextField fx:id="quantityField" alignment="TOP_LEFT" layoutX="323.0" layoutY="179.0" prefHeight="30.0" prefWidth="260.0" styleClass="textField" stylesheets="@style.css" />
