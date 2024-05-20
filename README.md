@@ -60,7 +60,7 @@ The Stock Exchange Manager operates through a series of well-defined components 
 
 <img src="./Readmeimages/UML class (1)(1).svg" alt="SVG Image" />
 
-## sequance UML
+## sequence diagram
 
 <img src="./Readmeimages/sequance diagram.jpg" alt="jpg Image" />
 
