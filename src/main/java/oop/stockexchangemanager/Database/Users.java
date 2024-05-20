@@ -1,6 +1,7 @@
 package oop.stockexchangemanager.Database;
 
 import oop.stockexchangemanager.AccountPackage.Account;
+import oop.stockexchangemanager.AccountPackage.Admin;
 import oop.stockexchangemanager.AccountPackage.User;
 
 
@@ -39,6 +40,12 @@ public class Users extends Collections<User> {
         Collection<User> users = readAll();
         for (User user : users) {
             if (user.getEmail().equalsIgnoreCase(email)) {
+                return true;
+            }
+        }
+        Collection<Admin> admins = Admins.getInstance().readAll();
+        for (Admin admin : admins) {
+            if (admin.getEmail().equalsIgnoreCase(email)) {
                 return true;
             }
         }

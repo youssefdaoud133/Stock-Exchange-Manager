@@ -60,7 +60,6 @@ public class UserCardController {
 
         if(Users.getInstance().read(user.getId()) !=null){
             try {
-                System.out.println(userStock.getUserId());
                 BuyOperation.getInstance().buyFromUser(quantitySelector.getValue(),user, Users.getInstance().read(userStock.getUserId()) , userStock);
                 userPageController.updatePrice();
 
